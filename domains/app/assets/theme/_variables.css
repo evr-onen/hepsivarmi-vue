@@ -1,0 +1,126 @@
+:root {
+    /* Primary Colors */
+    --primary-25: #F0F5FF;   /* rgb(240, 245, 255) */
+    --primary-50: #78B8F5;   /* rgb(120, 184, 245) */
+    --primary-100: #65AEF4;  /* rgb(101, 174, 244) */
+    --primary-200: #3F99F1;  /* rgb(63, 153, 241) */
+    --primary-300: #99A0AE;  /* rgb(153, 160, 174) */
+    --primary-400: #717784;  /* rgb(113, 119, 132) */
+    --primary-500: #525866;  /* rgb(82, 88, 102) */
+    --primary-600: #2B303B;  /* rgb(43, 48, 59) */
+    --primary-700: #222530;  /* rgb(34, 37, 48) */
+    --primary-800: #181B25;  /* rgb(24, 27, 37) */
+    --primary-900: #0E121B;  /* rgb(14, 18, 27) */
+
+    /* Secondary Colors */
+    --secondary-25: #F8F9FA;  /* rgb(248, 249, 250) */
+    --secondary-50: #E9ECEF;  /* rgb(233, 236, 239) */
+    --secondary-100: #DEE2E6; /* rgb(222, 226, 230) */
+    --secondary-200: #CED4DA; /* rgb(206, 212, 218) */
+    --secondary-300: #ADB5BD; /* rgb(173, 181, 189) */
+    --secondary-400: #6C757D; /* rgb(108, 117, 125) */
+    --secondary-500: #495057; /* rgb(73, 80, 87) */
+    --secondary-600: #343A40; /* rgb(52, 58, 64) */
+    --secondary-700: #212529; /* rgb(33, 37, 41) */
+    --secondary-800: #1A1D20; /* rgb(26, 29, 32) */
+    --secondary-900: #0F1113; /* rgb(15, 17, 19) */
+
+    /* Warning Colors */
+    --warning-25: #FFFBEB;   /* rgb(255, 251, 235) */
+    --warning-50: #FEF3C7;   /* rgb(254, 243, 199) */
+    --warning-100: #FDE68A;  /* rgb(253, 230, 138) */
+    --warning-200: #FCD34D;  /* rgb(252, 211, 77) */
+    --warning-300: #FBBF24;  /* rgb(251, 191, 36) */
+    --warning-400: #F59E0B;  /* rgb(245, 158, 11) */
+    --warning-500: #D97706;  /* rgb(217, 119, 6) */
+    --warning-600: #B45309;  /* rgb(180, 83, 9) */
+    --warning-700: #92400E;  /* rgb(146, 64, 14) */
+    --warning-800: #78350F;  /* rgb(120, 53, 15) */
+    --warning-900: #451A03;  /* rgb(69, 26, 3) */
+
+    /* Info Colors */
+    --info-25: #F0F9FF;      /* rgb(240, 249, 255) */
+    --info-50: #E0F2FE;      /* rgb(224, 242, 254) */
+    --info-100: #BAE6FD;     /* rgb(186, 230, 253) */
+    --info-200: #7DD3FC;     /* rgb(125, 211, 252) */
+    --info-300: #38BDF8;     /* rgb(56, 189, 248) */
+    --info-400: #0EA5E9;     /* rgb(14, 165, 233) */
+    --info-500: #0284C7;     /* rgb(2, 132, 199) */
+    --info-600: #0369A1;     /* rgb(3, 105, 161) */
+    --info-700: #075985;     /* rgb(7, 89, 133) */
+    --info-800: #0C4A6E;     /* rgb(12, 74, 110) */
+    --info-900: #082F49;     /* rgb(8, 47, 73) */
+
+    /* Success Colors */
+    --success-25: #F0FDF4;   /* rgb(240, 253, 244) */
+    --success-50: #DCFCE7;   /* rgb(220, 252, 231) */
+    --success-100: #BBF7D0;  /* rgb(187, 247, 208) */
+    --success-200: #86EFAC;  /* rgb(134, 239, 172) */
+    --success-300: #4ADE80;  /* rgb(74, 222, 128) */
+    --success-400: #22C55E;  /* rgb(34, 197, 94) */
+    --success-500: #16A34A;  /* rgb(22, 163, 74) */
+    --success-600: #15803D;  /* rgb(21, 128, 61) */
+    --success-700: #166534;  /* rgb(22, 101, 52) */
+    --success-800: #14532D;  /* rgb(20, 83, 45) */
+    --success-900: #052E16;  /* rgb(5, 46, 22) */
+
+    /* Error Colors */
+    --error-25: #FEF2F2;     /* rgb(254, 242, 242) */
+    --error-50: #FEE2E2;     /* rgb(254, 226, 226) */
+    --error-100: #FECACA;    /* rgb(254, 202, 202) */
+    --error-200: #FCA5A5;    /* rgb(252, 165, 165) */
+    --error-300: #F87171;    /* rgb(248, 113, 113) */
+    --error-400: #EF4444;    /* rgb(239, 68, 68) */
+    --error-500: #DC2626;    /* rgb(220, 38, 38) */
+    --error-600: #B91C1C;    /* rgb(185, 28, 28) */
+    --error-700: #991B1B;    /* rgb(153, 27, 27) */
+    --error-800: #7F1D1D;    /* rgb(127, 29, 29) */
+    --error-900: #450A0A;    /* rgb(69, 10, 10) */
+
+    /* Text Colors */
+    --primary-text: #2B303B;     /* rgb(43, 48, 59) */
+    --secondary-text: #6C757D;   /* rgb(108, 117, 125) */
+    --warning-text: #B45309;     /* rgb(180, 83, 9) */
+    --info-text: #0369A1;        /* rgb(3, 105, 161) */
+    --success-text: #15803D;     /* rgb(21, 128, 61) */
+    --error-text: #B91C1C;       /* rgb(185, 28, 28) */
+    --text-primary: #2B303B;     /* rgb(43, 48, 59) */
+    --text-secondary: #6C757D;   /* rgb(108, 117, 125) */
+    --text-muted: #ADB5BD;       /* rgb(173, 181, 189) */
+    --text-disabled: #CED4DA;    /* rgb(206, 212, 218) */
+    --text-inverse: #FFFFFF;     /* rgb(255, 255, 255) */
+
+    /* Background Colors */
+    --primary-background: #FFFFFF;   /* rgb(255, 255, 255) */
+    --secondary-background: #F8F9FA; /* rgb(248, 249, 250) */
+    --warning-background: #FFFBEB;   /* rgb(255, 251, 235) */
+    --info-background: #F0F9FF;      /* rgb(240, 249, 255) */
+    --success-background: #F0FDF4;   /* rgb(240, 253, 244) */
+    --error-background: #FEF2F2;     /* rgb(254, 242, 242) */
+    --background-primary: #FFFFFF;   /* rgb(255, 255, 255) */
+    --background-secondary: #F8F9FA; /* rgb(248, 249, 250) */
+    --background-tertiary: #E9ECEF;  /* rgb(233, 236, 239) */
+    --background-dark: #212529;      /* rgb(33, 37, 41) */
+    --background-overlay: rgba(0, 0, 0, 0.5);
+
+    /* Border Colors */
+    --border-primary: #DEE2E6;   /* rgb(222, 226, 230) */
+    --border-secondary: #CED4DA; /* rgb(206, 212, 218) */
+    --border-warning: #FCD34D;   /* rgb(252, 211, 77) */
+    --border-info: #7DD3FC;      /* rgb(125, 211, 252) */
+    --border-success: #86EFAC;   /* rgb(134, 239, 172) */
+    --border-error: #FCA5A5;     /* rgb(252, 165, 165) */
+
+    /* Shadow Colors */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Focus Colors */
+    --focus-ring: #3F99F1;       /* rgb(63, 153, 241) */
+    --focus-ring-warning: #F59E0B; /* rgb(245, 158, 11) */
+    --focus-ring-info: #0EA5E9;    /* rgb(14, 165, 233) */
+    --focus-ring-success: #22C55E; /* rgb(34, 197, 94) */
+    --focus-ring-error: #EF4444;   /* rgb(239, 68, 68) */
+}
