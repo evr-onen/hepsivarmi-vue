@@ -17,7 +17,13 @@ export default defineNuxtConfig({
     '~/domains/app/assets/main.css'
   ],
  
-  modules: ['@nuxt/eslint', '@nuxt/image', '@pinia/nuxt', '@vueuse/nuxt'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@pinia/nuxt', '@vueuse/nuxt', '@nuxt/icon'],
+
+  icon: {
+    size: '24px',
+    class: 'icon',
+    aliases: {}
+  },
 
   imports: {
     dirs: [

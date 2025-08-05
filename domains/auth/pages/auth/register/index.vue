@@ -36,7 +36,6 @@
             </div>
             <EaButton @click="authStore.onRegister">Register</EaButton>
         </div>
-        <!-- <EaIcon name="cross" size="24px" color="red" /> -->
     </div>
 </template> 
 

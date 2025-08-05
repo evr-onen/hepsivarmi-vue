@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <NuxtLayout name="home">
+  <NuxtLayout name="admin">
     <NuxtPage />
   </NuxtLayout>
 </template>

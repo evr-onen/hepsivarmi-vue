@@ -17,5 +17,8 @@ export default defineNuxtConfig({
             'enums',
             'types',
         ]
+    },
+    alias: {
+        '@auth': '~/domains/auth'
     }
 })

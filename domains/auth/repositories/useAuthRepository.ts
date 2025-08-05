@@ -1,7 +1,8 @@
 const useAuthRepository = () => {
     // const apiBaseURLFake = useRuntimeConfig().public.apiBaseURLFake as string;
     const { request, setBaseURL } = useAxios();
-    const baseURL = 'http://127.0.0.1:8000/api/';
+    // const baseURL = 'http://127.0.0.1:8000/api/';
+    const baseURL = 'http://hepsivarmi-api.test/api/';
     const endpoint = "auth"
 
     if (baseURL) setBaseURL(baseURL);
