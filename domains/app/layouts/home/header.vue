@@ -9,7 +9,7 @@
             <div class="buttons">
                 <EaButton v-if="!isLoggedIn" variant="ghost" class="capitalize" @click="$router.push('/auth/login')">login</EaButton>
                 <EaButton v-else variant="ghost" class="capitalize" @click="authStore.onLogout">logout</EaButton>
-                <EaButton v-if="isLoggedIn" class="capitalize" variant="ghost"  @click="$router.push('/admin')">admin</EaButton>
+                <EaButton v-if="isLoggedIn" class="capitalize" variant="ghost"  @click="$router.push('/admin/dashboard')">admin</EaButton>
                 <EaButton v-if="isLoggedIn" variant="ghost"  @click="$router.push('/account')">profile</EaButton>
             </div>
 

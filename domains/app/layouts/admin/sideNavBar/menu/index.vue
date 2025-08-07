@@ -1,7 +1,7 @@
 <template>
     <div class="menu" :class="{ active: isMenuActive }">
         
-        <div class="logo">LOGO</div>
+        <div class="logo">VueCommerce</div>
         <div class="menu-items">
             <MenuItem v-for="item in navMenu" :key="item.name" :menu-link-item="item" />
         </div>
@@ -36,9 +36,14 @@ defineProps<{
     
 
     .logo{
-        background-color: blueviolet;
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-size: 3.5rem;
         color: white;
         height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .menu-items{

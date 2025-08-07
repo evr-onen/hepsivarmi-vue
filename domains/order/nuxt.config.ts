@@ -1,17 +1,11 @@
 export default defineNuxtConfig({
     components: [
         {
-            path: '~/domains/admin',
+            path: '~/domains/order',
             pathPrefix: false,
             pattern: '**/components/**/*.vue',
             global: true
         }
-    ],
-    extends: [
-        './domains/dashboard',
-        './domains/settings',
-        './domains/products',
-        './domains/order'
     ],
     imports:{
         dirs: [

@@ -2,36 +2,35 @@ export const navMenu = [
     {
         name: 'Dashboard',
         icon: 'mdi:home',
-        path: '/admin'
+        path: '/admin/dashboard'
     },
     {
-        name: 'products',
+        name: 'product',
         icon: 'mdi:home',
-        path: '/admin',
         children: [
             {
                 name: 'product list',
-                path: '/admin'
+                path: '/admin/product/product-list'
             },
             {
                 name: 'Category',
-                path: '/admin'
+                path: '/admin/product/category'
             },
             {
                 name: 'Variants',
-                path: '/admin'
+                path: '/admin/product/variants'
             }
         ]
     },
     {
         name: 'orders',
         icon: 'mdi:home',
-        path: '/admin'
+        path: '/admin/order'
     },
     {
         name: 'Settings',
         icon: 'mdi:home',
-        path: '/admin'
+        path: '/admin/settings'
     }
     
     

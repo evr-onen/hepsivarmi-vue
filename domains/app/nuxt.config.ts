@@ -18,5 +18,8 @@ export default defineNuxtConfig({
             'types',
             'utils'
         ]
-    }
+    },
+    css: [
+        '~/domains/app/assets/fonts/tangerine/index.css'
+      ]
 })

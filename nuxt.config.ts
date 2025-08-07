@@ -10,6 +10,10 @@ export default defineNuxtConfig({
     './domains/app',
     './domains/home',
     './domains/account',
+    './domains/order',
+    './domains/variant',
+    './domains/product',
+    './domains/settings',
 ],
 
   css: [

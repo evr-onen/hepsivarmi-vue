@@ -21,7 +21,6 @@ const isMenuActive = ref(true)
 
 const toggleMenu = () => {
     isMenuActive.value = !isMenuActive.value
-    console.log('toggleMenu', isMenuActive.value)
 }
 </script>
 

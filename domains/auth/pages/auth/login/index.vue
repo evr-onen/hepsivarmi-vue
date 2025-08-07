@@ -39,7 +39,8 @@
 
 <script setup lang="ts">
 import { EaTextInput, EaButton} from 'ea-kit';
-import loginPanelImage from '../../../assets/images/login/login-panel.png';
+import loginPanelImage from '~/domains/auth/assets/images/login/login-panel.png';
+
 const authStore = useAuthStore();
 
 

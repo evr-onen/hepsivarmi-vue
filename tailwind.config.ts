@@ -13,7 +13,12 @@ export default {
     "./domains/**/plugins/**/*.{js,ts}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'tangerine': ['Tangerine', 'cursive'],
+         'manrope': ['Manrope', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
 }
