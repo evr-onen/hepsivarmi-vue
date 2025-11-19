@@ -1,7 +1,14 @@
-const useCategory = () => {
+import useShowCategory from './useShowCategory'
+import useCreateCategory from './useCreateCategory'
+import useDeleteCategory from './useDeleteCategory'
+import useEditCategory from './useEditCategory'
+const useVariant = () => {
     return {
-        ...useShowCategory()(),
+        ...useShowCategory(),
+        ...useCreateCategory(),
+        ...useDeleteCategory(),
+        ...useEditCategory(),
     }
 }
 
-export default useCategory;
+export default useVariant;

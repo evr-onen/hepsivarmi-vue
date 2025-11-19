@@ -9,17 +9,22 @@ export default defineNuxtConfig({
     ],
     imports:{
         dirs: [
-            'composables',
+            // 'composables',
             // 'services',
             // 'repositories',
             'entities',
             // 'stores',
             // 'enums',
             'types',
-            'utils'
+            'utils',
+            'directives'
         ]
     },
+
     css: [
         '~/domains/app/assets/fonts/tangerine/index.css'
-      ]
+      ],
+    alias: {
+        '@app': '~/domains/app'
+    }
 })

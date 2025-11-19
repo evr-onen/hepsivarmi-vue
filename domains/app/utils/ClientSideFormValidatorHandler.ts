@@ -7,6 +7,7 @@ const ClientSideFormValidatorHandler = async (
     const clientSideErrors = validator();
     if (clientSideErrors) {
         errorBag.value = structuredClone(clientSideErrors);
+        console.log(errorBag.value)
         InlineAlert.value.message = 'Please correct the errors below.';
         InlineAlert.value.type = 'danger';
         InlineAlert.value.status = true;

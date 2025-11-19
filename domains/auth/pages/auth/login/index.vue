@@ -7,29 +7,32 @@
             <div class="login__form">
                 <h4>Welcome Back</h4>
                 <div class="email">
-                    <EaTextInput
+                    <TextInput
                         v-model="authStore.userLoginForm.email"
+                        class="text-black"
                         label="Email"
                         required
                         placeholder="Email..."
-                        :error-message="authStore.userLoginFormErrors.email"
+                        :error-message="authStore.userLoginFormErrors['email']"
                     />
                 </div>
                 <div class="password">
-                    <EaTextInput
+                    <TextInput
                         v-model="authStore.userLoginForm.password"
+                        class="text-black"
                         label="Password"
+                        text-type="password"
                         required
                         placeholder="Password..."
                         input-type="password"
-                        :error-message="authStore.userLoginFormErrors.password"
+                        :error-message="authStore.userLoginFormErrors['password']"
                     />
                 </div>
                 <div class="submit-button">
-                    <EaButton  :loading="authStore.isLoginActionLoading" @click="authStore.onLogin">Login</EaButton>
+                    <Button label="Login" :loading="authStore.isLoginActionLoading" @click="authStore.onLogin"/>
                 </div>
                 <div class="links">
-                    <NuxtLink to="/auth/forgot-password">Forgot Password?</NuxtLink>
+                    <NuxtLink to="/auth/login">Forgot Password?</NuxtLink>
                     <NuxtLink to="/auth/register">Don't have an account? Register</NuxtLink>
                 </div>
                 </div>
@@ -38,12 +41,11 @@
 </template> 
 
 <script setup lang="ts">
-import { EaTextInput, EaButton} from 'ea-kit';
+import  TextInput from '~/domains/app/components/form/TextInput/index.vue';
+import  Button from '~/domains/app/components/form/Button/index.vue';
 import loginPanelImage from '~/domains/auth/assets/images/login/login-panel.png';
 
 const authStore = useAuthStore();
-
-
 </script>
 
 <style scoped>
@@ -80,12 +82,17 @@ const authStore = useAuthStore();
         border-radius: 10px;
         
         .panel-image{
+            box-sizing: border-box;
             flex: 1;
-            height: 21.875rem;
+            height: 100%;
+            overflow: hidden;
             width: auto;
 
             img{
-                width: 100%;
+              display: block;
+              width: 100%;
+              height: 100%;
+              border-radius: 10px 0 0 10px;
             }
         }
         

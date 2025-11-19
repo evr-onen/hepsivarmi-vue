@@ -9,13 +9,13 @@ export default defineNuxtConfig({
     ],
     imports:{
         dirs: [
-            'composables',
             'services',
             'repositories',
             'entities',
             'stores',
             'enums',
             'types',
+            'server',
         ]
     },
     alias: {

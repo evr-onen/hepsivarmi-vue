@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// import Aura from '@primeuix/themes/aura';
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
@@ -14,14 +16,19 @@ export default defineNuxtConfig({
     './domains/variant',
     './domains/product',
     './domains/settings',
+    './domains/property',
+    './domains/image',
+    './domains/brand',
 ],
 
   css: [
-    '~/domains/app/assets/theme/_variables.css',
-    '~/domains/app/assets/main.css'
+      '~/domains/app/assets/theme/_variables.css',
+      '~/domains/app/assets/main.css',
   ],
  
-  modules: ['@nuxt/eslint', '@nuxt/image', '@pinia/nuxt', '@vueuse/nuxt', '@nuxt/icon'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@pinia/nuxt', '@vueuse/nuxt', '@nuxt/icon', '@primevue/nuxt-module' ],
+
+
 
   icon: {
     size: '24px',

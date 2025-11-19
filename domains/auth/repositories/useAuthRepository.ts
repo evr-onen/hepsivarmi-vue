@@ -1,8 +1,9 @@
+import type {AxiosResponse} from "axios";
+
 const useAuthRepository = () => {
     // const apiBaseURLFake = useRuntimeConfig().public.apiBaseURLFake as string;
     const { request, setBaseURL } = useAxios();
-    // const baseURL = 'http://127.0.0.1:8000/api/';
-    const baseURL = 'http://hepsivarmi-api.test/api/';
+    const baseURL = 'http://localhost:3000/api/';
     const endpoint = "auth"
 
     if (baseURL) setBaseURL(baseURL);
@@ -15,15 +16,15 @@ const useAuthRepository = () => {
         })
     }
 
-    const register = async (payload: IUserRegisterForm): Promise<void>  => {
-        await request({
+    const register = async (payload: IUserRegisterForm): Promise<AxiosResponse>  => {
+       return await request({
             type: 'post',
             endpoint: `${endpoint}/register`,
             payload
         })
     }
 
-   
+
     const logout = async ():Promise<void> => {
         await request({
             type: 'post',
@@ -31,12 +32,12 @@ const useAuthRepository = () => {
         })
     }
 
-    const user = async ():Promise<IUser> => {
-        const {data} = await request({
-            type: 'get',
+    const user = async (token ?:string):Promise<AxiosResponse> => {
+        return await request({
+            type: 'post',
             endpoint: `${endpoint}/me`,
+            payload: token
         })
-        return createAuthUserEntity(data.data);
     }
 
 

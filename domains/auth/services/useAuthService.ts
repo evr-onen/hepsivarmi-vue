@@ -1,23 +1,23 @@
-// import type {IJob, IJobForm, IJobRequestForm, TJobs} from "../types/JobTypes";
 import type {AxiosResponse} from "axios";
-import type { IUserRegisterForm, IUserLoginForm } from "../types/accountTypes";
+import type {  IUserLoginForm } from "../types/accountTypes";
 import useAuthRepository from "../repositories/useAuthRepository";
 
 const useAuthService = () => {
 
     const {
-        register,
         login,
+        register,
         logout,
         user,
     } = useAuthRepository()
 
-    const registerAction = async (payload: IUserRegisterForm): Promise<void> => {
-        return await register(payload);
-    }
-
     const loginAction = async (payload: IUserLoginForm, cb: (response: AxiosResponse) => void): Promise<void> => {
         const response = await login(payload);
+        cb(response);
+    }
+
+    const registerAction = async (payload: IUserRegisterForm, cb: (response: AxiosResponse) => void): Promise<void> => {
+        const response = await register(payload);
         cb(response);
     }
 
@@ -25,14 +25,15 @@ const useAuthService = () => {
         return await logout();
     }
 
-    const getUserAction = async ():Promise<IUser> => {
-        return await user()
+    const getUserAction = async (payload: string, cb: (response: AxiosResponse) => void): Promise<void> => {
+        const response = await user(payload);
+        cb(response);
     }
 
     return {
-        registerAction,
         loginAction,
         logoutAction,
+        registerAction,
         getUserAction
     }
 }

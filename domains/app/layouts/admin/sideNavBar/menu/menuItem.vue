@@ -1,13 +1,13 @@
 <template>
     <div class="menu-item-container">
-        <NuxtLink class="menu-item" :class="{'isActiveMenu': icActiveMenuGroup}" :to="menuLinkItem.path" @click="toggleSubMenu">
+        <NuxtLink class="menu-item" :class="{'activeMenu': isActiveMenu}" :to="menuLinkItem.path" @click="toggleMenu">
                 <div class="menu-item-icon">
                     <Icon :name="menuLinkItem.icon" class="text-2xl h-4 w-4" />
                 </div>
                 <div class="menu-item-name">
                     {{ menuLinkItem.name }}
                 </div>
-                <div v-if="menuLinkItem.children" class="menu-item-children-icon" :class="{'activeIcon': activeSubMenu, }">
+                <div v-if="menuLinkItem.children" class="menu-item-children-icon" :class="{'activeIcon': isActiveMenu, }">
                     <Icon name="mdi:chevron-right" class="text-2xl h-4 w-4" />
                 </div>
         </NuxtLink>
@@ -15,14 +15,14 @@
         <div
             v-if="menuLinkItem.children"
             class="menu-item-children"
-            :class="{'active': activeSubMenu || isActiveMenuItem(menuLinkItem.path) }"
+            :class="{'active': isActiveMenu }"
         >
             <NuxtLink 
                 v-for="child in menuLinkItem.children"
                 :key="child.name"
                 :to="child.path"
                 class="menu-item-children-item"
-                :class="{'isActiveMenu': isActiveMenuItem(child.path)}"
+                :class="{'activeMenu': isActiveSubMenuItem(child.path)}"
             >
                 <Icon :name="child.icon || 'octicon:dash-24'" class="text-2xl h-4 w-4" />
                 <div class="menu-item-children-item-name">{{ child.name }}</div>
@@ -37,10 +37,10 @@ import type { MenuItemProps } from '~/domains/app/types/adminLayoutTypes'
 const props = defineProps<MenuItemProps>()
 const route = useRoute()
 
-const activeSubMenu = ref(false)
+const isActiveMenu = ref(false)
 
-const toggleSubMenu = () => {
-    activeSubMenu.value = !activeSubMenu.value
+const toggleMenu = () => {
+    isActiveMenu.value = !isActiveMenu.value
 }
 
 const subMenuHeightCalculation = computed(() => {
@@ -49,19 +49,22 @@ const subMenuHeightCalculation = computed(() => {
     return subMenuHeight + 'rem'
 })
 
-const icActiveMenuGroup = computed(() => {
+const isActiveMenuGroup = () => {
     if('children' in props.menuLinkItem){
-        console.log(props.menuLinkItem.children?.some(child => route.path.includes(child.path)))
-        return props.menuLinkItem.children?.some(child => route.path.includes(child.path))
+        isActiveMenu.value = props.menuLinkItem.children!.some(child => route.path.includes(child.path))
+    }else{
+        isActiveMenu.value = route.path.includes(props.menuLinkItem.path)
     }
-    return route.path.includes(props.menuLinkItem.path)
-})
+}
 
-const isActiveMenuItem = (path: string) => {
+const isActiveSubMenuItem = (path:string) => {
     const isActive = route.path.includes(path)
-    if(isActive) activeSubMenu.value = true
     return isActive
 }
+
+onMounted(()=>{
+    isActiveMenuGroup()
+})
 </script>
 
 <style scoped>
@@ -114,7 +117,7 @@ const isActiveMenuItem = (path: string) => {
         transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s, padding 0.1s ease-in-out ;
     }
 }
-.isActiveMenu{
+.activeMenu{
     color: #fff !important;
 }
 .activeIcon{

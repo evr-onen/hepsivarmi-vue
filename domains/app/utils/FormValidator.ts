@@ -1,6 +1,7 @@
 import type {AnyObject, ObjectSchema} from "yup";
 
 const FormValidator = <T>(schema:ObjectSchema<AnyObject>, form:T):null | Record<string, string[]> => {
+    console.log(form)
     try {
         schema.validateSync(form, { abortEarly: false });
         return null;

@@ -1,13 +1,14 @@
-import {AxiosError} from "axios";
+// import {AxiosError} from "axios";
 import type { IUser, IUserRegisterForm } from "../types/accountTypes";
 import useAuthService from "../services/useAuthService";
 import  useUserFormValidation from "../validations/useUserFormValidation";
+import {createAuthUserEntity, createAuthUserLoginFormErrorsEntity} from "~/domains/auth/entities/AuthEntity";
 
 const useAuthStore = defineStore('AuthStore', () => {
     const router = useRouter();
-    const {userRegisterValidation, userLoginValidation} = useUserFormValidation();
+    const { userLoginValidation, userRegisterValidation} = useUserFormValidation();
     // const {$i18n} = useNuxtApp();
-    const { registerAction, loginAction, getUserAction, logoutAction } = useAuthService();
+    const { loginAction, getUserAction, logoutAction, registerAction } = useAuthService();
 
 
     // STATES
@@ -15,7 +16,7 @@ const useAuthStore = defineStore('AuthStore', () => {
     const isGetUserPending = ref<boolean>(false);
 
     const token = useCookie('token');
-    const user = ref<IUser>(createAuthUserEntity({}));
+    const user = ref(createAuthUserEntity({name: '', email: ''}));
 
     // Register Form States
     const userRegisterForm = ref<IUserRegisterForm>({
@@ -25,8 +26,8 @@ const useAuthStore = defineStore('AuthStore', () => {
         password_confirmation: '',
     });
     const userLoginForm = ref<IUserLoginForm>({
-        email: '',
-        password: '',
+        email: 'admin@admin.com',
+        password: 'password',
     });
     const userRegisterFormErrors = ref<TErrorBag>(createAuthUserRegistrationFormErrorsEntity());
     const userLoginFormErrors = ref<TErrorBag>(createAuthUserLoginFormErrorsEntity());
@@ -51,7 +52,6 @@ const useAuthStore = defineStore('AuthStore', () => {
         
     }
 
-
     // CLEAR FUNCTIONS
     const clearToken = async () => tokenSet(null);
     const clearUserData = () => user.value = createAuthUserEntity({})
@@ -68,7 +68,13 @@ const useAuthStore = defineStore('AuthStore', () => {
         console.log('register');
         await AxiosActionHandler(async () => {
             await ClientSideFormValidatorHandler(async () => {
-                    await registerAction(toRaw(userRegisterForm.value));
+                    await registerAction(toRaw(userRegisterForm.value),(response) => {
+                        if(response.data.success){
+                        userLoginForm.value = {email:userRegisterForm.value.email , password:userRegisterForm.value.password}
+                        }
+
+                        onLogin()
+                    });
                 },
             userRegisterFormErrors,
             userRegisterFormInlineAlert,
@@ -86,10 +92,19 @@ const useAuthStore = defineStore('AuthStore', () => {
         console.log('login');
         await AxiosActionHandler(async () => {
             await ClientSideFormValidatorHandler(async () => {
-                await loginAction(toRaw(userLoginForm.value), (response) => {
+                await loginAction(toRaw(userLoginForm.value), async (response) => {
                     tokenSet(response.data.data.token);
-                    user.value = createAuthUserEntity(response.data.data.user);
-                    return nextTick(() => navigateTo('/'));
+                    console.log(response.data);
+                    if(response.data.success) {
+                        console.log(response.data.data.user);
+                        user.value = createAuthUserEntity(response.data.data.user);
+                        await nextTick(()=>navigateTo('/admin/dashboard'));
+
+                    }else{
+                        console.log(response.data.data.messages);
+                        userLoginFormErrors.value = response.data.data.messages
+                        console.log(userLoginFormErrors.value);
+                    }
                 })
                 
                 },
@@ -109,9 +124,18 @@ const useAuthStore = defineStore('AuthStore', () => {
     })
 
     const onGetUser = async () => {
+
         try {
             isGetUserPending.value = true;
-            user.value = await getUserAction();
+
+            if(token){
+                 await getUserAction(token.value!, (response)=>{
+                     user.value = response.data.data.user;
+                });
+            }else{
+                console.log(token)
+                user.value = {name:'', email:''};
+            }
         } catch (error: unknown) {
             console.log(error);
             await clearAll();
@@ -149,8 +173,8 @@ const useAuthStore = defineStore('AuthStore', () => {
         userLoginForm,
         userLoginFormErrors,
         authAlertInline,
-        onRegister,
         onLogin,
+        onRegister,
         onGetUser,
         onLogout,
         clearAll,

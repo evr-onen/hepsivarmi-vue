@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
     components: [
         {
-            path: '~/domains/products',
+            path: '~/domains/product',
             pathPrefix: false,
             pattern: '**/components/**/*.vue',
             global: true
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
             // 'services',
             // 'repositories',
             // 'entities',
-            // 'stores',
+            'stores',
             // 'enums',
             // 'utils'
         ]

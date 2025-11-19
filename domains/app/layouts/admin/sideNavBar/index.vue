@@ -40,6 +40,7 @@ const toggleMenu = () => {
     .content{
         width: 100%;
         padding: 1.25rem;
+        overflow-y: auto;
 
         > .card-content{
             background-color: white;

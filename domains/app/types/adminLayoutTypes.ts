@@ -2,7 +2,7 @@ export interface MenuItemProps {
     menuLinkItem: {
         name: string
         icon: string
-        path: string
+        path    ?: string
         children?: ChildrenMenu[]
     }
  }

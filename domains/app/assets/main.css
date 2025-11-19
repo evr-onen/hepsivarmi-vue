@@ -1,8 +1,22 @@
 @import './fonts/tangerine/index.css';
 @import './fonts/manrope/index.css';
+@import './fonts/opensans/index.css';
+@import './theme/datatable.css';
+@import './theme/badge.css';
+@import './theme/actionButtons.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+@layer base {
+    .badgeStyle, .badgeStyle::after, .badgeStyle::before, .tooltipStyle > div:after, .tooltipStyle > div::before  {
+        border-style: none !important;
+        border-width: unset !important;
+    }
+}
+body {
+    background-color: #fff;
+    color: #000;
+}
 

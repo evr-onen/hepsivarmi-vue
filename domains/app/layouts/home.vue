@@ -16,7 +16,8 @@ import Header from './home/header.vue';
 .home-layout {
     width: 100%;
     min-height: 100vh;
-
+    background-color: #fff;
+    color: #000;
     .home-layout--content{
         margin-inline: auto;
         margin-top: 100px;

@@ -7,10 +7,15 @@
                 <NavMenu />
             </div>
             <div class="buttons">
-                <EaButton v-if="!isLoggedIn" variant="ghost" class="capitalize" @click="$router.push('/auth/login')">login</EaButton>
-                <EaButton v-else variant="ghost" class="capitalize" @click="authStore.onLogout">logout</EaButton>
-                <EaButton v-if="isLoggedIn" class="capitalize" variant="ghost"  @click="$router.push('/admin/dashboard')">admin</EaButton>
-                <EaButton v-if="isLoggedIn" variant="ghost"  @click="$router.push('/account')">profile</EaButton>
+<!--                <Button v-if="!isLoggedIn" variant="ghost" class="capitalize" @click="$router.push('/auth/login')">login</Button>-->
+<!--                <Button v-else variant="ghost" class="capitalize" @click="authStore.onLogout">logout</Button>-->
+<!--                <Button v-if="isLoggedIn" class="capitalize" variant="ghost"  @click="$router.push('/admin/dashboard')">admin</Button>-->
+<!--                <Button v-if="isLoggedIn" variant="ghost"  @click="$router.push('/account')">profile</Button>-->
+
+                <Button v-if="!isLoggedIn" class="w-fit" label="login" @click="$router.push('/auth/login')" />
+                <Button v-else class="w-fit" label="logout" @click="authStore.onLogout" />
+                <Button v-if="isLoggedIn" class="w-fit" label="admin" @click="$router.push('/admin/dashboard')" />
+                <Button v-if="isLoggedIn" class="w-fit" label="profile" @click="$router.push('/account')" />
             </div>
 
         </div>
@@ -19,7 +24,7 @@
 
 <script setup lang="ts">
 import NavMenu from './components/navMenu/navMenu.vue';
-import { EaButton} from 'ea-kit';
+import Button from '~/domains/app/components/form/Button/index.vue'
 const authStore = useAuthStore();
 
 const isLoggedIn = computed(() => authStore.isLoggedIn);
@@ -59,6 +64,10 @@ const isLoggedIn = computed(() => authStore.isLoggedIn);
         }
     }
 }
-
+button {
+  padding-inline: 1rem;
+  width: fit-content;
+  text-transform: capitalize;
+}
 
 </style>

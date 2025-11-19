@@ -4,9 +4,9 @@ import type {IUserRegisterForm} from "../types/accountTypes";
 const useUserFormValidation = () => {
     const userRegisterFormSchema = object({
         name: string().required('Name is required'),
+        email: string().email().required('Email is required'),
         password: string().required('Password is required'),
         password_confirmation: string().required('Password confirmation is required'),
-        email: string().required('Email is required'),
     })
     const userLoginFormSchema = object({
         email: string().required('Email is required'),

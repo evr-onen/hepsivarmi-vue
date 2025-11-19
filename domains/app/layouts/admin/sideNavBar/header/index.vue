@@ -1,19 +1,25 @@
 <template>
     <div class="nav-menu-header" :class="{ 'active': isMenuActive }">
-        <div class="Buttons gap-y-2">
-            <div class="menu-icon" @click="toggleMenu">
-                <Icon name="mdi:menu" class="text-2xl h-4 w-4" />
-            </div>
+      <div class="Buttons gap-y-2">
+        <div class="menu-icon" @click="toggleMenu">
+          <Icon name="mdi:menu" class="text-2xl h-4 w-4" />
         </div>
+      </div>
+      <div class="right">
+        <Button severity="gradient" color="primary" label="Go To Site" @click="goToSiteHandler"/>
+      </div>
+
     </div>
 </template>
 
 <script setup lang="ts">
+import Button from "~/domains/app/components/form/Button/index.vue"
 defineProps<{
     isMenuActive: boolean
     toggleMenu: () => void
 }>()
 
+const goToSiteHandler = ()=> navigateTo('/')
 </script>
 
 <style scoped>
@@ -48,6 +54,9 @@ defineProps<{
         }
     }
 }
-
+.right{
+  margin-left: auto;
+  button{ padding-inline: 1rem}
+}
 
 </style>

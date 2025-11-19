@@ -11,6 +11,14 @@ export default defineNuxtRouteMiddleware(async (to) => {
         return;
     }
 
+    if (to.path === '/auth/register') {
+        if (token.value) {
+            await store.onGetUser();
+            return navigateTo('/');
+        }
+        return;
+    }
+
     if (token.value) {
         await store.onGetUser();
         // await $i18n.setLocale(store.user.language);

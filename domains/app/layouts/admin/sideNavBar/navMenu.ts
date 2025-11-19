@@ -19,7 +19,15 @@ export const navMenu = [
             {
                 name: 'Variants',
                 path: '/admin/product/variants'
-            }
+            },
+            {
+                name: 'Property',
+                path: '/admin/product/property'
+            },
+            {
+                name: 'Brands',
+                path: '/admin/product/brand'
+            },
         ]
     },
     {
