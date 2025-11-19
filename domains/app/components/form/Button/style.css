@@ -1,0 +1,58 @@
+.buttonStyle{
+    width : 100%;
+    border-radius : .5rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    transition: 200ms;
+}
+.buttonStyle:hover{
+filter: brightness(110%);
+}
+/* color props */
+.color-primary{
+    background-color : var(--primary-500);
+    color : #fff;
+}
+
+.color-success{
+    background-color : var(--success-500);
+    color : var(--success-500);
+}
+
+/* size props */
+.size-md{
+    height : 2rem;
+}
+.size-lg{
+    height : 2.5rem;
+}
+/* severity props */
+.severity-outline{
+    background-color : transparent;
+    border : 1px solid;
+}
+
+/* gradients */
+.gradient-primary {
+    background: linear-gradient(90deg, hsla(222, 11%, 36%, 1) 0%, hsla(220, 10%, 47%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(222, 11%, 36%, 1) 0%, hsla(220, 10%, 47%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(222, 11%, 36%, 1) 0%, hsla(220, 10%, 47%, 1) 100%);
+    color: #fff;
+}
+.gradient-success {
+    background: linear-gradient(90deg, hsla(154, 74%, 39%, 1) 0%, hsla(153, 43%, 63%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(154, 74%, 39%, 1) 0%, hsla(153, 43%, 63%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(154, 74%, 39%, 1) 0%, hsla(153, 43%, 63%, 1) 100%);
+    color: #fff;
+}
+.gradient-warning {
+    background: linear-gradient(90deg, hsla(348, 100%, 49%, 1) 0%, hsla(348, 95%, 69%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(348, 100%, 49%, 1) 0%, hsla(348, 95%, 69%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(348, 100%, 49%, 1) 0%, hsla(348, 95%, 69%, 1) 100%);
+    color: #fff;
+}
+.gradient-info {
+    background: linear-gradient(90deg, hsla(198, 77%, 29%, 1) 0%, hsla(198, 62%, 43%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(198, 77%, 29%, 1) 0%, hsla(198, 62%, 43%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(198, 77%, 29%, 1) 0%, hsla(198, 62%, 43%, 1) 100%);
+    color: #fff;
+}

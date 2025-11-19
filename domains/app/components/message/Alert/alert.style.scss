@@ -1,0 +1,156 @@
+// Alert Modal Styles
+.alert-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+
+  .alert-icon {
+    flex: 1;
+    display: flex;
+    background-color: #eca6b4 !important;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    max-width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    //background-color: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    .icon-svg {
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      width: 48px;
+      height: 48px;
+      color: #f6f0ef;
+    }
+  }
+
+  .alert-message {
+    flex: 4;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #374151;
+    max-width: 100%;
+    word-wrap: break-word;
+    font-weight: 400;
+  }
+}
+
+.alert {
+
+
+  // Alert type specific styles
+  &[data-type="success"] {
+    .alert-icon {
+      background-color: rgba(16, 185, 129, 0.1);
+      
+      .icon-svg {
+        color: #10b981;
+      }
+    }
+  }
+
+  &[data-type="error"] {
+    .alert-icon {
+      background-color: rgba(239, 68, 68, 0.1);
+      
+      .icon-svg {
+        color: #ef4444;
+      }
+    }
+  }
+
+  &[data-type="warning"] {
+    .alert-icon {
+      background-color: rgba(245, 158, 11, 0.1);
+      
+      .icon-svg {
+        color: #f59e0b;
+      }
+    }
+  }
+
+  &[data-type="info"] {
+    .alert-icon {
+      background-color: rgba(59, 130, 246, 0.1);
+      
+      .icon-svg {
+        color: #3b82f6;
+      }
+    }
+  }
+}
+
+// Alert transitions
+.alert-enter-active,
+.alert-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-enter-from {
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
+}
+
+.alert-leave-to {
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+}
+
+// Responsive design
+@media (max-width: 640px) {
+  .alert {
+    .alert-content {
+      padding: 1.5rem 0.75rem;
+      gap: 1rem;
+
+      .alert-icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      .alert-message {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Dark mode support (if needed)
+@media (prefers-color-scheme: dark) {
+  .alert {
+    .alert-content {
+      .alert-message {
+        color: #e5e7eb;
+      }
+    }
+
+    &[data-type="success"] {
+      .alert-icon {
+        background-color: rgba(16, 185, 129, 0.2);
+      }
+    }
+
+    &[data-type="error"] {
+      .alert-icon {
+        background-color: rgba(239, 68, 68, 0.2);
+      }
+    }
+
+    &[data-type="warning"] {
+      .alert-icon {
+        background-color: rgba(245, 158, 11, 0.2);
+      }
+    }
+
+    &[data-type="info"] {
+      .alert-icon {
+        background-color: rgba(59, 130, 246, 0.2);
+      }
+    }
+  }
+} 

@@ -1,0 +1,108 @@
+.p-datatable.p-component{
+    /*font-family: Open Sans, sans-serif;*/
+
+    .p-datatable-table-container{
+        border-radius:14px 14px 0 0;
+        border:1px solid #E9EDF0;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        .p-datatable-header-cell{
+            /*background-color: #F9FBFC !important;*/
+            color: #000 !important;
+            border-color: #E4E4E4 !important;
+
+            .p-datatable-column-title{
+                font-size: .75rem;
+                text-transform: uppercase;
+                font-family: OpenSans-SemiCondensed, sans-serif;
+                color: #8392ab;
+                font-weight: 600 !important;
+                padding-inline: 16px ;
+                height: 32px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .p-datatable-tbody{
+            font-family: Manrope ,Tahoma, sans-serif ;
+            td{
+                background-color: #fff !important;
+                color: #67748e !important;
+                font-size: .75rem;
+                border-color: #EDEFF1 !important;
+            }
+            & > tr > td {
+                padding: 4px;
+            }
+        }
+    }
+}
+.p-paginator{
+    border-radius:0 0 14px 14px;
+    background-color: #55a5d2 !important;
+
+    .p-paginator-content{
+        .p-paginator-pages{
+
+            .p-paginator-page{
+                background-color: #347d9d !important;
+                color: #cecdcd !important;
+
+                &:hover{
+                    background-color: #106c8f !important;
+                    color: #fff !important;
+                }
+
+                &.p-paginator-page-selected{
+                    background-color: #106c8f !important;
+                    color: #fff !important;
+                }
+            }
+        }
+
+        .p-paginator-first{
+            background-color: #347d9d !important;
+            color: #cecdcd !important;
+        }
+        .p-paginator-prev{
+            background-color: #347d9d !important;
+            color: #cecdcd !important;
+        }
+        .p-paginator-next{
+            background-color: #347d9d !important;
+            color: #cecdcd !important;
+        }
+        .p-paginator-last{
+            background-color: #347d9d !important;
+            color: #cecdcd !important;
+        }
+        .p-select {
+            background-color: #347d9d !important;
+        }
+        .p-inputtext {
+            background-color: #347d9d !important;
+        }
+    }
+
+
+}
+
+.p-select-overlay{
+    background-color: #347d9d !important;
+
+    .p-select-option {
+        background-color: #347d9d !important;
+        color: #cecdcd !important;
+
+        &.p-select-option-selected{
+            background-color: #106c8f !important;
+            color: #fff !important;
+        }
+
+        &:hover{
+            background-color: #106c8f !important;
+            color: #fff !important;
+        }
+    }
+}

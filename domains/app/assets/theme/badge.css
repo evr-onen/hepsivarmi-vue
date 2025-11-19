@@ -1,0 +1,27 @@
+.badgeStyle {
+    text-transform: capitalize;
+    width: fit-content;
+    padding: .20em .575em;
+    border-radius: .25rem;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
+    border: 1px solid #ece0e0;
+    font-weight: 600;
+
+    &.success{
+        background-color: #b0eed3;
+        color: #1aae6f;
+    }
+
+    &.warning{
+        background-color: #fdd1da;
+        color: #f80031;
+    }
+
+    &.info{
+        background-color: #DFF4FF;
+        color: #115F81;
+    }
+
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1",
+    "name": "admin",
+    "email": "admin@admin.com",
+    "password": "password",
+    "token": "em4xjiVuEMsgc45hkUcwP"
+  },
+  {
+    "id": "2",
+    "name": "testUser1",
+    "email": "user1@test.com",
+    "password": "password",
+    "token": ""
+  },
+  {
+    "id": "3",
+    "name": "testUser2",
+    "email": "user2@test.com",
+    "password": "password",
+    "token": ""
+  },
+  {
+    "id": "4",
+    "name": "testUser3",
+    "email": "user3@test.com",
+    "password": "password",
+    "token": ""
+  },
+  {
+    "id": "maCtOjmqbOonTz5IsVlM8",
+    "name": "a",
+    "email": "b",
+    "password": "1233",
+    "token": "2Q5suAXZXPSVRgy8mXPWB"
+  },
+  {
+    "id": "maCtOjmqbOonTz5IsVlM8",
+    "name": "a",
+    "email": "b",
+    "password": "1233"
+  }
+]

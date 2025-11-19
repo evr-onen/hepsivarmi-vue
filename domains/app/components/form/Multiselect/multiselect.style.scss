@@ -1,0 +1,55 @@
+.ea-multiselect{
+
+    *:focus{
+        @apply outline-none;
+    }
+
+    // label section
+    .ea-multiselect__label{
+        font-weight: 700;
+    } 
+
+    .ea-multiselect__required-asterisk{
+        @apply text-red-500 ml-1 font-bold;
+    }
+
+    // placeholder section
+    .ea-multiselect__placeholder{
+        @apply px-[.625rem] border border-borderColor hover:border-placeholder rounded-lg  flex justify-between items-center capitalize
+        bg-white h-[2.0625rem]  text-[.875rem];
+    }
+
+    .ea-multiselect__placeholder.small{
+        @apply h-[1.7188rem] text-[.75rem];
+    }
+
+    .ea-multiselect__placeholder.large{
+        @apply h-[2.4375rem] text-[1rem];
+
+    }
+
+    &.contentPanelOpen .ea-multiselect__placeholder{
+        @apply border-placeholder;
+    }
+    // dropdown section
+    .dropdownPanelWrapper{
+        @apply fixed w-full text-placeholder ;
+        
+        ul{
+            @apply flex flex-col gap-1 p-1 bg-white  my-1 shadow-lg border border-borderColor overflow-auto rounded-lg;
+            li{
+                @apply h-[1.9375rem] px-[.625rem] bg-white  flex items-center rounded-[.25rem];
+            } 
+            li.selectedOption, li.selectedOption.hoverOption{
+                @apply bg-optionSelectedBg/80 text-white hover:text-white hover:bg-optionSelectedBg/70;
+            }
+            li.hoverOption{
+                @apply text-textPrimary bg-bgSecondary;
+            }
+        }
+    }
+}
+
+.ea-multiselect:focus{
+    @apply outline-none border-placeholder rounded-[8px];
+}
