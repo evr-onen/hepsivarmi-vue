@@ -1,12 +1,12 @@
 import { promises as fs } from 'fs'
 import {  join } from 'path'
-import type {ICategory, ISubCategory, ISubCategoryUpdateForm} from "~/domains/category/types/categoryTypes";
+import { imageRepo } from '~/domains/image/infrastructure/imageStorage'
+import type {IBrand} from "~/domains/brand/types/brandTypes";
 
 
+const FILE = join(process.cwd(), 'domains/brand/infrastructure/data/brands.json')
 
-const FILE = join(process.cwd(), 'domains/category/infrastructure/data/categories.json')
-
-async function getAll(): Promise<ICategory[]> {
+async function getAll(): Promise<IBrand[]> {
     try {
         const content = await fs.readFile(FILE, 'utf-8')
         return JSON.parse(content || '[]')
@@ -18,67 +18,53 @@ async function getAll(): Promise<ICategory[]> {
         throw err
     }
 }
-
-async function add(id:string,name: string, main_id ?: string): Promise<void> {
-    const AllCategories = await getAll()
-    if(main_id){
-        //add sub
-        const index = AllCategories.findIndex((categoryItem:ICategory) => categoryItem.id === main_id)
-        if (index === -1) return
-        AllCategories[index].subs.push({id, name})
-        await save(AllCategories)
-    }else{
-        //add empty main category
-        await save([...AllCategories, {id, name, subs:[]}])
-    }
-
+async function create(id :string, name: string, files : File[] ): Promise<void> {
+        const allBrands = await getAll()
+        const imageResponse = await imageRepo.saveImage( files[0], 'brand', name )
+        allBrands.push({id, name, logo:imageResponse})
+        await save(allBrands)
 }
 
-async function save(allCategories: ICategory[]): Promise<void> {
-    const plain = JSON.parse(JSON.stringify(allCategories))
+async function save(items: IBrand[]): Promise<void> {
+    const plain = JSON.parse(JSON.stringify(items))
     await fs.writeFile(FILE, JSON.stringify(plain, null, 2), 'utf-8')
 }
 
-async function update(id:string, name : string, main_id ?: string): Promise<boolean> {
-    const allCategories = await getAll()
-    const index = allCategories.findIndex(categoryItem => categoryItem.id === main_id)
+async function update(id :string, name: string, files ?: File[]): Promise<boolean> {
+    const allBrands = await getAll()
+    const index = allBrands.findIndex(item => item.id === id)
 
-    if(main_id){
-        const subIndex =  allCategories[index].subs.findIndex((subItem:ISubCategory) => subItem.id === id)
-        allCategories[index].subs[subIndex].name = name
+    if(files && files.length > 0){
 
-        await categoryRepo.save(allCategories)
+    // remove all images saved with previous brand name
+    await imageRepo.deleteAllImagesByName('brand', allBrands[index].name)
+
+    const imageResponse = await imageRepo.saveImage( files[0], 'brand', name )
+
+    allBrands[index] = {id, name, logo: imageResponse}
     }else{
-        const index = allCategories.findIndex((categoryItem:ICategory)=>categoryItem.id === id)
-        allCategories[index].name = name
-
-        await save(allCategories)
+        allBrands[index].name = name
     }
+    await save(allBrands)
+
     return true
 }
 
-async function remove(main_id: string, sub_id?: string): Promise<boolean> {
-    const allCategories:ICategory[] = await getAll()
+async function remove(id: string): Promise<boolean> {
+    const allBrands = await getAll()
+    const index = allBrands.findIndex(item => item.id === id)
 
-    if(sub_id){
-        const index = allCategories.findIndex((categoryItem:ICategory) => categoryItem.id === main_id)
-        if (index === -1) return false
-        const categorySubs = allCategories[index].subs.filter((subItem:ISubCategory)=>subItem.id !== sub_id)
-        if (categorySubs.length === allCategories[index].subs.length) return false
-        allCategories[index].subs = categorySubs
+    await imageRepo.deleteAllImagesByName('brand', allBrands[index].name)
 
-        await save(allCategories)
-    }else{
-        const filteredCategories = allCategories.filter((categoryItem:ICategory) => categoryItem.id !== main_id)
+    const filteredBrands =  allBrands.filter((item:IBrand)=>item.id !== id)
 
-        await save(filteredCategories)
-    }
+    await save(filteredBrands)
     return true
 }
 
-export const categoryRepo = {
+export const brandRepo = {
     getAll,
-    add,
+    create,
     save,
     update,
     remove,

@@ -104,8 +104,10 @@ const isFirstOverlay = computed(() => {
     .modal{
         background-color: #fff;
         height: auto;
+
         border-radius: 10px;
         padding-inline: 10px;
+
 
         .modal__header{
             display: flex;
@@ -135,7 +137,13 @@ const isFirstOverlay = computed(() => {
                 background-color: #e0e0e0;
             }
         }
-
+        .modal__container{
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          max-height: 80vh;
+          overflow-y: auto;
+        }
         .modal__footer{
             display: flex;
             width: 100%;

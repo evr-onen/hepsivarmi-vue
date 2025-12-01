@@ -1,0 +1,389 @@
+import { productRepo} from '~/domains/product/infrastructure/productStorage'
+import type {IProduct} from "~/domains/product/types/productTypes";
+
+export default defineEventHandler(async () => {
+
+
+    const resetProducts: IProduct[] = [
+        {
+          id: "Zvc3OdjPkL_gymFc6qOM2",
+          name: "test 2",
+          mainCategory: {
+            id: "1",
+            name: "test 1",
+            subs: [
+              {
+                id: "1a",
+                name: "test value 1a"
+              },
+              {
+                id: "1b",
+                name: "test value 1b"
+              },
+              {
+                id: "1c",
+                name: "test value 1c"
+              }
+            ]
+          },
+          subCategory: {
+            id: "1a",
+            name: "test value 1a"
+          },
+          brand: {
+            id: "bckEKoQKLI2dDiqGwcKV2",
+            name: "test upload 123",
+            logo: "/uploads/brand/test_upload_123_1.jpg"
+          },
+          variantTypes: [
+            {
+              id: "2",
+              name: "Boyut",
+              values: [
+                {
+                  id: "2a",
+                  name: "Small"
+                },
+                {
+                  id: "2b",
+                  name: "Medium"
+                },
+                {
+                  id: "2c",
+                  name: "Large"
+                }
+              ]
+            }
+          ],
+          variantProducts: [
+            {
+              variantValues: [
+                {
+                  typeName: "Boyut",
+                  valueName: "Small"
+                }
+              ],
+              price: "100",
+              isDefault: false
+            },
+            {
+              variantValues: [
+                {
+                  typeName: "Boyut",
+                  valueName: "Medium"
+                }
+              ],
+              price: "110",
+              isDefault: true
+            },
+            {
+              variantValues: [
+                {
+                  typeName: "Boyut",
+                  valueName: "Large"
+                }
+              ],
+              price: "125",
+              isDefault: false
+            }
+          ],
+          images: [
+            "/uploads/product/test_2_1.jpg",
+            "/uploads/product/test_2_2.jpg"
+          ],
+          properties: {
+            propertyList: {
+              id: "Jgf56bplcDi5VAmq_PG66",
+              name: "test list",
+              props: [
+                {
+                  id: "2a",
+                  name: "propType 4",
+                  isFilterItem: true,
+                  values: [
+                    {
+                      id: "4a",
+                      name: "prop value 4a"
+                    },
+                    {
+                      id: "4b",
+                      name: "prop value 4b"
+                    },
+                    {
+                      id: "4c",
+                      name: "prop value 4c"
+                    }
+                  ]
+                },
+                {
+                  id: "1c",
+                  name: "propType 34",
+                  isFilterItem: true,
+                  values: [
+                    {
+                      id: "3a",
+                      name: "prop value 3a"
+                    },
+                    {
+                      id: "3b",
+                      name: "prop value 3b"
+                    }
+                  ]
+                },
+                {
+                  id: "1b",
+                  name: "propType 2",
+                  isFilterItem: false,
+                  values: [
+                    {
+                      id: "2a",
+                      name: "prop value 2a"
+                    },
+                    {
+                      id: "2b",
+                      name: "prop value 2b"
+                    },
+                    {
+                      id: "2c",
+                      name: "prop value 2c"
+                    }
+                  ]
+                },
+                {
+                  id: "1a",
+                  name: "propType 1",
+                  isFilterItem: true,
+                  values: [
+                    {
+                      id: "1aa",
+                      name: "prop value 1a"
+                    },
+                    {
+                      id: "1bb",
+                      name: "prop value 1b"
+                    },
+                    {
+                      id: "1cc",
+                      name: "prop value 1c"
+                    }
+                  ]
+                }
+              ]
+            },
+            productPropertyValues: [
+              {
+                id: "4a",
+                name: "prop value 4a"
+              },
+              {
+                id: "3a",
+                name: "prop value 3a"
+              },
+              {
+                id: "2b",
+                name: "prop value 2b"
+              },
+              {
+                id: "1aa",
+                name: "prop value 1a"
+              }
+            ]
+          }
+        },
+        {
+            id: "Zvc3OdjPkL_gymFc6qOMO",
+            name: "test 1",
+            mainCategory: {
+              id: "1",
+              name: "test 1",
+              subs: [
+                {
+                  id: "1a",
+                  name: "test value 1a"
+                },
+                {
+                  id: "1b",
+                  name: "test value 1b"
+                },
+                {
+                  id: "1c",
+                  name: "test value 1c"
+                }
+              ]
+            },
+            subCategory: {
+              id: "1a",
+              name: "test value 1a"
+            },
+            brand: {
+              id: "bckEKoQKLI2dDiqGwcKV2",
+              name: "test upload 123",
+              logo: "/uploads/brand/test_upload_123_1.jpg"
+            },
+            variantTypes: [
+              {
+                id: "2",
+                name: "Boyut",
+                values: [
+                  {
+                    id: "2a",
+                    name: "Small"
+                  },
+                  {
+                    id: "2b",
+                    name: "Medium"
+                  },
+                  {
+                    id: "2c",
+                    name: "Large"
+                  }
+                ]
+              }
+            ],
+            variantProducts: [
+              {
+                variantValues: [
+                  {
+                    typeName: "Boyut",
+                    valueName: "Small"
+                  }
+                ],
+                price: "100",
+                isDefault: false
+              },
+              {
+                variantValues: [
+                  {
+                    typeName: "Boyut",
+                    valueName: "Medium"
+                  }
+                ],
+                price: "110",
+                isDefault: true
+              },
+              {
+                variantValues: [
+                  {
+                    typeName: "Boyut",
+                    valueName: "Large"
+                  }
+                ],
+                price: "125",
+                isDefault: false
+              }
+            ],
+            images: [
+              "/uploads/product/test_1_1.jpg",
+              "/uploads/product/test_1_2.jpg"
+            ],
+            properties: {
+              propertyList: {
+                id: "Jgf56bplcDi5VAmq_PG66",
+                name: "test list",
+                props: [
+                  {
+                    id: "2a",
+                    name: "propType 4",
+                    isFilterItem: true,
+                    values: [
+                      {
+                        id: "4a",
+                        name: "prop value 4a"
+                      },
+                      {
+                        id: "4b",
+                        name: "prop value 4b"
+                      },
+                      {
+                        id: "4c",
+                        name: "prop value 4c"
+                      }
+                    ]
+                  },
+                  {
+                    id: "1c",
+                    name: "propType 34",
+                    isFilterItem: true,
+                    values: [
+                      {
+                        id: "3a",
+                        name: "prop value 3a"
+                      },
+                      {
+                        id: "3b",
+                        name: "prop value 3b"
+                      }
+                    ]
+                  },
+                  {
+                    id: "1b",
+                    name: "propType 2",
+                    isFilterItem: false,
+                    values: [
+                      {
+                        id: "2a",
+                        name: "prop value 2a"
+                      },
+                      {
+                        id: "2b",
+                        name: "prop value 2b"
+                      },
+                      {
+                        id: "2c",
+                        name: "prop value 2c"
+                      }
+                    ]
+                  },
+                  {
+                    id: "1a",
+                    name: "propType 1",
+                    isFilterItem: true,
+                    values: [
+                      {
+                        id: "1aa",
+                        name: "prop value 1a"
+                      },
+                      {
+                        id: "1bb",
+                        name: "prop value 1b"
+                      },
+                      {
+                        id: "1cc",
+                        name: "prop value 1c"
+                      }
+                    ]
+                  }
+                ]
+              },
+              productPropertyValues: [
+                {
+                  id: "4a",
+                  name: "prop value 4a"
+                },
+                {
+                  id: "3a",
+                  name: "prop value 3a"
+                },
+                {
+                  id: "2b",
+                  name: "prop value 2b"
+                },
+                {
+                  id: "1aa",
+                  name: "prop value 1a"
+                }
+              ]
+            }
+          }
+      ]
+    await productRepo.save(resetProducts)
+
+
+    return {
+        success: true,
+        data: resetProducts,
+        message: "success",
+
+    }
+
+})

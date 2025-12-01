@@ -4,6 +4,7 @@ import type {
 
 export const brandEntity = (form:IBrand): IBrand => {
     return structuredClone({
+        id          : form.id,
         name        : form.name,
         logo        : form.logo,
     })
@@ -13,16 +14,17 @@ export const brandEntity = (form:IBrand): IBrand => {
 export const createBrandFormEntity = (form:Partial<IBrandCreateForm>): IBrandCreateForm => {
     return structuredClone({
         name    : form.name || "",
-        logo     : form.logo || null
+        logo     : form.logo || []
     })
 }
 
 
-export const updateBrandFormEntity = (form:Partial<IBrandUpdateForm>): IBrandUpdateForm => {
+export const updateBrandFormEntity = (form:Partial<IBrand>): IBrandUpdateForm => {
     return structuredClone({
         id       : form.id || "",
         name     : form.name || "",
-        logo     : form.logo  || null
+        logo     :  [],
+
     })
 }
 

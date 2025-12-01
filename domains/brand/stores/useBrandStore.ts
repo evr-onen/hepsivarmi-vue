@@ -61,6 +61,7 @@ const useBrandStore = defineStore('BrandStore', () => {
     }
 
     const createBrand = async (successAction?:(response:any)=> void, errorAction?:()=> void) => {
+        console.log(createBrandForm.value)
         await AxiosActionHandler(async () => {
                 await ClientSideFormValidatorHandler(async () => {
                         await createAction(toRaw(createBrandForm.value), (response) => {
@@ -69,7 +70,7 @@ const useBrandStore = defineStore('BrandStore', () => {
                                 getBrands()
                             }else{
                                 errorAction?.()
-                                createBrandFormErrors.value = response.data.data.messages
+                                createBrandFormErrors.value = response.data.data.errors
                             }
                         })
                     },
@@ -93,7 +94,7 @@ const useBrandStore = defineStore('BrandStore', () => {
                         successAction?.()
                     }else{
                         errorAction?.()
-                        updateBrandFormErrors.value = response.data.data.messages
+                        updateBrandFormErrors.value = response.data.data.errors
                     }
                 })
             },

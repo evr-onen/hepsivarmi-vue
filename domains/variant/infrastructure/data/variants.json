@@ -1,95 +1,55 @@
 [
   {
     "id": "1",
-    "name": "test 1",
+    "name": "Renk",
     "values": [
       {
         "id": "1a",
-        "name": "test value 1a"
+        "name": "Mavi"
       },
       {
         "id": "1b",
-        "name": "test value 1b4"
+        "name": "Pembe"
       },
       {
-        "id": "w5UsVkkp5VK5SXlBHK1on",
-        "name": "qweq"
-      },
-      {
-        "id": "WGqI8KmR2_FLtgIv8Wj0e",
-        "name": "eee"
+        "id": "1c",
+        "name": "Siyah"
       }
     ]
   },
   {
     "id": "2",
-    "name": "test 2",
+    "name": "Boyut",
     "values": [
       {
         "id": "2a",
-        "name": "test value 2a"
+        "name": "Small"
       },
       {
         "id": "2b",
-        "name": "test value 2b"
+        "name": "Medium"
       },
       {
         "id": "2c",
-        "name": "test value 2c"
+        "name": "Large"
       }
     ]
   },
   {
     "id": "3",
-    "name": "test 3",
+    "name": "Ram",
     "values": [
       {
         "id": "3a",
-        "name": "test value 3a"
+        "name": "16GB"
       },
       {
         "id": "3b",
-        "name": "test value 3b"
+        "name": "32GB"
       },
       {
         "id": "3c",
-        "name": "test value 3c"
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "name": "test 4",
-    "values": [
-      {
-        "id": "4a",
-        "name": "test value 4a"
-      },
-      {
-        "id": "4b",
-        "name": "test value 4b"
-      },
-      {
-        "id": "4c",
-        "name": "test value 4c"
-      }
-    ]
-  },
-  {
-    "id": "5",
-    "name": "test 5",
-    "values": [
-      {
-        "id": "5a",
-        "name": "test value 5a"
-      },
-      {
-        "id": "5b",
-        "name": "test value 5b"
-      },
-      {
-        "id": "5c",
-        "name": "test value 5c"
+        "name": "64GB"
       }
     ]
   }

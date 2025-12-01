@@ -4,26 +4,27 @@
     <div class="content">
 
       <div class="content-top">
-        <Button class="w-fit" label="Create Variant" severity="gradient" color="primary" @click="createVariantTypeModalHandler" />
-        <Button class="w-fit" label="Reset" severity="gradient" color="warning" @click="resetHandler" />
+        <Button class="w-fit" label="Create Variant" severity="gradient" color="primary"
+                @click="createVariantTypeModalHandler"/>
+        <Button class="w-fit" label="Reset" severity="gradient" color="warning" @click="resetHandler"/>
       </div>
       <div class="content-table">
         <div class="">
           <DataTable :value="tableData(toRaw(allVariants))" table-style="min-width: 50rem">
             <Column field="name" header="Type">
               <template #body="slotProps">
-                  <div class="badgeStyle success">
-                    {{ slotProps.data.name }}
-                  </div>
+                <div class="badgeStyle success">
+                  {{ slotProps.data.name }}
+                </div>
               </template>
             </Column>
             <Column field="values" header="Values">
               <template #body="slotProps">
                 <div class="valuesColumn">
-                  <div v-for="badgeItem in slotProps.data.values" :key="badgeItem.id" >
-                      <div class="badgeStyle info">
-                        {{ badgeItem.name }}
-                      </div>
+                  <div v-for="badgeItem in slotProps.data.values" :key="badgeItem.id">
+                    <div class="badgeStyle info">
+                      {{ badgeItem.name }}
+                    </div>
                   </div>
                 </div>
               </template>
@@ -31,14 +32,16 @@
             <Column field="actions" header="Actions">
               <template #body="slotProps">
                 <div class="actionButtons">
-                  <Button class="circleButtonStyle" severity="gradient" color="success" @click="updateVariantModalHandler(slotProps.data.id)">
+                  <Button class="circleButtonStyle" severity="gradient" color="success"
+                          @click="updateVariantModalHandler(slotProps.data.id)">
                     <template #icon>
-                      <Icon name="tabler:edit" />
+                      <Icon name="tabler:edit"/>
                     </template>
                   </Button>
-                  <Button class="circleButtonStyle" severity="gradient" color="warning" @click="deleteVariantTypeHandler(slotProps.data.id)">
+                  <Button class="circleButtonStyle" severity="gradient" color="warning"
+                          @click="deleteVariantTypeHandler(slotProps.data.id)">
                     <template #icon>
-                      <Icon name="tabler:trash" />
+                      <Icon name="tabler:trash"/>
                     </template>
                   </Button>
 
@@ -63,20 +66,20 @@
       </div>
     </div>
     <Modal v-model="isOpenVariantTypeModal" title="Create Variant" width="sm">
-      <CreateVariantModalForm />
+      <CreateVariantModalForm/>
       <template #footer="{ closeModal }">
-        <Button severity="outline" label="Create" color="success" @click="createVariantTypeHandler" />
-        <Button label="Close" color="primary" @click="closeModal" />
+        <Button severity="outline" label="Create" color="success" @click="createVariantTypeHandler"/>
+        <Button label="Close" color="primary" @click="closeModal"/>
       </template>
     </Modal>
     <Modal v-model="isOpenEditModal" title="Edit Variant" width="sm">
-      <EditVariantModalForm />
+      <EditVariantModalForm/>
       <template #footer="{ closeModal }">
-        <Button severity="gradient" label="Close" color="primary" @click="closeModal" />
-        <Button severity="gradient" label="Update" color="success" @click="updateVariantHandler" />
+        <Button severity="gradient" label="Close" color="primary" @click="closeModal"/>
+        <Button severity="gradient" label="Update" color="success" @click="updateVariantHandler"/>
       </template>
     </Modal>
-    <Toast />
+    <Toast/>
     <Alert
         ref="deleteTypeAlert"
         title="Delete Variant Type"
@@ -133,10 +136,10 @@ const variantTypeDeleteForm = ref<IVariantTypeDeleteForm>(variantTypeDeleteFormE
 const tableRows = ref<number>(10)
 
 // hooks
-const { onCreateVariantType, onResetVariant } = useCreateVariant()
-const { onUpdateVariant } = useEditVariant()
-const { onGetVariants } = useShowVariant()
-const {  onDeleteVariantType } = useDeleteVariant()
+const {onCreateVariantType, onResetVariant} = useCreateVariant()
+const {onUpdateVariant} = useEditVariant()
+const {onGetVariants} = useShowVariant()
+const {onDeleteVariantType} = useDeleteVariant()
 
 // lifecycles
 onMounted(async () => {
@@ -151,12 +154,12 @@ const createVariantTypeHandler = () => onCreateVariantType()
 const updateVariantHandler = () => onUpdateVariant()
 
 // modal handlers
-const updateVariantModalHandler = (id:string)=>{
+const updateVariantModalHandler = (id: string) => {
   const indexVariant = allVariants.value.findIndex(variant => variant.id === id)
   variantUpdateForm.value = variantUpdateFormEntity(toRaw(allVariants.value[indexVariant]))
   isOpenEditModal.value = true
 }
-const createVariantTypeModalHandler = () =>{
+const createVariantTypeModalHandler = () => {
   variantTypeCreateForm.value = createVariantTypeEntity({})
   variantTypeCreateErrors.value = createVariantTypeErrorsEntity()
   isOpenVariantTypeModal.value = !isOpenVariantTypeModal.value
@@ -165,7 +168,7 @@ const resetHandler = () => onResetVariant()
 
 // Delete Type handlers
 const deleteVariantTypeHandler = (id: string) => {
-  variantTypeDeleteForm.value = variantTypeDeleteFormEntity({ type_id: id })
+  variantTypeDeleteForm.value = variantTypeDeleteFormEntity({type_id: id})
   deleteTypeAlert.value?.showAlert()
 }
 const handleDeleteTypeConfirm = async () => {
@@ -204,7 +207,6 @@ const handleDeleteTypeCancel = async () => {
     }
   }
 }
-
 
 
 .valuesColumn {

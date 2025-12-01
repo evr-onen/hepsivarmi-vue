@@ -91,6 +91,8 @@ const props = withDefaults(defineProps<ISelectProps>(), {
   isLoading: false,
   required: false
 })
+
+const emits = defineEmits(['onSelect'])
 const selectValue = defineModel<OptionsType | null>()
 
 const clearSelection = () => {
@@ -98,6 +100,10 @@ const clearSelection = () => {
     selectValue.value = null
   }
 }
+
+watch(selectValue,()=>{
+  emits('onSelect')
+})
 
 const {
   optionsContentRef,

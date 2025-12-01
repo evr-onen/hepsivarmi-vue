@@ -8,7 +8,7 @@ import type {AxiosResponse} from "axios";
 const useBrandRepository = () => {
     const { request, setBaseURL } = useAxios();
     const baseURL = 'http://localhost:3000/api/';
-    const endpoint = "variant"
+    const endpoint = "brand"
 
     if (baseURL) setBaseURL(baseURL);
 
@@ -27,23 +27,50 @@ const useBrandRepository = () => {
         })
     }
     const create = async (payload: IBrandCreateForm): Promise<AxiosResponse>  => {
+        const formData = new FormData()
+        formData.append('name', payload.name)
+        payload.logo?.forEach((file, index) => {
+            if (file) {
+                formData.append('logo', file, file.name ?? `logo-${index}`)
+            }
+        })
+
         return await request({
             type: 'post',
-            endpoint: `${endpoint}/type`,
-            payload
+            endpoint: `${endpoint}`,
+            payload: formData,
+            options: {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
         })
     }
     const update = async (payload: IBrandUpdateForm): Promise<AxiosResponse>  => {
+        const formData = new FormData()
+        formData.append('id', payload.id)
+        formData.append('name', payload.name)
+        payload.logo?.forEach((file, index) => {
+            if (file) {
+                formData.append('logo', file, file.name ?? `logo-${index}`)
+            }
+        })
+
         return await request({
             type: 'put',
-            endpoint: `${endpoint}/type`,
-            payload
+            endpoint: `${endpoint}`,
+            payload: formData,
+            options: {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
         })
     }
     const destroy = async (payload: IBrandDeleteForm): Promise<AxiosResponse>  => {
         return await request({
             type: 'delete',
-            endpoint: `${endpoint}/type`,
+            endpoint: `${endpoint}`,
             payload
         })
     }

@@ -99,7 +99,6 @@
 import Button from '~/domains/app/components/form/Button/index.vue'
 import Modal from "~/domains/app/components/overlay/modal/index.vue";
 import Alert from '~/domains/app/components/message/Alert/index.vue'
-import Tooltip from '~/domains/app/components/message/Tooltip/index.vue'
 import Toast from '~/domains/app/components/message/Toast/index.vue'
 
 //modals

@@ -10,10 +10,10 @@ const useBrandFormValidation = () => {
         name: string().required('Name is required'),
     })
     const updateBrandFormSchema = object({
-        name: string().required('Name ID is required'),
+        name: string().required('Name is required'),
     })
     const deleteBrandFormSchema = object({
-        type_id: string().required('Variant Type is required'),
+        id: string().required('Brand ID is required'),
     })
 
 

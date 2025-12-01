@@ -16,6 +16,7 @@ export const isOpenCreateBrandModal = ref<boolean>(false)
 export const isOpenUpdateBrandModal = ref<boolean>(false)
 
 export const allBrands = ref<IBrand[]>([])
+export const imagePath = ref<string>()
 export const brandFormInlineAlert = ref<IInlineMessage>(createInlineAlert());
 
 // forms

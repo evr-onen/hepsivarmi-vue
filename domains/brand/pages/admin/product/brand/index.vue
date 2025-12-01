@@ -4,35 +4,46 @@
     <div class="content">
 
       <div class="content-top">
-        <Button class="w-fit" severity="gradient" color="primary" label="Create Brand" @click="createBrandModalHandler" />
+        <Button class="w-fit" severity="gradient" color="primary" label="Create Brand"
+          @click="createBrandModalHandler" />
         <Button class="w-fit" severity="gradient" color="warning" label="Reset" @click="resetHandler" />
       </div>
+
+
       <div class="content-table">
         <div class="">
           <DataTable :value="tableData(toRaw(allBrands))" table-style="min-width: 50rem">
-            <Column field="name" header="Main Category">
+            <Column field="name" header="Brand Name">
               <template #body="slotProps">
-                  <div class="">
-                    {{ slotProps.data.name }}
-                  </div>
+                <div class="">
+                  {{ slotProps.data.name }}
+                </div>
               </template>
             </Column>
             <Column field="logo" header="Logo">
               <template #body="slotProps">
-                  <div class="">
-                    {{ slotProps.data.logo }}
-                  </div>
+                <div class="">
+                  <NuxtImg
+                      :src="slotProps.data.logo"
+                      :placeholder="[15, 10]"
+                      width="150"
+                      height="100"
+                      class="rounded"
+                  />
+                </div>
               </template>
             </Column>
             <Column field="actions" header="Actions">
               <template #body="slotProps">
                 <div class="actionButtons">
-                  <Button class="circleButtonStyle" severity="gradient" color="success" @click="editBrandModalHandler(slotProps.data.id)">
+                  <Button class="circleButtonStyle" severity="gradient" color="success"
+                    @click="editBrandModalHandler(slotProps.data.id)">
                     <template #icon>
                       <Icon name="tabler:edit" />
                     </template>
                   </Button>
-                  <Button class="circleButtonStyle" severity="gradient" color="warning" @click="deleteMainCategoryHandler(slotProps.data.id)">
+                  <Button class="circleButtonStyle" severity="gradient" color="warning"
+                    @click="deleteMainCategoryHandler(slotProps.data.id)">
                     <template #icon>
                       <Icon name="tabler:trash" />
                     </template>
@@ -54,19 +65,18 @@
               :rows="tableRows"
               :total-records="toRaw(allBrands).length"
           />
-
         </div>
       </div>
     </div>
     <Modal v-model="isOpenCreateBrandModal" title="Create Brand" width="sm">
-      <CreateMainCategoryModalForm />
+      <CreateBrandModalForm />
       <template #footer="{ closeModal }">
         <Button severity="gradient" label="Close" color="primary" @click="closeModal" />
         <Button severity="gradient" label="Create" color="success" @click="createBrandHandler" />
       </template>
     </Modal>
     <Modal v-model="isOpenUpdateBrandModal" title="Edit Brand" width="sm">
-      <CreateSubCategoryModalForm />
+      <UpdateBrandModalForm />
       <template #footer="{ closeModal }">
         <Button severity="gradient" label="Close" color="primary" @click="closeModal" />
         <Button severity="gradient" label="Update" color="success" @click="updateBrandHandler" />
@@ -74,8 +84,7 @@
     </Modal>
     <Toast />
     <Alert
-        ref="deleteBrandAlert"
-        title="Delete Main Category"
+        ref="deleteBrandAlert" title="Delete Main Category"
         message="Are you sure you want to delete this Category and all of its value? This action cannot be undone."
         type="warning"
         confirm-text="Delete"
@@ -95,14 +104,14 @@ import Alert from '~/domains/app/components/message/Alert/index.vue'
 import Toast from '~/domains/app/components/message/Toast/index.vue'
 
 //modals
-import CreateMainCategoryModalForm from "~/domains/category/components/CreateMainCategoryModalForm/CreateMainCategoryModalForm.vue";
-import CreateSubCategoryModalForm from "~/domains/category/components/createSubCategoryModalForm/createSubCategoryModalForm.vue";
+import CreateBrandModalForm from "~/domains/brand/components/createBrandModalForm/createBrandModalForm.vue";
+import UpdateBrandModalForm from "~/domains/brand/components/updateBrandModalForm/updateBrandModalForm.vue";
 
 // variables
 import {
   allBrands,
   createBrandForm,
-  deleteBrandForm,
+  deleteBrandForm, imagePath,
   isOpenCreateBrandModal,
   isOpenUpdateBrandModal,
   updateBrandForm,
@@ -123,7 +132,7 @@ import {
   updateBrandErrorsEntity,
   updateBrandFormEntity
 } from "~/domains/brand/entities/brandEntity";
-import type {IBrand} from "~/domains/brand/types/brandTypes";
+import type { IBrand } from "~/domains/brand/types/brandTypes";
 
 
 // vars
@@ -132,14 +141,14 @@ const deleteBrandAlert = ref()
 const tableRows = ref<number>(10)
 
 // hooks
-const { onGetBrands} = useShowBrand()
+const { onGetBrands } = useShowBrand()
 const { onCreateBrand, onResetBrand } = useCreateBrand()
 const { onUpdateBrand } = useUpdateBrand()
 const { onDeleteBrand } = useDeleteBrand()
 
 // lifecycles
 onMounted(async () => {
-  // await onGetBrands()
+  await onGetBrands()
 })
 
 
@@ -159,15 +168,16 @@ const createBrandModalHandler = () => {
 const resetHandler = () => onResetBrand()
 
 const editBrandModalHandler = (id: string) => {
-  const editItemIndex = allBrands.value.findIndex(item=> item.id === id)
+  const editItemIndex = allBrands.value.findIndex(item => item.id === id)
+  imagePath.value = allBrands.value[editItemIndex].logo
   updateBrandForm.value = updateBrandFormEntity(toRaw(allBrands.value[editItemIndex]))
-  updateBrandFormErrors.value = updateBrandErrorsEntity({})
+  updateBrandFormErrors.value = updateBrandErrorsEntity()
   isOpenUpdateBrandModal.value = true
 }
 
 // Delete Main Category and all of its sub categories handlers
 const deleteMainCategoryHandler = (id: string) => {
-  deleteBrandForm.value = deleteBrandFormEntity({  id })
+  deleteBrandForm.value = deleteBrandFormEntity({ id })
   deleteBrandAlert.value?.showAlert()
 }
 const handleDeleteMainCategoryConfirm = async () => {
@@ -213,6 +223,4 @@ const handleDeleteMainCategoryCancel = async () => {
   display: flex;
   gap: 1rem;
 }
-
-
 </style>
