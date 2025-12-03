@@ -20,8 +20,9 @@ export interface IVariantProduct{
 
 
 export interface IVariantValues{
-    typeName: string,
-    valueName: string
+    typeName    : string,
+    id          : string,
+    name        : string
 }
 
 export interface IProductProperty{

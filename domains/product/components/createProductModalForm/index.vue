@@ -1,5 +1,15 @@
 <template>
+  
   <div class="create-product-form">
+    <div class="copyFromProduct">
+          <Select
+              v-model="copyFromProduct"
+              label="Copy From Product"
+              :options="toRaw(allProducts)"
+              option-label="name"
+              option-value="id"
+          />
+    </div>
     <div class="name">
       <TextInput
         v-model="createProductForm.name"
@@ -72,16 +82,16 @@
     <div class="productVariants">
       <div v-for="(_, n) in productVariantsQuantity" :key="n" class="variantProductItem">
         <div class="variantValues">
+          <!-- :label="createProductForm.variantTypes[i]?.name || ''" -->
           <Select
               v-for="(_, i) in createProductForm.variantTypes"
               :key="i"
-              v-model="selectedVariantValues[n]"
+              v-model="createProductForm.variantProducts[n].variantValues[i]"
               :label="createProductForm.variantTypes[i]?.name || ''"
               :options="toRaw(createProductForm.variantTypes[i].values)"
               option-label="name"
               option-value="id"
-              @on-select="setVariantValues(n, i, toRaw({ typeName: createProductForm.variantTypes[i].name, valueName: toRaw(selectedVariantValues[n].name) }))"
-          />
+              />
         </div>
 
         <div class="variantPrice">
@@ -112,6 +122,7 @@
          
       />
     </div>
+    
     <div v-if="createProductForm.properties.propertyList.id" class="propertyTable" >
       <PropertyTable :properties="createProductForm.properties.propertyList"/>
     </div>
@@ -141,7 +152,7 @@ import { allBrands } from "~/domains/brand/composables/variables";
 // variants
 import useShowVariant from '~/domains/variant/composables/useShowVariant'
 import { allVariants } from "~/domains/variant/composables/variables";
-import { createVariantProductEntity } from "~/domains/product/entities/productEntity";
+import { createProductFormEntity, createVariantProductEntity } from "~/domains/product/entities/productEntity";
 
 // Property List
 import useShowProperty from '~/domains/property/composables/useShowProperty'
@@ -167,12 +178,11 @@ type SelectedVariantValuesType = {
   name: string
 }
 
-const selectedVariantValues = ref<SelectedVariantValuesType[]>([])
+const selectedVariantValues = ref<SelectedVariantValuesType[][]>([])
 const productVariantsQuantity = ref(0)
+const copyFromProduct = ref()
 
-const setVariantValues = (index: number, valueIndex: number, variantValues = { typeName: '', valueName: '' }) => {
-  createProductForm.value.variantProducts[index].variantValues[valueIndex] = toRaw(variantValues)
-}
+
 const subOptions = computed(() => {
   if (createProductForm.value.mainCategory) {
     const index = allCategories.value.findIndex((mainItem: ICategory) => mainItem.id === createProductForm.value.mainCategory.id)
@@ -187,6 +197,18 @@ watch(createProductForm.value.variantTypes, () => {
   if (createProductForm.value.variantTypes.length === 0) variantQuantityResetHandler()
 }, { deep: true })
 
+watch(copyFromProduct, () => {
+  if (copyFromProduct.value) {
+    createProductForm.value = createProductFormEntity(toRaw(copyFromProduct.value))
+  }
+  productVariantsQuantity.value = createProductForm.value.variantProducts.length
+
+  for (let i = 0; i < productVariantsQuantity.value; i++) {
+    for (let j = 0; j < createProductForm.value.variantTypes.length; j++) {
+      selectedVariantValues.value[i][j] = { id: createProductForm.value.variantProducts[i].variantValues[0].id, name: createProductForm.value.variantProducts[i].variantValues[0].name }
+    }
+  }
+}, { deep: true })
 
 const variantQuantityPlusHandler = () => {
   productVariantsQuantity.value++
@@ -201,6 +223,9 @@ const variantQuantityResetHandler = () => {
   createProductForm.value.variantProducts = []
 }
 
+
+
+
 </script>
 
 <style scoped>
@@ -211,14 +236,26 @@ const variantQuantityResetHandler = () => {
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
+
 }
 
-.variantProductItem {
+.productVariants {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
   width: 100%;
   margin: 0 auto;
+
+  .variantProductItem {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
 }
 
 button {

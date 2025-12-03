@@ -5,34 +5,116 @@ export default defineEventHandler(async () => {
 
 
     const resetCategories: IVariant[] = [
-        { id: '1', name: "test 1", values: [
-            {id:'1a', name:'test value 1a'},
-            {id:'1b', name:'test value 1b'},
-            {id:'1c', name:'test value 1c'},
+        { id: '1', name: "Size", values: [
+            {id:'1a', name:'XS'},
+            {id:'1b', name:'S'},
+            {id:'1c', name:'M'},
+            {id:'1d', name:'L'},
+            {id:'1e', name:'XL'},
+            {id:'1f', name:'XXL'},
             ]
         },
-        { id: '2', name: "test 2", values: [
-            {id:'2a', name:'test value 2a'},
-            {id:'2b', name:'test value 2b'},
-            {id:'2c', name:'test value 2c'},
+        { id: '2', name: "Color", values: [
+            {id:'2a', name:'Black'},
+            {id:'2b', name:'White'},
+            {id:'2c', name:'Red'},
+            {id:'2d', name:'Blue'},
+            {id:'2e', name:'Green'},
+            {id:'2f', name:'Yellow'},
+            {id:'2g', name:'Orange'},
+            {id:'2h', name:'Purple'},
+            {id:'2i', name:'Pink'},
+            {id:'2j', name:'Gray'},
+            {id:'2k', name:'Brown'},
+            {id:'2l', name:'Navy'},
+            {id:'2m', name:'Beige'},
+            {id:'2n', name:'Maroon'},
+            {id:'2o', name:'Teal'},
             ]
         },
-        { id: '3', name: "test 3", values: [
-            {id:'3a', name:'test value 3a'},
-            {id:'3b', name:'test value 3b'},
-            {id:'3c', name:'test value 3c'},
+        { id: '3', name: "Storage", values: [
+            {id:'3a', name:'64GB'},
+            {id:'3b', name:'128GB'},
+            {id:'3c', name:'256GB'},
+            {id:'3d', name:'512GB'},
+            {id:'3e', name:'1TB'},
             ]
         },
-        { id: '4', name: "test 4", values: [
-            {id:'4a', name:'test value 4a'},
-            {id:'4b', name:'test value 4b'},
-            {id:'4c', name:'test value 4c'},
+        { id: '4', name: "Material", values: [
+            {id:'4a', name:'Cotton'},
+            {id:'4b', name:'Polyester'},
+            {id:'4c', name:'Leather'},
+            {id:'4d', name:'Denim'},
+            {id:'4e', name:'Silk'},
+            {id:'4f', name:'Wool'},
             ]
         },
-        { id: '5', name: "test 5", values: [
-            {id:'5a', name:'test value 5a'},
-            {id:'5b', name:'test value 5b'},
-            {id:'5c', name:'test value 5c'},
+        { id: '5', name: "Weight", values: [
+            {id:'5a', name:'Light'},
+            {id:'5b', name:'Medium'},
+            {id:'5c', name:'Heavy'},
+            ]
+        },
+        { id: '6', name: "Capacity", values: [
+            {id:'6a', name:'1L'},
+            {id:'6b', name:'2L'},
+            {id:'6c', name:'5L'},
+            {id:'6d', name:'10L'},
+            {id:'6e', name:'20L'},
+            ]
+        },
+        { id: '7', name: "Pattern", values: [
+            {id:'7a', name:'Solid'},
+            {id:'7b', name:'Striped'},
+            {id:'7c', name:'Checkered'},
+            {id:'7d', name:'Polka Dot'},
+            {id:'7e', name:'Floral'},
+            {id:'7f', name:'Abstract'},
+            ]
+        },
+        { id: '8', name: "Finish", values: [
+            {id:'8a', name:'Matte'},
+            {id:'8b', name:'Glossy'},
+            {id:'8c', name:'Satin'},
+            {id:'8d', name:'Textured'},
+            ]
+        },
+        { id: '9', name: "Style", values: [
+            {id:'9a', name:'Classic'},
+            {id:'9b', name:'Modern'},
+            {id:'9c', name:'Vintage'},
+            {id:'9d', name:'Minimalist'},
+            {id:'9e', name:'Bold'},
+            ]
+        },
+        { id: '10', name: "Fit", values: [
+            {id:'10a', name:'Regular'},
+            {id:'10b', name:'Slim'},
+            {id:'10c', name:'Oversize'},
+            {id:'10d', name:'Relaxed'},
+            ]
+        },
+        { id: '11', name: "Color Collection", values: [
+            {id:'11a', name:'Pastel Pink'},
+            {id:'11b', name:'Pastel Blue'},
+            {id:'11c', name:'Pastel Green'},
+            {id:'11d', name:'Pastel Yellow'},
+            {id:'11e', name:'Pastel Purple'},
+            {id:'11f', name:'Coral'},
+            {id:'11g', name:'Turquoise'},
+            {id:'11h', name:'Lavender'},
+            {id:'11i', name:'Mint'},
+            {id:'11j', name:'Peach'},
+            {id:'11k', name:'Rose Gold'},
+            {id:'11l', name:'Burgundy'},
+            {id:'11m', name:'Olive'},
+            {id:'11n', name:'Indigo'},
+            {id:'11o', name:'Magenta'},
+            {id:'11p', name:'Cyan'},
+            {id:'11q', name:'Amber'},
+            {id:'11r', name:'Ivory'},
+            {id:'11s', name:'Charcoal'},
+            {id:'11t', name:'Crimson'},
             ]
         },
     ]

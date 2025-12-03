@@ -38,51 +38,110 @@
         }
     }
 }
+/* vars*/ 
+:root {
+    --p-paginator-border-radius: 0 0 14px 14px;
+    --p-paginator-padding: 10px;
+    --p-paginator-background: #ffffff;
+    --p-paginator-color: #cecdcd;
+    --p-paginator-gap: 10px;
+
+    --p-paginator-nav-button-width: 50px;
+    --p-paginator-nav-button-height: 50px;
+    --p-paginator-nav-button-background: #fff;
+    --p-paginator-nav-button-color: #106c8f;
+    --p-paginator-nav-button-border-radius: 50%;
+    --p-paginator-nav-button-border: .5px solid #000;
+    --p-paginator-nav-button-cursor: pointer;
+    --p-paginator-nav-button-transition: all 0.3s ease;
+    --p-paginator-nav-button-hover-background: #106c8f;
+    --p-paginator-jump-to-page-input-max-width: 100px;
+    --p-disabled-opacity: 0.5;
+
+    --p-paginator-transition-duration: 0.3s;
+    --p-paginator-transition-timing-function: ease;
+    --p-paginator-transition-delay: 0s;
+    --p-paginator-transition-property: all;
+    --p-paginator-transition-property: all;
+    
+    
+    --p-select-background : #55a5d2;
+    --p-select-border-color: #55a5d2;
+    --p-select-border-radius: 5px;
+    --p-select-shadow: none;
+    --p-select-padding-y: 0.5rem;
+    --p-select-padding-x: 0.5rem;
+    --p-select-color: #cecdcd;
+
+
+
+    --p-select-transition-duration: 0.3s;
+    --p-select-overlay-color: #cecdcd;
+    --p-select-overlay-border-color: #55a5d2;
+    --p-select-dropdown-color: #cecdcd;
+    --p-select-dropdown-width: 40px;
+    --p-select-overlay-background: #55a5d2;
+    --p-select-overlay-border-radius: 5px;
+    --p-select-overlay-shadow: none;
+    --p-select-list-padding: 0.5rem;
+    --p-select-list-gap : 0.5rem;
+    --p-select-option-selected-background: #106c8f;
+    --p-select-option-selected-color: #fff;
+    --p-select-option-border-radius: 5px;
+    --p-select-option-padding: 0.5rem;
+    
+    --p-icon-size: 1rem;
+
+    --p-inputtext-color: #cecdcd;
+    --p-inputtext-background: #55a5d2;
+    --p-inputtext-padding-x: 1rem;
+    --p-inputtext-padding-y: 0.5rem;
+
+
+
+}
+
 .p-paginator{
-    border-radius:0 0 14px 14px;
-    background-color: #55a5d2 !important;
-
+    /* border-radius:0 0 14px 14px; */
+    /* background-color: #55a5d2 !important; */
+    .p-select{
+        display: none;
+    }
+    .p-inputnumber{
+        display: none;
+    }
+    
     .p-paginator-content{
+        button{
+        border: .5px solid #cecdcd  !important;
+        }
         .p-paginator-pages{
-
+        
             .p-paginator-page{
-                background-color: #347d9d !important;
-                color: #cecdcd !important;
 
                 &:hover{
-                    background-color: #106c8f !important;
-                    color: #fff !important;
                 }
 
                 &.p-paginator-page-selected{
-                    background-color: #106c8f !important;
+                    background-color: var(--p-paginator-nav-button-color);
                     color: #fff !important;
                 }
+                
             }
         }
 
-        .p-paginator-first{
-            background-color: #347d9d !important;
-            color: #cecdcd !important;
+        /* .p-paginator-first{
         }
         .p-paginator-prev{
-            background-color: #347d9d !important;
-            color: #cecdcd !important;
         }
         .p-paginator-next{
-            background-color: #347d9d !important;
-            color: #cecdcd !important;
         }
         .p-paginator-last{
-            background-color: #347d9d !important;
-            color: #cecdcd !important;
         }
         .p-select {
-            background-color: #347d9d !important;
         }
         .p-inputtext {
-            background-color: #347d9d !important;
-        }
+        } */
     }
 
 

@@ -20,7 +20,7 @@
               <div class="valuesColumn">
                 <div v-for="badgeItem in slotProps.data.props" :key="badgeItem.id" >
                   <div class="badgeStyle info">
-                    {{ badgeItem.name }}
+                    {{ getPropertyName(badgeItem.id) }}
                   </div>
                 </div>
               </div>
@@ -97,6 +97,7 @@ import CreatePropertyListModalForm from "~/domains/property/components/propertyL
 import EditPropertyListModalForm from "~/domains/property/components/propertyListContent/editPropertyListModalForm/editPropertyListModalForm.vue";
 // variables
 import {
+  allProperties,
   isOpenPropertyListCreateModal,
   isOpenPropertyListEditModal,
   propertyListDeleteForm,
@@ -125,6 +126,7 @@ const tableRows = ref<number>(10)
 
 // hooks
 const { onGetPropertyLists } = useShowProperty()
+const { onGetProperties } = useShowProperty()
 const { onCreatePropertyList, onResetPropertyLists  } = useCreateProperty()
 const { onUpdatePropertyList } = useEditProperty()
 const { onDeletePropertyList } = useDeleteProperty()
@@ -132,7 +134,14 @@ const { onDeletePropertyList } = useDeleteProperty()
 // lifecycles
 onMounted(async () => {
   await onGetPropertyLists()
+  await onGetProperties()
 })
+
+// return functions
+const getPropertyName = (id: string) => {
+  const property = allProperties.value.find(item => item.id === id)
+  return property?.name
+}
 
 
 const tableData = (rawData: IPropertyList[]) => rawData.slice(firstListIndex.value, firstListIndex.value + tableRows.value)

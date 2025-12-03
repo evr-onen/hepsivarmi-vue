@@ -17,7 +17,7 @@ const deleteImages = () => {
 <template>
     <div class="image-viewer">
         <div v-for="badgeItem in images" :key="badgeItem" >
-                    <div class="badgeStyle info">
+                    <div class="badgeStyle info w-full">
                       <NuxtImg
                         :src="badgeItem"
                         :placeholder="[15, 10]"
@@ -45,5 +45,9 @@ const deleteImages = () => {
     width: 100%;
     height: auto;
     object-fit: contain;
+}
+
+button {
+    margin-top: 1rem;
 }
 </style>

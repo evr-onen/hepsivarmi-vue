@@ -1,7 +1,82 @@
 [
   {
-    "id": "bckEKoQKLI2dDiqGwcKV2",
-    "name": "test upload 123",
-    "logo": "/uploads/brand/test_upload_123_1.jpg"
+    "id": "1",
+    "name": "Apple",
+    "logo": "/uploads/brand/apple.png"
+  },
+  {
+    "id": "2",
+    "name": "Samsung",
+    "logo": "/uploads/brand/samsung.png"
+  },
+  {
+    "id": "3",
+    "name": "Sony",
+    "logo": "/uploads/brand/sony.png"
+  },
+  {
+    "id": "4",
+    "name": "LG",
+    "logo": "/uploads/brand/lg.png"
+  },
+  {
+    "id": "5",
+    "name": "Xiaomi",
+    "logo": "/uploads/brand/xiaomi.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Nike",
+    "logo": "/uploads/brand/nike.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Adidas",
+    "logo": "/uploads/brand/adidas.jpg"
+  },
+  {
+    "id": "8",
+    "name": "Zara",
+    "logo": "/uploads/brand/zara.jpg"
+  },
+  {
+    "id": "9",
+    "name": "H&M",
+    "logo": "/uploads/brand/hm.jpg"
+  },
+  {
+    "id": "10",
+    "name": "The North Face",
+    "logo": "/uploads/brand/thenorthface.png"
+  },
+  {
+    "id": "11",
+    "name": "Columbia",
+    "logo": "/uploads/brand/columbia.webp"
+  },
+  {
+    "id": "12",
+    "name": "IKEA",
+    "logo": "/uploads/brand/ikea.png"
+  },
+  {
+    "id": "13",
+    "name": "L'Oreal",
+    "logo": "/uploads/brand/loreal.png"
+  },
+  {
+    "id": "14",
+    "name": "Nivea",
+    "logo": "/uploads/brand/nivea.jpg"
+  },
+  {
+    "id": "15",
+    "name": "Bosch",
+    "logo": "/uploads/brand/bosch.jpg"
+  },
+  {
+    "id": "16",
+    "name": "Castrol",
+    "logo": "/uploads/brand/castrol.png"
   }
 ]

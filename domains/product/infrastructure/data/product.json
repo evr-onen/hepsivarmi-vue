@@ -1,50 +1,76 @@
 [
   {
-    "id": "Zvc3OdjPkL_gymFc6qOM2",
-    "name": "test 2",
+    "id": "prod_nike_tshirt_classic_001",
+    "name": "Nike Classic Cotton T-Shirt",
     "mainCategory": {
-      "id": "1",
-      "name": "test 1",
+      "id": "2",
+      "name": "Clothing",
       "subs": [
         {
-          "id": "1a",
-          "name": "test value 1a"
+          "id": "2a",
+          "name": "T-Shirts"
         },
         {
-          "id": "1b",
-          "name": "test value 1b"
+          "id": "2b",
+          "name": "Shirts"
         },
         {
-          "id": "1c",
-          "name": "test value 1c"
+          "id": "2c",
+          "name": "Jeans"
         }
       ]
     },
     "subCategory": {
-      "id": "1a",
-      "name": "test value 1a"
+      "id": "2a",
+      "name": "T-Shirts"
     },
     "brand": {
-      "id": "bckEKoQKLI2dDiqGwcKV2",
-      "name": "test upload 123",
-      "logo": "/uploads/brand/test_upload_123_1.jpg"
+      "id": "6",
+      "name": "Nike",
+      "logo": "/uploads/brand/nike.jpg"
     },
     "variantTypes": [
       {
+        "id": "1",
+        "name": "Size",
+        "values": [
+          {
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "id": "1e",
+            "name": "XL"
+          }
+        ]
+      },
+      {
         "id": "2",
-        "name": "Boyut",
+        "name": "Color",
         "values": [
           {
             "id": "2a",
-            "name": "Small"
+            "name": "Black"
           },
           {
             "id": "2b",
-            "name": "Medium"
+            "name": "White"
           },
           {
             "id": "2c",
-            "name": "Large"
+            "name": "Red"
+          },
+          {
+            "id": "2d",
+            "name": "Blue"
           }
         ]
       }
@@ -53,112 +79,395 @@
       {
         "variantValues": [
           {
-            "typeName": "Boyut",
-            "valueName": "Small"
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
           }
         ],
-        "price": "100",
+        "price": "299",
         "isDefault": false
       },
       {
         "variantValues": [
           {
-            "typeName": "Boyut",
-            "valueName": "Medium"
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
           }
         ],
-        "price": "110",
+        "price": "309",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "319",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "329",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "299",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "309",
         "isDefault": true
       },
       {
         "variantValues": [
           {
-            "typeName": "Boyut",
-            "valueName": "Large"
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
           }
         ],
-        "price": "125",
+        "price": "319",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "329",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "309",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "319",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "329",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "339",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "309",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "319",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "329",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "339",
         "isDefault": false
       }
     ],
     "images": [
-      "/uploads/product/test_2_1.jpg",
-      "/uploads/product/test_2_2.jpg"
+      "/uploads/product/nike_classic_tshirt_1.webp",
+      "/uploads/product/nike_classic_tshirt_2.webp",
+      "/uploads/product/nike_classic_tshirt_3.webp",
+      "/uploads/product/nike_classic_tshirt_3.webp"
     ],
     "properties": {
       "propertyList": {
-        "id": "Jgf56bplcDi5VAmq_PG66",
-        "name": "test list",
+        "id": "2",
+        "name": "Clothing Properties",
         "props": [
           {
-            "id": "2a",
-            "name": "propType 4",
+            "id": "1a",
+            "name": "Origin",
             "isFilterItem": true,
             "values": [
               {
-                "id": "4a",
-                "name": "prop value 4a"
+                "id": "1aa",
+                "name": "Made in Turkey"
               },
               {
-                "id": "4b",
-                "name": "prop value 4b"
+                "id": "1bb",
+                "name": "Made in China"
               },
               {
-                "id": "4c",
-                "name": "prop value 4c"
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
               }
             ]
           },
           {
             "id": "1c",
-            "name": "propType 34",
-            "isFilterItem": true,
-            "values": [
-              {
-                "id": "3a",
-                "name": "prop value 3a"
-              },
-              {
-                "id": "3b",
-                "name": "prop value 3b"
-              }
-            ]
-          },
-          {
-            "id": "1b",
-            "name": "propType 2",
+            "name": "Material",
             "isFilterItem": false,
             "values": [
               {
-                "id": "2a",
-                "name": "prop value 2a"
+                "id": "3a",
+                "name": "Cotton"
               },
               {
-                "id": "2b",
-                "name": "prop value 2b"
+                "id": "3b",
+                "name": "Polyester"
               },
               {
-                "id": "2c",
-                "name": "prop value 2c"
+                "id": "3c",
+                "name": "Leather"
+              },
+              {
+                "id": "3d",
+                "name": "Wool"
+              },
+              {
+                "id": "3e",
+                "name": "Silk"
+              },
+              {
+                "id": "3f",
+                "name": "Denim"
               }
             ]
           },
           {
-            "id": "1a",
-            "name": "propType 1",
+            "id": "3a",
+            "name": "Color Fastness",
             "isFilterItem": true,
             "values": [
               {
-                "id": "1aa",
-                "name": "prop value 1a"
+                "id": "7a",
+                "name": "Excellent"
               },
               {
-                "id": "1bb",
-                "name": "prop value 1b"
+                "id": "7b",
+                "name": "Good"
               },
               {
-                "id": "1cc",
-                "name": "prop value 1c"
+                "id": "7c",
+                "name": "Fair"
+              },
+              {
+                "id": "7d",
+                "name": "Poor"
+              }
+            ]
+          },
+          {
+            "id": "3b",
+            "name": "Care Instructions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "8a",
+                "name": "Machine Washable"
+              },
+              {
+                "id": "8b",
+                "name": "Hand Wash Only"
+              },
+              {
+                "id": "8c",
+                "name": "Dry Clean Only"
+              },
+              {
+                "id": "8d",
+                "name": "Do Not Wash"
+              }
+            ]
+          },
+          {
+            "id": "2c",
+            "name": "Dimensions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "6a",
+                "name": "Small"
+              },
+              {
+                "id": "6b",
+                "name": "Medium"
+              },
+              {
+                "id": "6c",
+                "name": "Large"
+              },
+              {
+                "id": "6d",
+                "name": "Extra Large"
               }
             ]
           }
@@ -166,70 +475,92 @@
       },
       "productPropertyValues": [
         {
-          "id": "4a",
-          "name": "prop value 4a"
+          "id": "1aa",
+          "name": "Made in Turkey"
         },
         {
           "id": "3a",
-          "name": "prop value 3a"
+          "name": "Cotton"
         },
         {
-          "id": "2b",
-          "name": "prop value 2b"
+          "id": "7a",
+          "name": "Excellent"
         },
         {
-          "id": "1aa",
-          "name": "prop value 1a"
+          "id": "8a",
+          "name": "Machine Washable"
+        },
+        {
+          "id": "6b",
+          "name": "Medium"
         }
       ]
     }
   },
   {
-    "id": "Zvc3OdjPkL_gymFc6qOMO",
-    "name": "test 1",
+    "id": "prod_apple_iphone_15_001",
+    "name": "Apple iPhone 15 Pro",
     "mainCategory": {
       "id": "1",
-      "name": "test 1",
+      "name": "Electronics",
       "subs": [
         {
           "id": "1a",
-          "name": "test value 1a"
+          "name": "Smartphones"
         },
         {
           "id": "1b",
-          "name": "test value 1b"
+          "name": "Laptops"
         },
         {
           "id": "1c",
-          "name": "test value 1c"
+          "name": "Tablets"
         }
       ]
     },
     "subCategory": {
       "id": "1a",
-      "name": "test value 1a"
+      "name": "Smartphones"
     },
     "brand": {
-      "id": "bckEKoQKLI2dDiqGwcKV2",
-      "name": "test upload 123",
-      "logo": "/uploads/brand/test_upload_123_1.jpg"
+      "id": "1",
+      "name": "Apple",
+      "logo": "/uploads/brand/apple.png"
     },
     "variantTypes": [
       {
+        "id": "3",
+        "name": "Storage",
+        "values": [
+          {
+            "id": "3b",
+            "name": "128GB"
+          },
+          {
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "id": "3d",
+            "name": "512GB"
+          }
+        ]
+      },
+      {
         "id": "2",
-        "name": "Boyut",
+        "name": "Color",
         "values": [
           {
             "id": "2a",
-            "name": "Small"
+            "name": "Black"
           },
           {
             "id": "2b",
-            "name": "Medium"
+            "name": "White"
           },
           {
-            "id": "2c",
-            "name": "Large"
+            "id": "2j",
+            "name": "Gray"
           }
         ]
       }
@@ -238,112 +569,250 @@
       {
         "variantValues": [
           {
-            "typeName": "Boyut",
-            "valueName": "Small"
-          }
-        ],
-        "price": "100",
-        "isDefault": false
-      },
-      {
-        "variantValues": [
+            "typeName": "Storage",
+            "id": "3b",
+            "name": "128GB"
+          },
           {
-            "typeName": "Boyut",
-            "valueName": "Medium"
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
           }
         ],
-        "price": "110",
+        "price": "49999",
         "isDefault": true
       },
       {
         "variantValues": [
           {
-            "typeName": "Boyut",
-            "valueName": "Large"
+            "typeName": "Storage",
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
           }
         ],
-        "price": "125",
+        "price": "54999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3d",
+            "name": "512GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "62999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3b",
+            "name": "128GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "49999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "54999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3b",
+            "name": "128GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "49999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "54999",
         "isDefault": false
       }
     ],
     "images": [
-      "/uploads/product/test_1_1.jpg",
-      "/uploads/product/test_1_2.jpg"
+      "/uploads/product/apple_iphone_15_pro_1.webp",
+      "/uploads/product/apple_iphone_15_pro_2.webp",
+      "/uploads/product/apple_iphone_15_pro_3.webp"
     ],
     "properties": {
       "propertyList": {
-        "id": "Jgf56bplcDi5VAmq_PG66",
-        "name": "test list",
+        "id": "3",
+        "name": "Electronics Properties",
         "props": [
           {
-            "id": "2a",
-            "name": "propType 4",
+            "id": "1a",
+            "name": "Origin",
             "isFilterItem": true,
             "values": [
               {
-                "id": "4a",
-                "name": "prop value 4a"
+                "id": "1aa",
+                "name": "Made in Turkey"
               },
               {
-                "id": "4b",
-                "name": "prop value 4b"
+                "id": "1bb",
+                "name": "Made in China"
               },
               {
-                "id": "4c",
-                "name": "prop value 4c"
-              }
-            ]
-          },
-          {
-            "id": "1c",
-            "name": "propType 34",
-            "isFilterItem": true,
-            "values": [
-              {
-                "id": "3a",
-                "name": "prop value 3a"
+                "id": "1cc",
+                "name": "Made in Germany"
               },
               {
-                "id": "3b",
-                "name": "prop value 3b"
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
               }
             ]
           },
           {
             "id": "1b",
-            "name": "propType 2",
-            "isFilterItem": false,
+            "name": "Waterproof",
+            "isFilterItem": true,
             "values": [
               {
                 "id": "2a",
-                "name": "prop value 2a"
+                "name": "Not Waterproof"
               },
               {
                 "id": "2b",
-                "name": "prop value 2b"
+                "name": "Water Resistant"
               },
               {
                 "id": "2c",
-                "name": "prop value 2c"
+                "name": "Waterproof (IPX4)"
+              },
+              {
+                "id": "2d",
+                "name": "Waterproof (IPX7)"
+              },
+              {
+                "id": "2e",
+                "name": "Waterproof (IPX8)"
               }
             ]
           },
           {
-            "id": "1a",
-            "name": "propType 1",
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
             "isFilterItem": true,
             "values": [
               {
-                "id": "1aa",
-                "name": "prop value 1a"
+                "id": "9a",
+                "name": "CE Certified"
               },
               {
-                "id": "1bb",
-                "name": "prop value 1b"
+                "id": "9b",
+                "name": "ISO Certified"
               },
               {
-                "id": "1cc",
-                "name": "prop value 1c"
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "4b",
+            "name": "Compatibility",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "11a",
+                "name": "Universal"
+              },
+              {
+                "id": "11b",
+                "name": "iOS Compatible"
+              },
+              {
+                "id": "11c",
+                "name": "Android Compatible"
+              },
+              {
+                "id": "11d",
+                "name": "Windows Compatible"
               }
             ]
           }
@@ -351,20 +820,3697 @@
       },
       "productPropertyValues": [
         {
-          "id": "4a",
-          "name": "prop value 4a"
+          "id": "1bb",
+          "name": "Made in China"
         },
         {
-          "id": "3a",
-          "name": "prop value 3a"
+          "id": "2d",
+          "name": "Waterproof (IPX7)"
+        },
+        {
+          "id": "4b",
+          "name": "1 Year"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "11b",
+          "name": "iOS Compatible"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_lg_refrigerator_001",
+    "name": "LG Inverter Refrigerator",
+    "mainCategory": {
+      "id": "6",
+      "name": "Home Appliances",
+      "subs": [
+        {
+          "id": "6a",
+          "name": "Refrigerators"
+        },
+        {
+          "id": "6b",
+          "name": "Washing Machines"
+        },
+        {
+          "id": "6c",
+          "name": "Vacuum Cleaners"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "6a",
+      "name": "Refrigerators"
+    },
+    "brand": {
+      "id": "4",
+      "name": "LG",
+      "logo": "/uploads/brand/lg.png"
+    },
+    "variantTypes": [
+      {
+        "id": "6",
+        "name": "Capacity",
+        "values": [
+          {
+            "id": "6a",
+            "name": "1L"
+          },
+          {
+            "id": "6b",
+            "name": "2L"
+          },
+          {
+            "id": "6c",
+            "name": "5L"
+          },
+          {
+            "id": "6d",
+            "name": "10L"
+          },
+          {
+            "id": "6e",
+            "name": "20L"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Capacity",
+            "id": "6a",
+            "name": "1L"
+          }
+        ],
+        "price": "15999",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Capacity",
+            "id": "6e",
+            "name": "20L"
+          }
+        ],
+        "price": "21999",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/lg_refrigerator_1.webp",
+      "/uploads/product/lg_refrigerator_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "4",
+        "name": "Home Appliances Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "4a",
+            "name": "Energy Rating",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "10a",
+                "name": "A+++"
+              },
+              {
+                "id": "10b",
+                "name": "A++"
+              },
+              {
+                "id": "10c",
+                "name": "A+"
+              },
+              {
+                "id": "10d",
+                "name": "A"
+              },
+              {
+                "id": "10e",
+                "name": "B"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "2b",
+            "name": "Weight",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "5a",
+                "name": "Light (< 1kg)"
+              },
+              {
+                "id": "5b",
+                "name": "Medium (1-5kg)"
+              },
+              {
+                "id": "5c",
+                "name": "Heavy (5-10kg)"
+              },
+              {
+                "id": "5d",
+                "name": "Very Heavy (> 10kg)"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1bb",
+          "name": "Made in China"
+        },
+        {
+          "id": "4c",
+          "name": "2 Years"
+        },
+        {
+          "id": "10a",
+          "name": "A+++"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "5d",
+          "name": "Very Heavy (> 10kg)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_northface_jacket_001",
+    "name": "The North Face Waterproof Hiking Jacket",
+    "mainCategory": {
+      "id": "7",
+      "name": "Sports & Outdoor",
+      "subs": [
+        {
+          "id": "7a",
+          "name": "Fitness Equipment"
+        },
+        {
+          "id": "7b",
+          "name": "Camping & Hiking"
+        },
+        {
+          "id": "7c",
+          "name": "Team Sports"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "7b",
+      "name": "Camping & Hiking"
+    },
+    "brand": {
+      "id": "10",
+      "name": "The North Face",
+      "logo": "/uploads/brand/thenorthface.png"
+    },
+    "variantTypes": [
+      {
+        "id": "1",
+        "name": "Size",
+        "values": [
+          {
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "id": "1e",
+            "name": "XL"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2d",
+            "name": "Blue"
+          },
+          {
+            "id": "2c",
+            "name": "Red"
+          },
+          {
+            "id": "2j",
+            "name": "Gray"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "8999",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "8999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "9299",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "8999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "8999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "8999",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/northface_jacket_1.webp",
+      "/uploads/product/northface_jacket_2.webp",
+      "/uploads/product/northface_jacket_3.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "6",
+        "name": "Sports & Outdoor Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1b",
+            "name": "Waterproof",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "2a",
+                "name": "Not Waterproof"
+              },
+              {
+                "id": "2b",
+                "name": "Water Resistant"
+              },
+              {
+                "id": "2c",
+                "name": "Waterproof (IPX4)"
+              },
+              {
+                "id": "2d",
+                "name": "Waterproof (IPX7)"
+              },
+              {
+                "id": "2e",
+                "name": "Waterproof (IPX8)"
+              }
+            ]
+          },
+          {
+            "id": "1c",
+            "name": "Material",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "3a",
+                "name": "Cotton"
+              },
+              {
+                "id": "3b",
+                "name": "Polyester"
+              },
+              {
+                "id": "3c",
+                "name": "Leather"
+              },
+              {
+                "id": "3d",
+                "name": "Wool"
+              },
+              {
+                "id": "3e",
+                "name": "Silk"
+              },
+              {
+                "id": "3f",
+                "name": "Denim"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "2b",
+            "name": "Weight",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "5a",
+                "name": "Light (< 1kg)"
+              },
+              {
+                "id": "5b",
+                "name": "Medium (1-5kg)"
+              },
+              {
+                "id": "5c",
+                "name": "Heavy (5-10kg)"
+              },
+              {
+                "id": "5d",
+                "name": "Very Heavy (> 10kg)"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1dd",
+          "name": "Made in USA"
+        },
+        {
+          "id": "2d",
+          "name": "Waterproof (IPX7)"
+        },
+        {
+          "id": "3b",
+          "name": "Polyester"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "5a",
+          "name": "Light (< 1kg)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_samsung_galaxy_001",
+    "name": "Samsung Galaxy S24 Ultra",
+    "mainCategory": {
+      "id": "1",
+      "name": "Electronics",
+      "subs": [
+        {
+          "id": "1a",
+          "name": "Smartphones"
+        },
+        {
+          "id": "1b",
+          "name": "Laptops"
+        },
+        {
+          "id": "1c",
+          "name": "Tablets"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "1a",
+      "name": "Smartphones"
+    },
+    "brand": {
+      "id": "2",
+      "name": "Samsung",
+      "logo": "/uploads/brand/samsung.png"
+    },
+    "variantTypes": [
+      {
+        "id": "3",
+        "name": "Storage",
+        "values": [
+          {
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "id": "3d",
+            "name": "512GB"
+          },
+          {
+            "id": "3e",
+            "name": "1TB"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2a",
+            "name": "Black"
+          },
+          {
+            "id": "2d",
+            "name": "Blue"
+          },
+          {
+            "id": "2j",
+            "name": "Gray"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "44999",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3d",
+            "name": "512GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "49999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3e",
+            "name": "1TB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "57999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "44999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3d",
+            "name": "512GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "49999",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/samsung_galaxy_s24_ultra_1.webp",
+      "/uploads/product/samsung_galaxy_s24_ultra_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "3",
+        "name": "Electronics Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1b",
+            "name": "Waterproof",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "2a",
+                "name": "Not Waterproof"
+              },
+              {
+                "id": "2b",
+                "name": "Water Resistant"
+              },
+              {
+                "id": "2c",
+                "name": "Waterproof (IPX4)"
+              },
+              {
+                "id": "2d",
+                "name": "Waterproof (IPX7)"
+              },
+              {
+                "id": "2e",
+                "name": "Waterproof (IPX8)"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "4b",
+            "name": "Compatibility",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "11a",
+                "name": "Universal"
+              },
+              {
+                "id": "11b",
+                "name": "iOS Compatible"
+              },
+              {
+                "id": "11c",
+                "name": "Android Compatible"
+              },
+              {
+                "id": "11d",
+                "name": "Windows Compatible"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1bb",
+          "name": "Made in China"
+        },
+        {
+          "id": "2d",
+          "name": "Waterproof (IPX7)"
+        },
+        {
+          "id": "4b",
+          "name": "1 Year"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "11c",
+          "name": "Android Compatible"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_adidas_sneakers_001",
+    "name": "Adidas Ultraboost Running Shoes",
+    "mainCategory": {
+      "id": "2",
+      "name": "Clothing",
+      "subs": [
+        {
+          "id": "2a",
+          "name": "T-Shirts"
         },
         {
           "id": "2b",
-          "name": "prop value 2b"
+          "name": "Shirts"
         },
         {
+          "id": "2c",
+          "name": "Jeans"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "2c",
+      "name": "Jeans"
+    },
+    "brand": {
+      "id": "7",
+      "name": "Adidas",
+      "logo": "/uploads/brand/adidas.jpg"
+    },
+    "variantTypes": [
+      {
+        "id": "1",
+        "name": "Size",
+        "values": [
+          {
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "id": "1d",
+            "name": "L"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2a",
+            "name": "Black"
+          },
+          {
+            "id": "2b",
+            "name": "White"
+          },
+          {
+            "id": "2c",
+            "name": "Red"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "3499",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "3499",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "3499",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "3499",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "3499",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "3599",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/adidas_ultraboost_1.webp",
+      "/uploads/product/adidas_ultraboost_2.webp",
+      "/uploads/product/adidas_ultraboost_3.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "2",
+        "name": "Clothing Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1c",
+            "name": "Material",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "3a",
+                "name": "Cotton"
+              },
+              {
+                "id": "3b",
+                "name": "Polyester"
+              },
+              {
+                "id": "3c",
+                "name": "Leather"
+              },
+              {
+                "id": "3d",
+                "name": "Wool"
+              },
+              {
+                "id": "3e",
+                "name": "Silk"
+              },
+              {
+                "id": "3f",
+                "name": "Denim"
+              }
+            ]
+          },
+          {
+            "id": "3a",
+            "name": "Color Fastness",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "7a",
+                "name": "Excellent"
+              },
+              {
+                "id": "7b",
+                "name": "Good"
+              },
+              {
+                "id": "7c",
+                "name": "Fair"
+              },
+              {
+                "id": "7d",
+                "name": "Poor"
+              }
+            ]
+          },
+          {
+            "id": "3b",
+            "name": "Care Instructions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "8a",
+                "name": "Machine Washable"
+              },
+              {
+                "id": "8b",
+                "name": "Hand Wash Only"
+              },
+              {
+                "id": "8c",
+                "name": "Dry Clean Only"
+              },
+              {
+                "id": "8d",
+                "name": "Do Not Wash"
+              }
+            ]
+          },
+          {
+            "id": "2c",
+            "name": "Dimensions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "6a",
+                "name": "Small"
+              },
+              {
+                "id": "6b",
+                "name": "Medium"
+              },
+              {
+                "id": "6c",
+                "name": "Large"
+              },
+              {
+                "id": "6d",
+                "name": "Extra Large"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1cc",
+          "name": "Made in Germany"
+        },
+        {
+          "id": "3b",
+          "name": "Polyester"
+        },
+        {
+          "id": "7a",
+          "name": "Excellent"
+        },
+        {
+          "id": "8a",
+          "name": "Machine Washable"
+        },
+        {
+          "id": "6b",
+          "name": "Medium"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_ikea_sofa_001",
+    "name": "IKEA Ektorp Sofa",
+    "mainCategory": {
+      "id": "3",
+      "name": "Furniture",
+      "subs": [
+        {
+          "id": "3a",
+          "name": "Sofas"
+        },
+        {
+          "id": "3b",
+          "name": "Tables"
+        },
+        {
+          "id": "3c",
+          "name": "Chairs"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "3a",
+      "name": "Sofas"
+    },
+    "brand": {
+      "id": "12",
+      "name": "IKEA",
+      "logo": "/uploads/brand/ikea.png"
+    },
+    "variantTypes": [
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2j",
+            "name": "Gray"
+          },
+          {
+            "id": "2k",
+            "name": "Brown"
+          },
+          {
+            "id": "2m",
+            "name": "Beige"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "12999",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Color",
+            "id": "2k",
+            "name": "Brown"
+          }
+        ],
+        "price": "12999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Color",
+            "id": "2m",
+            "name": "Beige"
+          }
+        ],
+        "price": "13499",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/ikea_ektorp_sofa_1.webp",
+      "/uploads/product/ikea_ektorp_sofa_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "5",
+        "name": "Furniture Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1c",
+            "name": "Material",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "3a",
+                "name": "Cotton"
+              },
+              {
+                "id": "3b",
+                "name": "Polyester"
+              },
+              {
+                "id": "3c",
+                "name": "Leather"
+              },
+              {
+                "id": "3d",
+                "name": "Wool"
+              },
+              {
+                "id": "3e",
+                "name": "Silk"
+              },
+              {
+                "id": "3f",
+                "name": "Denim"
+              }
+            ]
+          },
+          {
+            "id": "2c",
+            "name": "Dimensions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "6a",
+                "name": "Small"
+              },
+              {
+                "id": "6b",
+                "name": "Medium"
+              },
+              {
+                "id": "6c",
+                "name": "Large"
+              },
+              {
+                "id": "6d",
+                "name": "Extra Large"
+              }
+            ]
+          },
+          {
+            "id": "2b",
+            "name": "Weight",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "5a",
+                "name": "Light (< 1kg)"
+              },
+              {
+                "id": "5b",
+                "name": "Medium (1-5kg)"
+              },
+              {
+                "id": "5c",
+                "name": "Heavy (5-10kg)"
+              },
+              {
+                "id": "5d",
+                "name": "Very Heavy (> 10kg)"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1cc",
+          "name": "Made in Germany"
+        },
+        {
+          "id": "3a",
+          "name": "Cotton"
+        },
+        {
+          "id": "6c",
+          "name": "Large"
+        },
+        {
+          "id": "5c",
+          "name": "Heavy (5-10kg)"
+        },
+        {
+          "id": "4b",
+          "name": "1 Year"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_loreal_shampoo_001",
+    "name": "L'Oreal Elvive Shampoo",
+    "mainCategory": {
+      "id": "8",
+      "name": "Beauty & Personal Care",
+      "subs": [
+        {
+          "id": "8a",
+          "name": "Skin Care"
+        },
+        {
+          "id": "8b",
+          "name": "Hair Care"
+        },
+        {
+          "id": "8c",
+          "name": "Makeup"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "8b",
+      "name": "Hair Care"
+    },
+    "brand": {
+      "id": "13",
+      "name": "L'Oreal",
+      "logo": "/uploads/brand/loreal.png"
+    },
+    "variantTypes": [
+      {
+        "id": "6",
+        "name": "Capacity",
+        "values": [
+          {
+            "id": "6a",
+            "name": "1L"
+          },
+          {
+            "id": "6b",
+            "name": "2L"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Capacity",
+            "id": "6a",
+            "name": "1L"
+          }
+        ],
+        "price": "89",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Capacity",
+            "id": "6b",
+            "name": "2L"
+          }
+        ],
+        "price": "149",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/loreal_shampoo_1.webp",
+      "/uploads/product/loreal_shampoo_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "7",
+        "name": "Beauty & Personal Care Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "2c",
+            "name": "Dimensions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "6a",
+                "name": "Small"
+              },
+              {
+                "id": "6b",
+                "name": "Medium"
+              },
+              {
+                "id": "6c",
+                "name": "Large"
+              },
+              {
+                "id": "6d",
+                "name": "Extra Large"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1ee",
+          "name": "Made in Italy"
+        },
+        {
+          "id": "9c",
+          "name": "FDA Approved"
+        },
+        {
+          "id": "4a",
+          "name": "6 Months"
+        },
+        {
+          "id": "6b",
+          "name": "Medium"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_bosch_drill_001",
+    "name": "Bosch Professional Drill",
+    "mainCategory": {
+      "id": "10",
+      "name": "Automotive",
+      "subs": [
+        {
+          "id": "10a",
+          "name": "Car Accessories"
+        },
+        {
+          "id": "10b",
+          "name": "Motor Oils & Fluids"
+        },
+        {
+          "id": "10c",
+          "name": "Tires & Rims"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "10a",
+      "name": "Car Accessories"
+    },
+    "brand": {
+      "id": "15",
+      "name": "Bosch",
+      "logo": "/uploads/brand/bosch.jpg"
+    },
+    "variantTypes": [
+      {
+        "id": "5",
+        "name": "Weight",
+        "values": [
+          {
+            "id": "5a",
+            "name": "Light"
+          },
+          {
+            "id": "5b",
+            "name": "Medium"
+          },
+          {
+            "id": "5c",
+            "name": "Heavy"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Weight",
+            "id": "5a",
+            "name": "Light"
+          }
+        ],
+        "price": "1299",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Weight",
+            "id": "5b",
+            "name": "Medium"
+          }
+        ],
+        "price": "1599",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Weight",
+            "id": "5c",
+            "name": "Heavy"
+          }
+        ],
+        "price": "1899",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/bosch_drill_1.webp",
+      "/uploads/product/bosch_drill_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "8",
+        "name": "Automotive Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1b",
+            "name": "Waterproof",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "2a",
+                "name": "Not Waterproof"
+              },
+              {
+                "id": "2b",
+                "name": "Water Resistant"
+              },
+              {
+                "id": "2c",
+                "name": "Waterproof (IPX4)"
+              },
+              {
+                "id": "2d",
+                "name": "Waterproof (IPX7)"
+              },
+              {
+                "id": "2e",
+                "name": "Waterproof (IPX8)"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "2b",
+            "name": "Weight",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "5a",
+                "name": "Light (< 1kg)"
+              },
+              {
+                "id": "5b",
+                "name": "Medium (1-5kg)"
+              },
+              {
+                "id": "5c",
+                "name": "Heavy (5-10kg)"
+              },
+              {
+                "id": "5d",
+                "name": "Very Heavy (> 10kg)"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1cc",
+          "name": "Made in Germany"
+        },
+        {
+          "id": "2b",
+          "name": "Water Resistant"
+        },
+        {
+          "id": "4c",
+          "name": "2 Years"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "5b",
+          "name": "Medium (1-5kg)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_sony_headphones_001",
+    "name": "Sony WH-1000XM5 Wireless Headphones",
+    "mainCategory": {
+      "id": "1",
+      "name": "Electronics",
+      "subs": [
+        {
+          "id": "1a",
+          "name": "Smartphones"
+        },
+        {
+          "id": "1b",
+          "name": "Laptops"
+        },
+        {
+          "id": "1c",
+          "name": "Tablets"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "1c",
+      "name": "Tablets"
+    },
+    "brand": {
+      "id": "3",
+      "name": "Sony",
+      "logo": "/uploads/brand/sony.png"
+    },
+    "variantTypes": [
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2a",
+            "name": "Black"
+          },
+          {
+            "id": "2b",
+            "name": "White"
+          },
+          {
+            "id": "2j",
+            "name": "Gray"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "12999",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "12999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "13499",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/sony_headphones_1.webp",
+      "/uploads/product/sony_headphones_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "3",
+        "name": "Electronics Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1b",
+            "name": "Waterproof",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "2a",
+                "name": "Not Waterproof"
+              },
+              {
+                "id": "2b",
+                "name": "Water Resistant"
+              },
+              {
+                "id": "2c",
+                "name": "Waterproof (IPX4)"
+              },
+              {
+                "id": "2d",
+                "name": "Waterproof (IPX7)"
+              },
+              {
+                "id": "2e",
+                "name": "Waterproof (IPX8)"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "4b",
+            "name": "Compatibility",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "11a",
+                "name": "Universal"
+              },
+              {
+                "id": "11b",
+                "name": "iOS Compatible"
+              },
+              {
+                "id": "11c",
+                "name": "Android Compatible"
+              },
+              {
+                "id": "11d",
+                "name": "Windows Compatible"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1bb",
+          "name": "Made in China"
+        },
+        {
+          "id": "2c",
+          "name": "Waterproof (IPX4)"
+        },
+        {
+          "id": "4b",
+          "name": "1 Year"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "11a",
+          "name": "Universal"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_zara_shirt_001",
+    "name": "Zara Classic White Shirt",
+    "mainCategory": {
+      "id": "2",
+      "name": "Clothing",
+      "subs": [
+        {
+          "id": "2a",
+          "name": "T-Shirts"
+        },
+        {
+          "id": "2b",
+          "name": "Shirts"
+        },
+        {
+          "id": "2c",
+          "name": "Jeans"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "2b",
+      "name": "Shirts"
+    },
+    "brand": {
+      "id": "8",
+      "name": "Zara",
+      "logo": "/uploads/brand/zara.jpg"
+    },
+    "variantTypes": [
+      {
+        "id": "1",
+        "name": "Size",
+        "values": [
+          {
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "id": "1e",
+            "name": "XL"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2b",
+            "name": "White"
+          },
+          {
+            "id": "2a",
+            "name": "Black"
+          },
+          {
+            "id": "2j",
+            "name": "Gray"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "599",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "599",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "599",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2b",
+            "name": "White"
+          }
+        ],
+        "price": "649",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "599",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "599",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/zara_shirt_1.webp",
+      "/uploads/product/zara_shirt_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "2",
+        "name": "Clothing Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1c",
+            "name": "Material",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "3a",
+                "name": "Cotton"
+              },
+              {
+                "id": "3b",
+                "name": "Polyester"
+              },
+              {
+                "id": "3c",
+                "name": "Leather"
+              },
+              {
+                "id": "3d",
+                "name": "Wool"
+              },
+              {
+                "id": "3e",
+                "name": "Silk"
+              },
+              {
+                "id": "3f",
+                "name": "Denim"
+              }
+            ]
+          },
+          {
+            "id": "3a",
+            "name": "Color Fastness",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "7a",
+                "name": "Excellent"
+              },
+              {
+                "id": "7b",
+                "name": "Good"
+              },
+              {
+                "id": "7c",
+                "name": "Fair"
+              },
+              {
+                "id": "7d",
+                "name": "Poor"
+              }
+            ]
+          },
+          {
+            "id": "3b",
+            "name": "Care Instructions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "8a",
+                "name": "Machine Washable"
+              },
+              {
+                "id": "8b",
+                "name": "Hand Wash Only"
+              },
+              {
+                "id": "8c",
+                "name": "Dry Clean Only"
+              },
+              {
+                "id": "8d",
+                "name": "Do Not Wash"
+              }
+            ]
+          },
+          {
+            "id": "2c",
+            "name": "Dimensions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "6a",
+                "name": "Small"
+              },
+              {
+                "id": "6b",
+                "name": "Medium"
+              },
+              {
+                "id": "6c",
+                "name": "Large"
+              },
+              {
+                "id": "6d",
+                "name": "Extra Large"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
           "id": "1aa",
-          "name": "prop value 1a"
+          "name": "Made in Turkey"
+        },
+        {
+          "id": "3a",
+          "name": "Cotton"
+        },
+        {
+          "id": "7b",
+          "name": "Good"
+        },
+        {
+          "id": "8a",
+          "name": "Machine Washable"
+        },
+        {
+          "id": "6b",
+          "name": "Medium"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_xiaomi_phone_001",
+    "name": "Xiaomi Redmi Note 13",
+    "mainCategory": {
+      "id": "1",
+      "name": "Electronics",
+      "subs": [
+        {
+          "id": "1a",
+          "name": "Smartphones"
+        },
+        {
+          "id": "1b",
+          "name": "Laptops"
+        },
+        {
+          "id": "1c",
+          "name": "Tablets"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "1a",
+      "name": "Smartphones"
+    },
+    "brand": {
+      "id": "5",
+      "name": "Xiaomi",
+      "logo": "/uploads/brand/xiaomi.jpg"
+    },
+    "variantTypes": [
+      {
+        "id": "3",
+        "name": "Storage",
+        "values": [
+          {
+            "id": "3a",
+            "name": "64GB"
+          },
+          {
+            "id": "3b",
+            "name": "128GB"
+          },
+          {
+            "id": "3c",
+            "name": "256GB"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2a",
+            "name": "Black"
+          },
+          {
+            "id": "2c",
+            "name": "Red"
+          },
+          {
+            "id": "2d",
+            "name": "Blue"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3a",
+            "name": "64GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "8999",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3b",
+            "name": "128GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "9999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3c",
+            "name": "256GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "11499",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3a",
+            "name": "64GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "8999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3b",
+            "name": "128GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2c",
+            "name": "Red"
+          }
+        ],
+        "price": "9999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Storage",
+            "id": "3a",
+            "name": "64GB"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "8999",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/xiaomi_redmi_note_13_1.webp",
+      "/uploads/product/xiaomi_redmi_note_13_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "3",
+        "name": "Electronics Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1b",
+            "name": "Waterproof",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "2a",
+                "name": "Not Waterproof"
+              },
+              {
+                "id": "2b",
+                "name": "Water Resistant"
+              },
+              {
+                "id": "2c",
+                "name": "Waterproof (IPX4)"
+              },
+              {
+                "id": "2d",
+                "name": "Waterproof (IPX7)"
+              },
+              {
+                "id": "2e",
+                "name": "Waterproof (IPX8)"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "4b",
+            "name": "Compatibility",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "11a",
+                "name": "Universal"
+              },
+              {
+                "id": "11b",
+                "name": "iOS Compatible"
+              },
+              {
+                "id": "11c",
+                "name": "Android Compatible"
+              },
+              {
+                "id": "11d",
+                "name": "Windows Compatible"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1bb",
+          "name": "Made in China"
+        },
+        {
+          "id": "2c",
+          "name": "Waterproof (IPX4)"
+        },
+        {
+          "id": "4b",
+          "name": "1 Year"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "11c",
+          "name": "Android Compatible"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_columbia_jacket_001",
+    "name": "Columbia Waterproof Rain Jacket",
+    "mainCategory": {
+      "id": "7",
+      "name": "Sports & Outdoor",
+      "subs": [
+        {
+          "id": "7a",
+          "name": "Fitness Equipment"
+        },
+        {
+          "id": "7b",
+          "name": "Camping & Hiking"
+        },
+        {
+          "id": "7c",
+          "name": "Team Sports"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "7b",
+      "name": "Camping & Hiking"
+    },
+    "brand": {
+      "id": "11",
+      "name": "Columbia",
+      "logo": "/uploads/brand/columbia.webp"
+    },
+    "variantTypes": [
+      {
+        "id": "1",
+        "name": "Size",
+        "values": [
+          {
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "id": "1e",
+            "name": "XL"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2d",
+            "name": "Blue"
+          },
+          {
+            "id": "2j",
+            "name": "Gray"
+          },
+          {
+            "id": "2a",
+            "name": "Black"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "4999",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "4999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2d",
+            "name": "Blue"
+          }
+        ],
+        "price": "5299",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "4999",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "4999",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/columbia_jacket_1.webp",
+      "/uploads/product/columbia_jacket_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "6",
+        "name": "Sports & Outdoor Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1b",
+            "name": "Waterproof",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "2a",
+                "name": "Not Waterproof"
+              },
+              {
+                "id": "2b",
+                "name": "Water Resistant"
+              },
+              {
+                "id": "2c",
+                "name": "Waterproof (IPX4)"
+              },
+              {
+                "id": "2d",
+                "name": "Waterproof (IPX7)"
+              },
+              {
+                "id": "2e",
+                "name": "Waterproof (IPX8)"
+              }
+            ]
+          },
+          {
+            "id": "1c",
+            "name": "Material",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "3a",
+                "name": "Cotton"
+              },
+              {
+                "id": "3b",
+                "name": "Polyester"
+              },
+              {
+                "id": "3c",
+                "name": "Leather"
+              },
+              {
+                "id": "3d",
+                "name": "Wool"
+              },
+              {
+                "id": "3e",
+                "name": "Silk"
+              },
+              {
+                "id": "3f",
+                "name": "Denim"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "2b",
+            "name": "Weight",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "5a",
+                "name": "Light (< 1kg)"
+              },
+              {
+                "id": "5b",
+                "name": "Medium (1-5kg)"
+              },
+              {
+                "id": "5c",
+                "name": "Heavy (5-10kg)"
+              },
+              {
+                "id": "5d",
+                "name": "Very Heavy (> 10kg)"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1dd",
+          "name": "Made in USA"
+        },
+        {
+          "id": "2d",
+          "name": "Waterproof (IPX7)"
+        },
+        {
+          "id": "3b",
+          "name": "Polyester"
+        },
+        {
+          "id": "9a",
+          "name": "CE Certified"
+        },
+        {
+          "id": "5a",
+          "name": "Light (< 1kg)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_nivea_cream_001",
+    "name": "Nivea Soft Moisturizing Cream",
+    "mainCategory": {
+      "id": "8",
+      "name": "Beauty & Personal Care",
+      "subs": [
+        {
+          "id": "8a",
+          "name": "Skin Care"
+        },
+        {
+          "id": "8b",
+          "name": "Hair Care"
+        },
+        {
+          "id": "8c",
+          "name": "Makeup"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "8a",
+      "name": "Skin Care"
+    },
+    "brand": {
+      "id": "14",
+      "name": "Nivea",
+      "logo": "/uploads/brand/nivea.jpg"
+    },
+    "variantTypes": [
+      {
+        "id": "6",
+        "name": "Capacity",
+        "values": [
+          {
+            "id": "6a",
+            "name": "1L"
+          },
+          {
+            "id": "6b",
+            "name": "2L"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Capacity",
+            "id": "6a",
+            "name": "1L"
+          }
+        ],
+        "price": "79",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Capacity",
+            "id": "6b",
+            "name": "2L"
+          }
+        ],
+        "price": "129",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/nivea_cream_1.webp",
+      "/uploads/product/nivea_cream_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "7",
+        "name": "Beauty & Personal Care Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "3c",
+            "name": "Certification",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "9a",
+                "name": "CE Certified"
+              },
+              {
+                "id": "9b",
+                "name": "ISO Certified"
+              },
+              {
+                "id": "9c",
+                "name": "FDA Approved"
+              },
+              {
+                "id": "9d",
+                "name": "Organic Certified"
+              }
+            ]
+          },
+          {
+            "id": "2a",
+            "name": "Warranty",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "4a",
+                "name": "6 Months"
+              },
+              {
+                "id": "4b",
+                "name": "1 Year"
+              },
+              {
+                "id": "4c",
+                "name": "2 Years"
+              },
+              {
+                "id": "4d",
+                "name": "3 Years"
+              },
+              {
+                "id": "4e",
+                "name": "5 Years"
+              }
+            ]
+          },
+          {
+            "id": "2c",
+            "name": "Dimensions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "6a",
+                "name": "Small"
+              },
+              {
+                "id": "6b",
+                "name": "Medium"
+              },
+              {
+                "id": "6c",
+                "name": "Large"
+              },
+              {
+                "id": "6d",
+                "name": "Extra Large"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1cc",
+          "name": "Made in Germany"
+        },
+        {
+          "id": "9c",
+          "name": "FDA Approved"
+        },
+        {
+          "id": "4a",
+          "name": "6 Months"
+        },
+        {
+          "id": "6b",
+          "name": "Medium"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prod_hm_jeans_001",
+    "name": "H&M Slim Fit Jeans",
+    "mainCategory": {
+      "id": "2",
+      "name": "Clothing",
+      "subs": [
+        {
+          "id": "2a",
+          "name": "T-Shirts"
+        },
+        {
+          "id": "2b",
+          "name": "Shirts"
+        },
+        {
+          "id": "2c",
+          "name": "Jeans"
+        }
+      ]
+    },
+    "subCategory": {
+      "id": "2c",
+      "name": "Jeans"
+    },
+    "brand": {
+      "id": "9",
+      "name": "H&M",
+      "logo": "/uploads/brand/hm.jpg"
+    },
+    "variantTypes": [
+      {
+        "id": "1",
+        "name": "Size",
+        "values": [
+          {
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "id": "1e",
+            "name": "XL"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Color",
+        "values": [
+          {
+            "id": "2a",
+            "name": "Black"
+          },
+          {
+            "id": "2j",
+            "name": "Gray"
+          },
+          {
+            "id": "2k",
+            "name": "Brown"
+          }
+        ]
+      }
+    ],
+    "variantProducts": [
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "799",
+        "isDefault": true
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "799",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1d",
+            "name": "L"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "799",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1e",
+            "name": "XL"
+          },
+          {
+            "typeName": "Color",
+            "id": "2a",
+            "name": "Black"
+          }
+        ],
+        "price": "849",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1b",
+            "name": "S"
+          },
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "799",
+        "isDefault": false
+      },
+      {
+        "variantValues": [
+          {
+            "typeName": "Size",
+            "id": "1c",
+            "name": "M"
+          },
+          {
+            "typeName": "Color",
+            "id": "2j",
+            "name": "Gray"
+          }
+        ],
+        "price": "799",
+        "isDefault": false
+      }
+    ],
+    "images": [
+      "/uploads/product/hm_jeans_1.webp",
+      "/uploads/product/hm_jeans_2.webp"
+    ],
+    "properties": {
+      "propertyList": {
+        "id": "2",
+        "name": "Clothing Properties",
+        "props": [
+          {
+            "id": "1a",
+            "name": "Origin",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "1aa",
+                "name": "Made in Turkey"
+              },
+              {
+                "id": "1bb",
+                "name": "Made in China"
+              },
+              {
+                "id": "1cc",
+                "name": "Made in Germany"
+              },
+              {
+                "id": "1dd",
+                "name": "Made in USA"
+              },
+              {
+                "id": "1ee",
+                "name": "Made in Italy"
+              }
+            ]
+          },
+          {
+            "id": "1c",
+            "name": "Material",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "3a",
+                "name": "Cotton"
+              },
+              {
+                "id": "3b",
+                "name": "Polyester"
+              },
+              {
+                "id": "3c",
+                "name": "Leather"
+              },
+              {
+                "id": "3d",
+                "name": "Wool"
+              },
+              {
+                "id": "3e",
+                "name": "Silk"
+              },
+              {
+                "id": "3f",
+                "name": "Denim"
+              }
+            ]
+          },
+          {
+            "id": "3a",
+            "name": "Color Fastness",
+            "isFilterItem": true,
+            "values": [
+              {
+                "id": "7a",
+                "name": "Excellent"
+              },
+              {
+                "id": "7b",
+                "name": "Good"
+              },
+              {
+                "id": "7c",
+                "name": "Fair"
+              },
+              {
+                "id": "7d",
+                "name": "Poor"
+              }
+            ]
+          },
+          {
+            "id": "3b",
+            "name": "Care Instructions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "8a",
+                "name": "Machine Washable"
+              },
+              {
+                "id": "8b",
+                "name": "Hand Wash Only"
+              },
+              {
+                "id": "8c",
+                "name": "Dry Clean Only"
+              },
+              {
+                "id": "8d",
+                "name": "Do Not Wash"
+              }
+            ]
+          },
+          {
+            "id": "2c",
+            "name": "Dimensions",
+            "isFilterItem": false,
+            "values": [
+              {
+                "id": "6a",
+                "name": "Small"
+              },
+              {
+                "id": "6b",
+                "name": "Medium"
+              },
+              {
+                "id": "6c",
+                "name": "Large"
+              },
+              {
+                "id": "6d",
+                "name": "Extra Large"
+              }
+            ]
+          }
+        ]
+      },
+      "productPropertyValues": [
+        {
+          "id": "1bb",
+          "name": "Made in China"
+        },
+        {
+          "id": "3f",
+          "name": "Denim"
+        },
+        {
+          "id": "7b",
+          "name": "Good"
+        },
+        {
+          "id": "8a",
+          "name": "Machine Washable"
+        },
+        {
+          "id": "6b",
+          "name": "Medium"
         }
       ]
     }

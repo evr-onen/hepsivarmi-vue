@@ -45,7 +45,7 @@
           label="Slider Images"
           :required="true"
       />
-      <ImageViewer v-else :images="updateProductForm.images" @deleteImages="deleteImagesHandler" />
+      <ImageViewer v-else :images="updateProductForm.images" @delete-images="deleteImagesHandler" />
     </div>
     <div class="variants">
       <Multiselect
@@ -77,12 +77,11 @@
           <Select
               v-for="(_, i) in updateProductForm.variantTypes"
               :key="i"
-              v-model="selectedVariantValues[n]"
+              v-model="updateProductForm.variantProducts[n].variantValues[i]"
               :label="updateProductForm.variantTypes[i]?.name || ''"
               :options="toRaw(updateProductForm.variantTypes[i].values)"
               option-label="name"
               option-value="id"
-              @on-select="setVariantValues(n, i, toRaw({ typeName: updateProductForm.variantTypes[i].name, valueName: toRaw(selectedVariantValues[n].name) }))"
           />
         </div>
 
@@ -165,19 +164,12 @@ onMounted(() => {
   onGetVariants()
   onGetPropertyLists()
 })
-type SelectedVariantValuesType = {
-  id: string,
-  name: string
-}
+
 type ImageType = 'file' | 'url'
 // vars
 const imageType = ref<ImageType>('url')
-const selectedVariantValues = ref<SelectedVariantValuesType[]>([])
 const productVariantsQuantity = ref(updateProductForm.value.variantProducts.length)
 
-const setVariantValues = (index: number, valueIndex: number, variantValues = { typeName: '', valueName: '' }) => {
-  updateProductForm.value.variantProducts[index].variantValues[valueIndex] = toRaw(variantValues)
-}
 const subOptions = computed(() => {
   if (updateProductForm.value.mainCategory) {
     const index = allCategories.value.findIndex((mainItem: ICategory) => mainItem.id === updateProductForm.value.mainCategory.id)

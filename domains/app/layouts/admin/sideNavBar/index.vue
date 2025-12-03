@@ -25,35 +25,38 @@ const toggleMenu = () => {
 </script>
 
 <style scoped>
-.admin-layout{
+.admin-layout {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: flex-end;
 }
-.admin-content{
+
+.admin-content {
     width: 100%;
     height: 100vh;
     transition: all 0.3s ease-in-out;
     background-color: #f3f3f9;
 
-    .content{
+    .content {
         width: 100%;
         padding: 1.25rem;
         overflow-y: auto;
 
-        > .card-content{
+        >.card-content {
             background-color: white;
             width: 100%;
             height: 100%;
             border: 1px solid rgb(233, 233, 233);
-            height: calc(100vh - 6.25rem);
+            max-height: calc(100vh - 6.25rem);
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
             padding: 1.25rem;
+            overflow-y: auto;
         }
     }
 }
-.admin-content.active{
+
+.admin-content.active {
     width: calc(100% - 18.75rem);
 }
 </style>

@@ -1,47 +1,44 @@
-import { categoryRepo } from '~/domains/category/infrastructure/categoryStorage'
-import type {ICategory} from "~/domains/category/types/categoryTypes";
+import { brandRepo } from '~/domains/brand/infrastructure/brandStorage'
+import type {IBrand} from "~/domains/brand/types/brandTypes";
 
 export default defineEventHandler(async () => {
 
 
-    const resetCategories: ICategory[] = [
-        { id: '1', name: "test 1", subs: [
-            {id:'1a', name:'test value 1a'},
-            {id:'1b', name:'test value 1b'},
-            {id:'1c', name:'test value 1c'},
-            ]
-        },
-        { id: '2', name: "test 2", subs: [
-            {id:'2a', name:'test value 2a'},
-            {id:'2b', name:'test value 2b'},
-            {id:'2c', name:'test value 2c'},
-            ]
-        },
-        { id: '3', name: "test 3", subs: [
-            {id:'3a', name:'test value 3a'},
-            {id:'3b', name:'test value 3b'},
-            {id:'3c', name:'test value 3c'},
-            ]
-        },
-        { id: '4', name: "test 4", subs: [
-            {id:'4a', name:'test value 4a'},
-            {id:'4b', name:'test value 4b'},
-            {id:'4c', name:'test value 4c'},
-            ]
-        },
-        { id: '5', name: "test 5", subs: [
-            {id:'5a', name:'test value 5a'},
-            {id:'5b', name:'test value 5b'},
-            {id:'5c', name:'test value 5c'},
-            ]
-        },
+    const resetBrands: IBrand[] = [
+        // Electronics
+        { id: '1', name: "Apple", logo: "/uploads/brand/apple.png" },
+        { id: '2', name: "Samsung", logo: "/uploads/brand/samsung.png" },
+        { id: '3', name: "Sony", logo: "/uploads/brand/sony.png" },
+        { id: '4', name: "LG", logo: "/uploads/brand/lg.png" },
+        { id: '5', name: "Xiaomi", logo: "/uploads/brand/xiaomi.jpg" },
+
+        // Clothing / Fashion
+        { id: '6', name: "Nike", logo: "/uploads/brand/nike.jpg" },
+        { id: '7', name: "Adidas", logo: "/uploads/brand/adidas.jpg" },
+        { id: '8', name: "Zara", logo: "/uploads/brand/zara.jpg" },
+        { id: '9', name: "H&M", logo: "/uploads/brand/hm.jpg" },
+
+        // Sports & Outdoor
+        { id: '10', name: "The North Face", logo: "/uploads/brand/thenorthface.png" },
+        { id: '11', name: "Columbia", logo: "/uploads/brand/columbia.webp" },
+
+        // Home & Furniture
+        { id: '12', name: "IKEA", logo: "/uploads/brand/ikea.png" },
+
+        // Beauty & Personal Care
+        { id: '13', name: "L'Oreal", logo: "/uploads/brand/loreal.png" },
+        { id: '14', name: "Nivea", logo: "/uploads/brand/nivea.jpg" },
+
+        // Automotive / Tools
+        { id: '15', name: "Bosch", logo: "/uploads/brand/bosch.jpg" },
+        { id: '16', name: "Castrol", logo: "/uploads/brand/castrol.png" },
     ]
-    await categoryRepo.save(resetCategories)
+    await brandRepo.save(resetBrands)
 
 
     return {
         success: true,
-        data: resetCategories,
+        data: resetBrands,
         message: "success",
 
     }

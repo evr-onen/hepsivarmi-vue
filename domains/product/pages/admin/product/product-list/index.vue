@@ -274,6 +274,7 @@ const getVariantName = (variant_id: string) => {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    height: auto;
 
     .content-top {
       display: flex;
