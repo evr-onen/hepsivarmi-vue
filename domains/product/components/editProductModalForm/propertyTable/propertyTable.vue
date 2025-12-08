@@ -8,6 +8,9 @@ interface IPropertyTable {
   properties: IPropertyList
 }
 
+defineOptions({
+  name: 'EditPropertyTable'
+})
 defineProps<IPropertyTable>()
 
 </script>

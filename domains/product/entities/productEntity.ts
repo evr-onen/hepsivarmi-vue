@@ -12,7 +12,7 @@ import type {
 
 export const ProductEntity = (form:IProduct): IProduct => {
     return structuredClone({
-        id                      : form.id,
+        id                      : form.id || '',
         name                    : form.name || "",
         mainCategory            : form.mainCategory || {},
         subCategory             : form.subCategory || {},

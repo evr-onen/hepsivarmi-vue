@@ -6,6 +6,9 @@ import Select from "~/domains/app/components/form/Select/index.vue";
 interface IPropertyTable {
   properties: IPropertyList
 }
+defineOptions({
+  name: 'CreatePropertyTable'
+})
 
 const props = defineProps<IPropertyTable>()
 

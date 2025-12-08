@@ -1,9 +1,11 @@
 // import {AxiosError} from "axios";
+import { ProductEntity } from "../entities/productEntity";
 import useProductService from "../services/useProductService";
 import useProductFormValidation from "../validations/useProductFormValidation";
 import {defineStore} from "pinia";
 import {
     allProducts,
+    singleProduct,
     getProductErrors,
     createProductForm,
     updateProductForm,
@@ -23,6 +25,7 @@ const useProductStore = defineStore('ProductStore', () => {
 
     const {
         getAllAction,
+        getAction,
         resetAction,
         createAction,
         updateAction,
@@ -49,6 +52,20 @@ const useProductStore = defineStore('ProductStore', () => {
         await getAllAction((response)=>{
                     if(response.data.success) {
                         allProducts.value = structuredClone(response.data.data)
+                        successAction?.()
+
+                    }else{
+                        getProductErrors.value = response.data.data.messages
+                    }
+        })
+        isGetActionLoading.value = false;
+    }
+
+    const getProduct = async(productId: string, successAction?:()=> void) => {
+        isGetActionLoading.value = true;
+        await getAction( productId, (response)=>{
+                    if(response.data.success) {
+                        singleProduct.value = ProductEntity(toRaw(response.data.data))
                         successAction?.()
 
                     }else{
@@ -132,6 +149,7 @@ const useProductStore = defineStore('ProductStore', () => {
     return {
         resetProducts,
         getProducts,
+        getProduct,
         createProduct,
         updateProduct,
         deleteProduct,

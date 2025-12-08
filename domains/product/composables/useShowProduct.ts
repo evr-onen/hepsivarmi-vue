@@ -7,8 +7,13 @@ const useShowProduct = () => {
         await store.getProducts()
     }
 
+    const onGetProduct = async(productId: string) => {
+        await store.getProduct(productId)
+    }
+
     return {
         onGetProducts,
+        onGetProduct
     }
 }
 

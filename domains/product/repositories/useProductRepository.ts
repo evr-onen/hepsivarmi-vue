@@ -9,7 +9,7 @@ import buildFormData from "~/domains/app/utils/buildFormData";
 const useProductRepository = () => {
     const { request, setBaseURL } = useAxios();
     const baseURL = 'http://localhost:3000/api/';
-    const endpoint = "product"
+    const endpoint = "product/"
 
     if (baseURL) setBaseURL(baseURL);
 
@@ -17,7 +17,13 @@ const useProductRepository = () => {
         return await request({
             type: 'get',
             endpoint: `${endpoint}`,
+        })
+    }
 
+    const get = async (productId: string): Promise<AxiosResponse>  => {
+        return await request({
+            type: 'get',
+            endpoint: `${endpoint}${productId}`,
         })
     }
 
@@ -66,6 +72,7 @@ const useProductRepository = () => {
 
     return {
         getAll,
+        get,
         reset,
         create,
         update,

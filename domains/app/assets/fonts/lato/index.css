@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Thin.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+@font-face {
+    font-family: 'Lato';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Lato';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Semi Condensed */
+  @font-face {
+    font-family: 'Lato-SemiCondensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-SemiCondensed-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-SemiCondensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-SemiCondensed-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-SemiCondensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-SemiCondensed-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-SemiCondensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-SemiCondensed-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-SemiCondensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-SemiCondensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Condensed */
+  @font-face {
+    font-family: 'Lato-Condensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Condensed-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-Condensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Condensed-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-Condensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Condensed-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-Condensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Condensed-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato-Condensed';
+    src: url('@/domains/app/assets/fonts/lato/Lato-Condensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }

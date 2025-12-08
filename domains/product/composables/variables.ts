@@ -2,7 +2,7 @@ import {createInlineAlert} from "~/domains/app/entities/InlineAlertEntity";
 import {
     createProductErrorsEntity,
     createProductFormEntity,
-    deleteProductErrorsEntity, deleteProductFormEntity, updateProductErrorsEntity, updateProductFormEntity,
+    deleteProductErrorsEntity, deleteProductFormEntity, ProductEntity, updateProductErrorsEntity, updateProductFormEntity,
 } from "~/domains/product/entities/productEntity";
 
 import type {
@@ -31,4 +31,6 @@ export const createProductFormErrors = ref<TErrorBag>(createProductErrorsEntity(
 export const updateProductFormErrors = ref<TErrorBag>(updateProductErrorsEntity())
 export const deleteProductFormErrors = ref<TErrorBag>(deleteProductErrorsEntity())
 
+// single product
+export const singleProduct = ref<IProduct>(ProductEntity({} as IProduct))
 
