@@ -2,7 +2,7 @@
 import type { IUserRegisterForm } from "../types/accountTypes";
 import useAuthService from "../services/useAuthService";
 import  useUserFormValidation from "../validations/useUserFormValidation";
-import {createAuthUserEntity, createAuthUserLoginFormErrorsEntity} from "~/domains/auth/entities/AuthEntity";
+import {createAuthUserEntity, createAuthUserLoginFormErrorsEntity, authUserEntity} from "~/domains/auth/entities/AuthEntity";
 
 const useAuthStore = defineStore('AuthStore', () => {
     const router = useRouter();
@@ -130,7 +130,7 @@ const useAuthStore = defineStore('AuthStore', () => {
             if(token.value){
                 await getUserAction(token.value!, (response)=>{
                     if(response.data.success && response.data.data?.user) {
-                        user.value = createAuthUserEntity(response.data.data.user);
+                        user.value = authUserEntity(response.data.data.user);
                     } else {
                         // Token invalid or user not found
                         clearAll();
@@ -148,7 +148,6 @@ const useAuthStore = defineStore('AuthStore', () => {
             isGetUserPending.value = false;
         }
     }
-
     
     const onLogout = async () => {
         try {

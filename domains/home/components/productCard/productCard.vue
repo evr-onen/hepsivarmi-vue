@@ -1,10 +1,29 @@
 <script setup lang="ts">
 import type { IProduct } from '~/domains/product/types/productTypes';
+import useCreateWishlist from '~/domains/wishlist/composables/useCreateWishlist';
+import useDeleteWishlist from '~/domains/wishlist/composables/useDeleteWishlist';
 interface IProductCardProps {
     productData: IProduct;
+    isInWishlist: boolean;
 }
 
-defineProps<IProductCardProps>();
+const props = defineProps<IProductCardProps>();
+
+// hooks
+const { onCreateWishlist } = useCreateWishlist();
+const { onDeleteWishlist } = useDeleteWishlist();
+
+
+
+// handlers
+const addRemoveWishlistToggleHandler = async () => {
+    if (props.isInWishlist) {
+        await onDeleteWishlist(props.productData.id);
+    } else {
+        await onCreateWishlist(props.productData.id);
+    }
+}
+
 </script>
 
 <template>
@@ -13,8 +32,9 @@ defineProps<IProductCardProps>();
             <div class="hover-content-container">
                 <p class="product-description">Placerat tempor dolor eu leo ullamcorper et magnis habitant ultrices consectetur</p>
                 <div class="buttons">
-                    <div>
-                        <Icon name="solar:heart-linear" class="icon" />
+                    <div @click.stop="addRemoveWishlistToggleHandler">
+                        <Icon v-if="!isInWishlist" name="solar:heart-linear" class="icon" />
+                        <Icon v-else name="solar:heart-bold" class="icon-filled" />
                     </div>
                     <div>
                         <Icon name="solar:bag-outline" class="icon" />
@@ -132,6 +152,10 @@ defineProps<IProductCardProps>();
                     color: #333333;
                     cursor: pointer;
                     transition: 200ms;
+                }
+
+                .icon-filled {
+                    color: rgb(230, 82, 37);
                 }
 
                 &:hover {

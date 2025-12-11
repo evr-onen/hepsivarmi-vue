@@ -6,9 +6,9 @@
                     v-if="isOpen"
                     ref="modalOverlayRef"
                     class="modal-overlay overlayBG"
-                    @click.self="()=>overlayClose && closeModal()"
+                    @click.self="() => overlayClose && closeModal()"
                 >
-                    <div class="modal" :style="{width: widthValue}">
+                    <div class="modal" :style="{ width: widthValue }">
                         <div class="modal__header">
                             <slot v-if="$slots.header" name='header'/>
                             <h4 v-else>{{ title }}</h4>
@@ -22,7 +22,7 @@
                             <slot />
                         </div>
                         <div class="modal__footer">
-                            <slot v-if="$slots.footer" name='footer' v-bind="{closeModal}"/>
+                            <slot v-if="$slots.footer" name='footer' v-bind="{ closeModal }"/>
                         </div>
                     </div>
                 </div>
@@ -34,24 +34,26 @@
 <script setup lang="ts">
 // Component name
 defineOptions({
-  name: 'OverlayModal'
+    name: 'OverlayModal'
 })
 const modalOverlayRef = ref(null)
-const props =  withDefaults(defineProps<{
-    title           ?: string
-    width           ?: 'sm' | 'md' | 'lg' | 'xl' | 'full',
-    overlayClose    ?: boolean
+const props = withDefaults(defineProps<{
+    title?: string
+    width?: 'sm' | 'md' | 'lg' | 'xl' | 'full' | 'auto',
+    overlayClose?: boolean
 }>(), {
-    title               : '',
-    width               : 'md',
-    overlayClose        : true,
+    title: '',
+    width: 'md',
+    overlayClose: true,
 })
 const isOpen = defineModel<boolean>('modelValue')
-const closeModal = ()=> isOpen.value = false
+const closeModal = () => isOpen.value = false
 
 
-const widthValue = computed(()=>{
-    switch(props.width){
+const widthValue = computed(() => {
+    switch (props.width) {
+        case 'auto':
+            return 'auto'
         case 'sm':
             return '30%'
         case 'md':
@@ -67,18 +69,20 @@ const widthValue = computed(()=>{
     }
 })
 const isFirstOverlay = computed(() => {
-  // Eğer DOM'da başka overlay yoksa → bu ilk modal
-  return !document.querySelector('.modal-overlay')
+    // Eğer DOM'da başka overlay yoksa → bu ilk modal
+    return !document.querySelector('.modal-overlay')
 })
 </script>
 
 <style scoped>
 /* Modal transition animations */
-.modal-enter-active, .modal-leave-active {
+.modal-enter-active,
+.modal-leave-active {
     transition: opacity 0.3s ease;
 }
 
-.modal-enter-from, .modal-leave-to {
+.modal-enter-from,
+.modal-leave-to {
     opacity: 0;
 }
 
@@ -101,7 +105,7 @@ const isFirstOverlay = computed(() => {
     justify-content: center;
     align-items: center;
 
-    .modal{
+    .modal {
         background-color: #fff;
         height: auto;
 
@@ -109,19 +113,20 @@ const isFirstOverlay = computed(() => {
         padding-inline: 10px;
 
 
-        .modal__header{
+        .modal__header {
             display: flex;
             justify-content: space-between;
             height: 50px;
             padding: 10px;
             border-bottom: 1px solid #e0e0e0;
 
-            h4{
+            h4 {
                 font-size: 18px;
                 font-weight: 600;
                 color: #000;
             }
-            .closeIcon{
+
+            .closeIcon {
                 color: #000;
                 cursor: pointer;
                 font-size: 20px;
@@ -133,18 +138,21 @@ const isFirstOverlay = computed(() => {
                 height: 30px;
                 transition: all 0.3s ease;
             }
-            .closeIcon:hover{
+
+            .closeIcon:hover {
                 background-color: #e0e0e0;
             }
         }
-        .modal__container{
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          max-height: 80vh;
-          overflow-y: auto;
+
+        .modal__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            max-height: 80vh;
+            overflow-y: auto;
         }
-        .modal__footer{
+
+        .modal__footer {
             display: flex;
             width: 100%;
             border-top: 1px solid #e0e0e0;
@@ -152,13 +160,14 @@ const isFirstOverlay = computed(() => {
             justify-content: flex-end;
             gap: 10px;
 
-            .footer-button{
+            .footer-button {
                 display: flex;
             }
         }
     }
 }
-.overlayBG{
-  background-color : rgba(0, 0, 0, 0.5);
+
+.overlayBG {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 </style>

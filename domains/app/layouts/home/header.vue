@@ -60,8 +60,11 @@
                     <!-- <div class="profile">
                         <Icon name="solar:user-outline" class="profile-icon" />
                     </div> -->
-                    <div class="heart">
-                        <Icon name="solar:heart-linear" class="icon" />
+                    <div class="heart" @click.stop="wishlistModal = true">
+                        <div class="icon">
+                            <Icon name="solar:heart-linear" class="icon" />
+                            <p>{{ wishlistCount }}</p>
+                        </div>
                     </div>
                     <div class="compare">
                         <Icon name="ion:git-compare-outline" class="icon" />
@@ -79,6 +82,9 @@
         <div class="header-bottom">
             
         </div>
+        <Modal v-model="wishlistModal" title="Wishlist Products" width="auto" class="wishlist-modal">
+            <ShowModalWishlist />
+        </Modal>
     </div>
 </template>
 
@@ -86,10 +92,21 @@
 import NavMenu from './components/navMenu/navMenu.vue';
 import Button from '~/domains/app/components/form/Button/index.vue'
 import Dropdown from '~/domains/app/components/form/Dropdown/index.vue'
-const authStore = useAuthStore();
+import { allWishlistsByUser } from '~/domains/wishlist/composables/variables'
+import useShowWishlist from '~/domains/wishlist/composables/useShowWishlist';
+import useAuthStore from '~/domains/auth/stores/useAuthStore';
+import ShowModalWishlist from '~/domains/wishlist/components/showModalWishlist/showModalWishlist.vue';
 
+const authStore = useAuthStore();
+const { onGetWishlistsByUser } = useShowWishlist();
 const isLoggedIn = computed(() => authStore.isLoggedIn);
 
+if (authStore.user.id) {
+    onGetWishlistsByUser()
+}
+
+const wishlistCount = computed(() => allWishlistsByUser.value.length);
+const wishlistModal = ref(false);
 </script>
 
 <style lang="scss" scoped>
@@ -310,7 +327,8 @@ const isLoggedIn = computed(() => authStore.isLoggedIn);
                     }
                 }
 
-                .cart {
+                .cart,
+                .heart {
                     display: flex;
                     align-items: center;
                     justify-content: center;

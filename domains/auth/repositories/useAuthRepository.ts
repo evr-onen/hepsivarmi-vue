@@ -36,7 +36,7 @@ const useAuthRepository = () => {
         return await request({
             type: 'post',
             endpoint: `${endpoint}/me`,
-            payload: token
+            payload: { token }
         })
     }
 

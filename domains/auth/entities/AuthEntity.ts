@@ -1,3 +1,11 @@
+export const authUserEntity = (User:Partial<IUser>): Partial<IUser> => {
+    return structuredClone({
+        id: User.id || "",
+        name: User.name || "",
+        email: User.email || "",
+    })
+}
+
 
 export const createAuthUserEntity = (User:Partial<IUser>): Partial<IUser> => {
     return structuredClone({

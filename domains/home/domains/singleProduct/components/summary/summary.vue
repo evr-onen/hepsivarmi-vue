@@ -6,10 +6,20 @@ import NumberInput from '~/domains/app/components/form/NumberInput/index.vue';
 import Button from '~/domains/app/components/form/Button/index.vue';
 import StarRating from '~/domains/app/components/ui/starRating/index.vue';
 import { allCommentsByProduct } from '~/domains/comment/composables/variables';
+import useAddCompare from '~/domains/compare/composables/useAddCompare';
+import useRemoveCompare from '~/domains/compare/composables/useRemoveCompare';
+import type { ICompareCookie } from '~/domains/compare/types/compareTypes';
+
 
 const selectedVariants = ref<Record<string, string>>({});
 const variantProductData = ref();
 const quantity = ref(1);
+
+//hooks 
+const compareProductCookie = useCookie<ICompareCookie>('compare_products');
+const { onCreateCompare } = useAddCompare();
+const { onRemoveCompare } = useRemoveCompare();
+
 
 const getVariantData = () => {
     return singleProduct.value.variantProducts.map((variant) => {
@@ -35,6 +45,18 @@ const breadcrumbItems = computed(() => {
 const rating = computed(() => {
     return allCommentsByProduct.value.reduce((acc, comment) => acc + comment.rating, 0) / allCommentsByProduct.value.length;
 })
+
+// handlers
+
+const addRemoveCompareHandler = () => {
+    if (!compareProductCookie.value?.products.includes(singleProduct.value.id)) {
+        onCreateCompare(singleProduct.value);
+    } else {
+        onRemoveCompare(singleProduct.value.id);
+    }
+
+}
+
 
 watch(selectedVariants, () => {
     getVariantData();
@@ -78,7 +100,7 @@ watch(selectedVariants, () => {
                     <Icon name="solar:heart-outline" class="icon" />
                     </template>
                 </Button>
-                <Button class="add-to-compare" color="primary" severity="gradient">
+                <Button class="add-to-compare" color="primary" severity="gradient" @click.stop="addRemoveCompareHandler()">
                     <template #icon>
                         <Icon name="ion:git-compare-outline" class="icon" />
                     </template>

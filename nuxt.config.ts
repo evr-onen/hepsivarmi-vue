@@ -20,6 +20,8 @@ export default defineNuxtConfig({
     './domains/image',
     './domains/brand',
     './domains/comment',
+    './domains/wishlist',
+    './domains/compare',
 ],
 
   css: [

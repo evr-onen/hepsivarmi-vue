@@ -1,33 +1,32 @@
 import {
-    commentCreateFormEntity,
-    commentUpdateFormEntity,
-    commentDeleteFormEntity,
-    createCommentErrorsEntity,
-    updateCommentErrorsEntity,
-    deleteCommentErrorsEntity,
-    commentGetFormByProductEntity,
-    commentGetFormEntity,
-} from "../entities/commentEntity"
-import type { IComment, ICommentCreateForm, ICommentDeleteForm, ICommentGetForm, ICommentGetFormByProduct, ICommentUpdateForm } from "../types/commentTypes"
+    wishlistGetFormByUserEntity,
+    wishlistCreateFormEntity,
+    wishlistUpdateFormEntity,
+    wishlistDeleteFormEntity,
+    createWishlistErrorsEntity,
+    updateWishlistErrorsEntity,
+    deleteWishlistErrorsEntity,
+
+} from "../entities/wishlistEntity"
+import type { IWishlist, IWishlistCreateForm, IWishlistDeleteForm, IWishlistGetFormByUser, IWishlistUpdateForm } from "../types/wishlistTypes"
 import { createInlineAlert } from "~/domains/app/entities/InlineAlertEntity"
 
 
-export const allCommentsByProduct = ref<IComment[]>([])
-export const commentFormInlineAlert = ref<IInlineMessage>(createInlineAlert());
+export const allWishlistsByUser = ref<IWishlist[]>([])
+export const wishlistFormInlineAlert = ref<IInlineMessage>(createInlineAlert());
 
 
 // forms
-export const commentGetFormByProduct = ref<ICommentGetFormByProduct>(commentGetFormByProductEntity({}))
-export const commentGetForm = ref<ICommentGetForm>(commentGetFormEntity({}))
-export const commentCreateForm = ref<ICommentCreateForm>(commentCreateFormEntity({}))
-export const commentUpdateForm = ref<ICommentUpdateForm>(commentUpdateFormEntity({}))
-export const commentDeleteForm = ref<ICommentDeleteForm>(commentDeleteFormEntity({}))
+export const wishlistGetFormByUser = ref<IWishlistGetFormByUser>(wishlistGetFormByUserEntity({}))
+export const wishlistCreateForm = ref<IWishlistCreateForm>(wishlistCreateFormEntity({}))
+export const wishlistUpdateForm = ref<IWishlistUpdateForm>(wishlistUpdateFormEntity({}))
+export const wishlistDeleteForm = ref<IWishlistDeleteForm>(wishlistDeleteFormEntity({}))
 
 // errors
-export const commentGetErrors = ref<TErrorBag>({})
-export const commentCreateErrors = ref<TErrorBag>(createCommentErrorsEntity());
-export const commentUpdateErrors = ref<TErrorBag>(updateCommentErrorsEntity());
-export const commentDeleteErrors = ref<TErrorBag>(deleteCommentErrorsEntity());
+export const wishlistGetErrors = ref<TErrorBag>({})
+export const wishlistCreateErrors = ref<TErrorBag>(createWishlistErrorsEntity());
+export const wishlistUpdateErrors = ref<TErrorBag>(updateWishlistErrorsEntity());
+export const wishlistDeleteErrors = ref<TErrorBag>(deleteWishlistErrorsEntity());
 
 
 

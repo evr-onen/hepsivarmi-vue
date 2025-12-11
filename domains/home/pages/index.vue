@@ -9,8 +9,19 @@ import useHome from '~/domains/home/composables/useHome';
 import PageBanner from '~/domains/home/components/pageBanner/index.vue';
 import Breadcrumb from '~/domains/app/components/ui/breadcrumb/index.vue';
 import Select from '~/domains/app/components/form/Select/index.vue';
-import { ProductEntity } from '~/domains/product/entities/productEntity';
 import type { IProduct } from '~/domains/product/types/productTypes';
+import { allWishlistsByUser } from '~/domains/wishlist/composables/variables'
+import useShowWishlist from '~/domains/wishlist/composables/useShowWishlist';
+import useAuthStore from '~/domains/auth/stores/useAuthStore';
+
+
+// init
+const { onGetWishlistsByUser } = useShowWishlist();
+const { user } = useAuthStore();
+if (user.id) {
+  onGetWishlistsByUser()
+}
+
 
 const { onFilterProducts, onSelectCategory } = useHome();
 const { onGetProducts, onGetProduct } = useShowProduct();
@@ -76,6 +87,12 @@ onMounted(async () => {
   filteredProducts.value = allProducts.value;
   prepareFilterItemData();
 })
+
+const isitWished = (productId: string) => {
+  return allWishlistsByUser.value.some(wishlist => {
+    return wishlist.product_id === productId && wishlist.user_id === user.id
+  })
+}
 
 const prepareFilterItemData = () => {
   let minPrice: number | null = null;
@@ -229,7 +246,7 @@ watch(priceRange, (newVal) => {
             <Breadcrumb :items="breadcrumbItems" />
           </div>
           <div class="product-list">
-            <ProductCard v-for="product in filteredProducts" :key="product.id" :product-data="product" @click="onSelectProduct(product)" />
+            <ProductCard v-for="product in filteredProducts" :key="product.id" :is-in-wishlist="isitWished(product.id)" :product-data="product" @click="onSelectProduct(product)" />
           </div>
          
         </div>

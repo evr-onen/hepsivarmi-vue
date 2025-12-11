@@ -1,8 +1,12 @@
 export default defineNuxtRouteMiddleware(async (to) => {
     const store = useAuthStore();
     const token = useCookie('token');
-    // const {$i18n} = useNuxtApp();
    
+   if (token.value && !store.user?.email) {
+    await store.onGetUser();
+    }
+
+
     // Redirect to home if already logged in and trying to access auth pages
     if (to.path === '/auth/login' || to.path === '/auth/register') {
         if (token.value) {
@@ -28,8 +32,5 @@ export default defineNuxtRouteMiddleware(async (to) => {
         return;
     }
 
-    // For other pages, only fetch user if token exists but user data is not loaded
-    if (token.value && !store.user?.email) {
-        await store.onGetUser();
-    }
+    
 });
