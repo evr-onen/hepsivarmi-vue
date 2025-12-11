@@ -1,5 +1,5 @@
 // import {AxiosError} from "axios";
-import type { IUser, IUserRegisterForm } from "../types/accountTypes";
+import type { IUserRegisterForm } from "../types/accountTypes";
 import useAuthService from "../services/useAuthService";
 import  useUserFormValidation from "../validations/useUserFormValidation";
 import {createAuthUserEntity, createAuthUserLoginFormErrorsEntity} from "~/domains/auth/entities/AuthEntity";
@@ -98,7 +98,7 @@ const useAuthStore = defineStore('AuthStore', () => {
                     if(response.data.success) {
                         console.log(response.data.data.user);
                         user.value = createAuthUserEntity(response.data.data.user);
-                        await nextTick(()=>navigateTo('/admin/dashboard'));
+                        await nextTick(()=>navigateTo('/'));
 
                     }else{
                         console.log(response.data.data.messages);
@@ -124,17 +124,20 @@ const useAuthStore = defineStore('AuthStore', () => {
     })
 
     const onGetUser = async () => {
-
         try {
             isGetUserPending.value = true;
 
-            if(token){
-                 await getUserAction(token.value!, (response)=>{
-                     user.value = response.data.data.user;
+            if(token.value){
+                await getUserAction(token.value!, (response)=>{
+                    if(response.data.success && response.data.data?.user) {
+                        user.value = createAuthUserEntity(response.data.data.user);
+                    } else {
+                        // Token invalid or user not found
+                        clearAll();
+                    }
                 });
             }else{
-                console.log(token)
-                user.value = {name:'', email:''};
+                user.value = createAuthUserEntity({name:'', email:''});
             }
         } catch (error: unknown) {
             console.log(error);

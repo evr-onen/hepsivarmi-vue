@@ -4,7 +4,7 @@
     "name": "admin",
     "email": "admin@admin.com",
     "password": "password",
-    "token": "8F8Fnkp4YgVad7vZMMXKV"
+    "token": "uzg2nxCkbZvtw0zLJ_KM_"
   },
   {
     "id": "2",
@@ -29,15 +29,16 @@
   },
   {
     "id": "maCtOjmqbOonTz5IsVlM8",
-    "name": "a",
-    "email": "b",
+    "name": "ahmed",
+    "email": "ahmed@test.com",
     "password": "1233",
     "token": "2Q5suAXZXPSVRgy8mXPWB"
   },
   {
     "id": "maCtOjmqbOonTz5IsVlM8",
-    "name": "a",
-    "email": "b",
-    "password": "1233"
+    "name": "ahmed2",
+    "email": "ahmed2@test.com",
+    "password": "1233",
+    "token": ""
   }
 ]

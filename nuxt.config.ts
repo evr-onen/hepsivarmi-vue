@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     './domains/property',
     './domains/image',
     './domains/brand',
+    './domains/comment',
 ],
 
   css: [

@@ -1,6 +1,7 @@
 <template>
   <button class="buttonStyle" :class="[buttonColor, buttonSize, buttonSeverity]">{{ label }}
     <slot name="icon" />
+    <slot />
   </button>
 
 </template>
@@ -18,7 +19,7 @@ const props = defineProps<IButton>()
 // computed
 const buttonColor = computed(() => {
   if (!props.color) return `color-primary`
-  if (props.severity === 'gradient'){
+  if (props.severity === 'gradient') {
     return `gradient-${props.color}`
   }
   return `color-${props.color}`
@@ -36,5 +37,4 @@ const buttonSeverity = computed(() => {
 
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

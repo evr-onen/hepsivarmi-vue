@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="tabs">
-                <Tabs />
+                <Tabs :product-id="productId" />
             </div>
         </ClientOnly>
     </div>
@@ -18,7 +18,9 @@
 
 <script setup lang="ts">
 import { singleProduct } from '~/domains/product/composables/variables';
+import { commentGetFormByProduct } from '~/domains/comment/composables/variables';
 import useShowProduct from '~/domains/product/composables/useShowProduct';
+import useShowComment from '~/domains/comment/composables/useShowComment';
 
 // components
 import ProductSlider from '~/domains/home/domains/singleProduct/components/productSlider/productSlider.vue';
@@ -28,12 +30,14 @@ import Tabs from '~/domains/home/domains/singleProduct/components/tabs/tabs.vue'
 // hooks 
 const route = useRoute()
 const { onGetProduct } = useShowProduct();
+const { onGetCommentsByProduct } = useShowComment();
 
 const productId = route.params.id as string
-
+commentGetFormByProduct.value.product_id = productId;
 // init
 if (productId) {
     await onGetProduct(productId);
+    await onGetCommentsByProduct();
 }
 </script>
 
@@ -53,13 +57,11 @@ if (productId) {
 
         .product-image {
             flex: 4;
-            background-color: #f0f0f0;
             height: 100%;
         }
 
         .product-summary {
             flex: 5;
-            background-color: #aafb7f;
             height: 100%;
         }
 
@@ -67,7 +69,6 @@ if (productId) {
 
     .tabs {
         width: 100%;
-        background-color: #efc4c4
     }
 }
 </style>

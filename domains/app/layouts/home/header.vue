@@ -38,9 +38,28 @@
                     <Icon name="solar:minimalistic-magnifer-linear" class="icon" />
                 </div>
                 <div class="buttons">
-                    <div class="profile">
+                    <Dropdown class="w-full" :click-outside="true">
+                        <template #default="{ openPanel }: { openPanel: () => void }">
+                            <div class="profile" @click="openPanel">
+                                <Icon name="solar:user-outline" class="profile-icon" />
+                            </div>
+                        </template>
+                        <template #panelContent="{ closePanel }: { closePanel: () => void }">
+                            <div v-if="isLoggedIn" class="profile-panel-content">
+                                <p>{{ authStore.user.name }}, wellcome back!</p>
+                                <p @click="closePanel">My Account</p>
+                                <p @click="closePanel">My Orders</p>
+                                <p @click="authStore.onLogout">Logout</p>
+                            </div>
+                            <div v-else class="profile-panel-content">
+                                <p @click="() => navigateTo('/auth/login')">Login</p>
+                                <p @click="() => navigateTo('/auth/register')">Register</p>
+                            </div>
+                        </template>
+                    </Dropdown>
+                    <!-- <div class="profile">
                         <Icon name="solar:user-outline" class="profile-icon" />
-                    </div>
+                    </div> -->
                     <div class="heart">
                         <Icon name="solar:heart-linear" class="icon" />
                     </div>
@@ -66,6 +85,7 @@
 <script setup lang="ts">
 import NavMenu from './components/navMenu/navMenu.vue';
 import Button from '~/domains/app/components/form/Button/index.vue'
+import Dropdown from '~/domains/app/components/form/Dropdown/index.vue'
 const authStore = useAuthStore();
 
 const isLoggedIn = computed(() => authStore.isLoggedIn);
@@ -340,6 +360,31 @@ const isLoggedIn = computed(() => authStore.isLoggedIn);
         }
     }
 
+}
+
+.profile-panel-content {
+    background-color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    width: fit-content;
+    white-space: nowrap;
+
+    >* {
+        cursor: pointer;
+        transition: 200ms;
+        padding: 0.5rem;
+        padding-block: .25rem;
+        border-radius: 0.5rem;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
 }
 
 button {

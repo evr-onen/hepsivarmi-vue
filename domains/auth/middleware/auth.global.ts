@@ -3,26 +3,33 @@ export default defineNuxtRouteMiddleware(async (to) => {
     const token = useCookie('token');
     // const {$i18n} = useNuxtApp();
    
-    if (to.path === '/auth/login') {
+    // Redirect to home if already logged in and trying to access auth pages
+    if (to.path === '/auth/login' || to.path === '/auth/register') {
         if (token.value) {
-            await store.onGetUser();
+            // Only fetch user if not already loaded
+            if (!store.user?.email) {
+                await store.onGetUser();
+            }
             return navigateTo('/');
         }
         return;
     }
 
-    if (to.path === '/auth/register') {
+    // Admin pages require authentication
+    if (to.path.startsWith('/admin')) {
         if (token.value) {
-            await store.onGetUser();
-            return navigateTo('/');
+            // Only fetch user if not already loaded
+            if (!store.user?.email) {
+                await store.onGetUser();
+            }
+        } else {
+            return navigateTo('/auth/login');
         }
         return;
     }
 
-    if (token.value) {
+    // For other pages, only fetch user if token exists but user data is not loaded
+    if (token.value && !store.user?.email) {
         await store.onGetUser();
-        // await $i18n.setLocale(store.user.language);
-    }else {
-        return navigateTo('/auth/login');
     }
 });
