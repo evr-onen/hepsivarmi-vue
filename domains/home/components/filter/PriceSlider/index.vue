@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import useHome from '~/domains/home/composables/useHome';
+
 interface IPriceSliderProps {
     label?: string;
     min: number;
@@ -14,6 +16,7 @@ defineOptions({
 })
 
 const props = defineProps<IPriceSliderProps>()
+const { onFilterProducts} = useHome();
 
 //vars
 const priceRange = defineModel<number[]>()
@@ -101,7 +104,7 @@ watch(() => [props.min, props.max], ([min, max]) => {
             </div>
             <button 
                 class="filter-button"
-                @click="filterSubmitHandler"
+                 @click="onFilterProducts"
             >
                 FILTER
             </button>
@@ -245,4 +248,6 @@ watch(() => [props.min, props.max], ([min, max]) => {
         }
     }
 }
+
+
 </style>

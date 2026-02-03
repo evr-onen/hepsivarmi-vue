@@ -7,8 +7,8 @@ const useRemoveCompare = () => {
     const compareProductCookie = useCookie<ICompareCookie>('compare_products');
 
     const onRemoveCompare = async(productId:string) => {
-        
-        if(compareProductCookie.value?.products) {
+        if(compareProductCookie.value?.products. length > 0) {
+            console.log('onRemoveCompare > ', compareProductCookie.value?.products)
             const filteredProducts = compareProductCookie.value.products.filter(product => product !== productId)
             
             // Create new object to ensure reactivity
@@ -17,8 +17,8 @@ const useRemoveCompare = () => {
             }
             
             compareProducts.value = compareProducts.value.filter(product => product.id !== productId)
+            refreshCookie('compare_products');
         }
-        refreshCookie('compare_products');
     }
 
     

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "skvzjRSJ5OM4tAfk8fC0T",
+    "user_id": "1",
+    "product_id": "prod_nike_tshirt_classic_001",
+    "category_id": "2a",
+    "quantity": 1,
+    "price": "339",
+    "variant": [
+      {
+        "id": "1e",
+        "typeName": "Size",
+        "value": "XL"
+      },
+      {
+        "id": "2d",
+        "typeName": "Color",
+        "value": "Blue"
+      }
+    ]
+  }
+]

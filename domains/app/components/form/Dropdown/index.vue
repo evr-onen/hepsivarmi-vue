@@ -9,7 +9,7 @@
       :class="[typeCode, {'contentPanelOpen':isOpen}]"
   >
     <div ref="slotRef" class="" @mouseenter="openOnHover && openPanel()" @mouseleave="openOnHover && closePanel()">
-      <slot name="default" :open-panel="openPanel" />
+      <slot name="default" :open-panel="openPanel" :close-panel="closePanel" />
     </div>
     <Teleport to="body">
       <div

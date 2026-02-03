@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { singleProduct } from '~/domains/product/composables/variables';
 
+interface IVariantButtons {
+    direction?: 'horizontal' | 'vertical';
+}
+
+defineProps<IVariantButtons>()
 const selectedVariants = defineModel<Record<string, string>>('selectedVariants', {
     required: true,
     default: () => ({})
@@ -40,7 +45,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="variant-buttons-container">
+    <div class="variant-buttons-container" :class="{ 'vertical': direction === 'vertical' }">
         <div v-for="variantType in singleProduct.variantTypes" :key="variantType.id" class="buttonGroups" >
             <div class="buttonGroupTitle">
                 <h3>{{ variantType.name }}</h3>
@@ -65,6 +70,10 @@ onMounted(() => {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
+
+    &.vertical {
+        flex-direction: column;
+    }
 
     .buttonGroups {
         display: flex;

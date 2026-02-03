@@ -9,6 +9,7 @@ export const authUserEntity = (User:Partial<IUser>): Partial<IUser> => {
 
 export const createAuthUserEntity = (User:Partial<IUser>): Partial<IUser> => {
     return structuredClone({
+        id: User.id || "",
         name: User.name || "",
         email: User.email || "",
     })
@@ -42,5 +43,15 @@ export const createAuthUserRegistrationFormErrorsEntity = (): TErrorBag => {
         password_confirmation: [],
     })
 }
+
+export const userEntity = (form:Partial<IUserData>): IUserData => {
+    return structuredClone({
+        id: form.id || "",
+        name: form.name || "",
+        email: form.email || "",
+    })
+}
+
+
 
 

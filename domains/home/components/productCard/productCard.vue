@@ -2,25 +2,45 @@
 import type { IProduct } from '~/domains/product/types/productTypes';
 import useCreateWishlist from '~/domains/wishlist/composables/useCreateWishlist';
 import useDeleteWishlist from '~/domains/wishlist/composables/useDeleteWishlist';
+import useCreateCart from '~/domains/cart/composables/useCreateCart';
+import useDeleteCart from '~/domains/cart/composables/useDeleteCart';
+import AuthStore from '~/domains/auth/stores/useAuthStore';
+
 interface IProductCardProps {
     productData: IProduct;
     isInWishlist: boolean;
 }
 
 const props = defineProps<IProductCardProps>();
-
+const { isLoggedIn } = AuthStore();
 // hooks
 const { onCreateWishlist } = useCreateWishlist();
 const { onDeleteWishlist } = useDeleteWishlist();
+const { onCreateCart } = useCreateCart();
+const { onDeleteCart } = useDeleteCart();
 
 
 
 // handlers
 const addRemoveWishlistToggleHandler = async () => {
+    if (!isLoggedIn) {
+        return navigateTo('/auth/login');
+    }
     if (props.isInWishlist) {
         await onDeleteWishlist(props.productData.id);
     } else {
         await onCreateWishlist(props.productData.id);
+    }
+}
+
+const addToCartHandler = async () => {
+    if (!isLoggedIn) {
+        return navigateTo('/auth/login');
+    }
+    if (props.isInWishlist) {
+        await onCreateCart(props.productData.id);
+    } else {
+        await onDeleteCart();
     }
 }
 
@@ -36,7 +56,7 @@ const addRemoveWishlistToggleHandler = async () => {
                         <Icon v-if="!isInWishlist" name="solar:heart-linear" class="icon" />
                         <Icon v-else name="solar:heart-bold" class="icon-filled" />
                     </div>
-                    <div>
+                    <div @click.stop="addToCartHandler">
                         <Icon name="solar:bag-outline" class="icon" />
                     </div>
                 </div>

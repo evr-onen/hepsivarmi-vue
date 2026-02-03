@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     './domains/comment',
     './domains/wishlist',
     './domains/compare',
+    './domains/cart',
 ],
 
   css: [

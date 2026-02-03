@@ -1,4 +1,7 @@
-export interface IUserRegisterForm extends IUser {
+export interface IUserRegisterForm{
+    name                   : string;
+    email                  : string;
+    password               : string;
     password_confirmation  : string;
 }
 
@@ -8,7 +11,7 @@ export interface IUserLoginForm{
 }
 
 export interface IUser{
-    id                      ?: string;
+    id                      : string;
     name                    : string;
     email                   : string;
     password                : string;
@@ -16,6 +19,7 @@ export interface IUser{
 }
 
 export interface IUserData {
+    id                      : string;
     name                    : string;
     email                   : string;
 }

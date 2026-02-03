@@ -2,7 +2,11 @@
 import type { IUserRegisterForm } from "../types/accountTypes";
 import useAuthService from "../services/useAuthService";
 import  useUserFormValidation from "../validations/useUserFormValidation";
-import {createAuthUserEntity, createAuthUserLoginFormErrorsEntity, authUserEntity} from "~/domains/auth/entities/AuthEntity";
+import {
+    createAuthUserLoginFormErrorsEntity,
+    userEntity,
+    createAuthUserRegistrationFormEntity
+} from "~/domains/auth/entities/AuthEntity";
 
 const useAuthStore = defineStore('AuthStore', () => {
     const router = useRouter();
@@ -16,15 +20,10 @@ const useAuthStore = defineStore('AuthStore', () => {
     const isGetUserPending = ref<boolean>(false);
 
     const token = useCookie('token');
-    const user = ref(createAuthUserEntity({name: '', email: ''}));
+    const user = ref(userEntity({}));
 
     // Register Form States
-    const userRegisterForm = ref<IUserRegisterForm>({
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
-    });
+    const userRegisterForm = ref<IUserRegisterForm>(createAuthUserRegistrationFormEntity({}));
     const userLoginForm = ref<IUserLoginForm>({
         email: 'admin@admin.com',
         password: 'password',
@@ -54,7 +53,7 @@ const useAuthStore = defineStore('AuthStore', () => {
 
     // CLEAR FUNCTIONS
     const clearToken = async () => tokenSet(null);
-    const clearUserData = () => user.value = createAuthUserEntity({})
+    const clearUserData = () => user.value = userEntity({})
     const clearAll = async () => {
         await clearToken();
         clearUserData();
@@ -97,7 +96,7 @@ const useAuthStore = defineStore('AuthStore', () => {
                     console.log(response.data);
                     if(response.data.success) {
                         console.log(response.data.data.user);
-                        user.value = createAuthUserEntity(response.data.data.user);
+                        user.value = userEntity(response.data.data.user);
                         await nextTick(()=>navigateTo('/'));
 
                     }else{
@@ -130,14 +129,15 @@ const useAuthStore = defineStore('AuthStore', () => {
             if(token.value){
                 await getUserAction(token.value!, (response)=>{
                     if(response.data.success && response.data.data?.user) {
-                        user.value = authUserEntity(response.data.data.user);
+                        user.value = userEntity(response.data.data.user);
                     } else {
                         // Token invalid or user not found
                         clearAll();
                     }
                 });
             }else{
-                user.value = createAuthUserEntity({name:'', email:''});
+                user.value = userEntity({});
+
             }
         } catch (error: unknown) {
             console.log(error);

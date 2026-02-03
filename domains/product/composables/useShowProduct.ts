@@ -11,9 +11,14 @@ const useShowProduct = () => {
         await store.getProduct(productId)
     }
 
+    const onSearchProducts = async(searchValue: string) => {
+        await store.searchProducts(searchValue)
+    }
+
     return {
         onGetProducts,
-        onGetProduct
+        onGetProduct,
+        onSearchProducts,
     }
 }
 

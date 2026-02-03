@@ -17,6 +17,7 @@ export const isOpenCreateProductModal = ref<boolean>(false)
 export const isOpenEditProductModal = ref<boolean>(false)
 
 export const allProducts = ref<IProduct[]>([])
+export const searchedProducts = ref<IProduct[]>([])
 export const imagePath = ref<string>()
 export const productFormInlineAlert = ref<IInlineMessage>(createInlineAlert());
 

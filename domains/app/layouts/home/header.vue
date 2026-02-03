@@ -33,9 +33,28 @@
                     <p>VueCommerce</p>
                     </NuxtLink>
                 </div>
-                <div class="search">
-                    <input type="text" placeholder="Search for products" >
-                    <Icon name="solar:minimalistic-magnifer-linear" class="icon" />
+                <div class="search-area">
+                    
+                    <Dropdown class="w-full" :click-outside="true" >
+                        <template #default="{ openPanel, closePanel }: { openPanel: () => void, closePanel: () => void }">
+                            <div class="search">
+                                <input type="text" placeholder="Search for products" @keyup="(e) => searchProductsHandler(e, openPanel, closePanel)">
+                                <Icon name="solar:minimalistic-magnifer-linear" class="icon" />
+                            </div>
+                        </template>
+                        <template #panelContent="{ closePanel }: { closePanel: () => void }">
+                            <div v-if="searchedProducts.length > 0" class="search-panel-content" >
+                                <div v-for="product in searchedProducts" :key="product.id" class="product-item" @click="searchProductSelectHandler(product, closePanel)">
+                                    <div class="name">
+                                        {{ product.name }}
+                                    </div>
+                                    <div class="categoy">
+                                        {{ product.subCategory.name }}
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </Dropdown>
                 </div>
                 <div class="buttons">
                     <Dropdown class="w-full" :click-outside="true">
@@ -60,53 +79,96 @@
                     <!-- <div class="profile">
                         <Icon name="solar:user-outline" class="profile-icon" />
                     </div> -->
-                    <div class="heart" @click.stop="wishlistModal = true">
+                    <div class="heart" :class="{ 'disabled': wishlistCount === 0 }" @click.stop="wishlistModal = true" >
                         <div class="icon">
                             <Icon name="solar:heart-linear" class="icon" />
-                            <p>{{ wishlistCount }}</p>
+                            <p v-if="wishlistCount > 0">{{ wishlistCount }}</p>
                         </div>
                     </div>
-                    <div class="compare">
-                        <Icon name="ion:git-compare-outline" class="icon" />
-                    </div>
-                    <div class="cart">
+                    <div class="compare" :class="{ 'disabled': compareProducts.length === 0 }" @click.stop="compareModal = true">
                         <div class="icon">
-                            <Icon name="solar:bag-outline" class="icon" />
-                            <p>0</p>
+                            <Icon name="ion:git-compare-outline" class="icon" />
+                            <p v-if="compareProducts.length > 0">{{ compareProducts.length }}</p>
                         </div>
-                        <p class="totalPrice">$0.00</p>
                     </div>
+                    <ClientOnly>
+                        <div class="cart" :class="{ 'disabled': allCartsByUser.length === 0 }" @click.stop="goToCart">
+                            <div class="icon">
+                                <Icon name="solar:bag-outline" class="icon" />
+                                <p v-if="allCartsByUser.length > 0">{{ allCartsByUser.length }}</p>
+                            </div>
+                            <p class="totalPrice">${{ totalPrice }}</p>
+                        </div>
+                    </ClientOnly>
                 </div>
             </div>
         </div>
         <div class="header-bottom">
-            
         </div>
         <Modal v-model="wishlistModal" title="Wishlist Products" width="auto" class="wishlist-modal">
             <ShowModalWishlist />
+        </Modal>
+        <Modal v-model="compareModal" title="Compare Products" width="auto" class="compare-modal">
+            <ShowCompareModal />
         </Modal>
     </div>
 </template>
 
 <script setup lang="ts">
-import NavMenu from './components/navMenu/navMenu.vue';
-import Button from '~/domains/app/components/form/Button/index.vue'
 import Dropdown from '~/domains/app/components/form/Dropdown/index.vue'
 import { allWishlistsByUser } from '~/domains/wishlist/composables/variables'
 import useShowWishlist from '~/domains/wishlist/composables/useShowWishlist';
 import useAuthStore from '~/domains/auth/stores/useAuthStore';
 import ShowModalWishlist from '~/domains/wishlist/components/showModalWishlist/showModalWishlist.vue';
+import useShowCompare from '~/domains/compare/composables/useShowCompare';
+import { compareProducts } from '~/domains/compare/composables/variables';
+import ShowCompareModal from '~/domains/compare/components/showCompareModal/showCompareModal.vue';
+import { allCartsByUser } from '~/domains/cart/composables/variables';
+import useShowCart from '~/domains/cart/composables/useShowCart';
+import useShowProduct from '~/domains/product/composables/useShowProduct';
+import { searchedProducts } from '~/domains/product/composables/variables';
 
+
+const { onGetCompareProducts } = useShowCompare();
+const { onGetCartsByUser } = useShowCart();
 const authStore = useAuthStore();
 const { onGetWishlistsByUser } = useShowWishlist();
 const isLoggedIn = computed(() => authStore.isLoggedIn);
-
+const { onSearchProducts } = useShowProduct();
 if (authStore.user.id) {
     onGetWishlistsByUser()
+    onGetCompareProducts()
+    onGetCartsByUser()
 }
 
 const wishlistCount = computed(() => allWishlistsByUser.value.length);
 const wishlistModal = ref(false);
+const compareModal = ref(false);
+
+const totalPrice = computed(() => {
+    return allCartsByUser.value.reduce((acc, cart) => acc + cart.price * cart.quantity, 0);
+});
+
+const goToCart = () => {
+    navigateTo('/cart');
+};
+
+const searchProductsHandler = async (e: Event, openPanel: () => void, closePanel: () => void) => {
+    const searchValue = (e.target as HTMLInputElement).value;
+
+    if (searchValue.length > 0) {
+        await onSearchProducts(searchValue);
+        openPanel();
+    } else {
+        closePanel();
+    }
+    console.log(searchedProducts.value);
+}
+
+const searchProductSelectHandler = (product: IProduct, closePanel: () => void) => {
+    navigateTo(`/product/${product.id}`);
+    closePanel();
+}
 </script>
 
 <style lang="scss" scoped>
@@ -265,7 +327,7 @@ const wishlistModal = ref(false);
                 margin-right: auto;
             }
 
-            .search {
+            .search-area {
                 flex: 1;
                 max-width: 600px;
                 height: 3rem;
@@ -275,37 +337,53 @@ const wishlistModal = ref(false);
                 display: flex;
                 align-items: center;
 
-                input {
-                    width: 100%;
-                    height: 100%;
-                    border: none;
-                    outline: none;
-                    padding: 0 1.25rem;
-                    background-color: transparent;
-                    font-size: 0.875rem;
-                    color: #333;
-                    font-weight: 400;
+                .search {
+                    flex: 1;
+                    max-width: 600px;
+                    height: 3rem;
+                    border: 1px solid #E0E0E0;
+                    border-radius: 0;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
 
-                    &::placeholder {
-                        color: #9E9E9E;
-                        font-size: 0.875rem;
-                    }
-
-                    &:focus {
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
                         outline: none;
+                        padding: 0 1.25rem;
+                        background-color: transparent;
+                        font-size: 0.875rem;
+                        color: #333;
+                        font-weight: 400;
+
+                        &::placeholder {
+                            color: #9E9E9E;
+                            font-size: 0.875rem;
+                        }
+
+                        &:focus {
+                            outline: none;
+                        }
+
+
+
+                    }
+
+                    .icon {
+                        height: 1.75rem;
+                        width: 1.75rem;
+                        color: #585858cc;
+                        margin-right: 1rem;
                     }
 
 
 
                 }
 
-                .icon {
-                    height: 1.75rem;
-                    width: 1.75rem;
-                    color: #585858cc;
-                    margin-right: 1rem;
-                }
             }
+
 
             .buttons {
                 height: 100%;
@@ -327,8 +405,15 @@ const wishlistModal = ref(false);
                     }
                 }
 
+                .disabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
+
                 .cart,
-                .heart {
+                .heart,
+                .compare {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -402,6 +487,29 @@ const wishlistModal = ref(false);
         &:hover {
             background-color: #f0f0f0;
         }
+    }
+}
+
+.search-panel-content {
+    margin-top: .5rem;
+    background-color: #fff !important;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 1px solid #e0e0e0;
+
+    .product-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: space-between;
+        cursor: pointer;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        transition: 200ms;
+    }
+
+    .product-item:hover {
+        background-color: #f0f0f0;
     }
 }
 

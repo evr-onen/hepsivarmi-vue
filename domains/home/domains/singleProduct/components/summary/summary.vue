@@ -9,7 +9,13 @@ import { allCommentsByProduct } from '~/domains/comment/composables/variables';
 import useAddCompare from '~/domains/compare/composables/useAddCompare';
 import useRemoveCompare from '~/domains/compare/composables/useRemoveCompare';
 import type { ICompareCookie } from '~/domains/compare/types/compareTypes';
+import { cartCreateForm } from '~/domains/cart/composables/variables';
+import { cartCreateFormEntity } from '~/domains/cart/entities/cartEntity';
+import useAuthStore from '~/domains/auth/stores/useAuthStore';
+import useCreateCart from '~/domains/cart/composables/useCreateCart';
 
+import useCreateWishlist from '~/domains/wishlist/composables/useCreateWishlist';
+import useDeleteWishlist from '~/domains/wishlist/composables/useDeleteWishlist';
 
 const selectedVariants = ref<Record<string, string>>({});
 const variantProductData = ref();
@@ -19,12 +25,14 @@ const quantity = ref(1);
 const compareProductCookie = useCookie<ICompareCookie>('compare_products');
 const { onCreateCompare } = useAddCompare();
 const { onRemoveCompare } = useRemoveCompare();
-
+const { onCreateCart } = useCreateCart();
+const { onCreateWishlist } = useCreateWishlist();
+const { onDeleteWishlist } = useDeleteWishlist();
+const { user } = useAuthStore();
 
 const getVariantData = () => {
     return singleProduct.value.variantProducts.map((variant) => {
         const isMatch = variant.variantValues.every((variantValue) => {
-            console.log(variantValue)
             return selectedVariants.value[variantValue.typeName] === variantValue.name;
 
         })
@@ -48,15 +56,39 @@ const rating = computed(() => {
 
 // handlers
 
+const isitWished = (productId: string) => {
+    return allWishlistsByUser.value.some(wishlist => {
+        return wishlist.product_id === productId && wishlist.user_id === user.id
+    })
+}
+
 const addRemoveCompareHandler = () => {
     if (!compareProductCookie.value?.products.includes(singleProduct.value.id)) {
         onCreateCompare(singleProduct.value);
     } else {
+        console.log('onRemoveCompare')
         onRemoveCompare(singleProduct.value.id);
     }
 
 }
 
+
+
+const addToCartHandler = async () => {
+    cartCreateForm.value = cartCreateFormEntity(user as IUser, singleProduct.value, variantProductData.value, quantity.value)
+    await onCreateCart(singleProduct.value.id);
+}
+
+const addRemoveWishlistToggleHandler = async () => {
+    if (!user.id) {
+        return navigateTo('/auth/login');
+    }
+    if (isitWished(singleProduct.value.id)) {
+        await onDeleteWishlist(singleProduct.value.id);
+    } else {
+        await onCreateWishlist(singleProduct.value.id);
+    }
+}
 
 watch(selectedVariants, () => {
     getVariantData();
@@ -87,7 +119,7 @@ watch(selectedVariants, () => {
         <VariantButtons v-model:selected-variants="selectedVariants" />
         <div class="quantity-and-add-to-cart">
             <NumberInput v-model="quantity" />
-            <Button class="add-to-cart" color="success" severity="gradient">
+            <Button class="add-to-cart" color="success" severity="gradient" @click.stop="addToCartHandler">
                 <template #icon>
                     <Icon name="solar:bag-outline" class="icon" />
                 </template>
@@ -95,17 +127,25 @@ watch(selectedVariants, () => {
             </Button>
         </div>
         <div class="additional-buttons">
-            <Button class="add-to-wishlist" color="primary" severity="gradient">
+            <Button class="add-to-wishlist" color="warning" severity="gradient">
                 <template #icon>
-                    <Icon name="solar:heart-outline" class="icon" />
-                    </template>
-                </Button>
-                <Button class="add-to-compare" color="primary" severity="gradient" @click.stop="addRemoveCompareHandler()">
-                    <template #icon>
-                        <Icon name="ion:git-compare-outline" class="icon" />
-                    </template>
-                </Button>
-            </div>
+                    <div class="wishlist-icon" @click.stop="addRemoveWishlistToggleHandler">
+                        <Icon v-if="!isitWished(singleProduct.id)" name="solar:heart-linear" class="icon" />
+                        <Icon v-else name="solar:heart-bold" class="icon-filled" />
+                    </div>
+                </template>
+            </Button>
+            <Button v-if="compareProductCookie?.products.includes(singleProduct.id)"  class="add-to-compare remove-from-compare" color="primary" severity="gradient" @click.stop="addRemoveCompareHandler()">
+                <template #icon>
+                    <Icon name="ion:git-compare-outline text-red-500" class="icon" />
+                </template>
+            </Button>
+            <Button v-else class="add-to-compare" color="primary" severity="gradient" @click.stop="addRemoveCompareHandler()">
+                <template #icon>
+                    <Icon  name="ion:git-compare-outline" class="icon" />
+                </template>
+            </Button>
+        </div>
     </div>
 </template>
 
@@ -180,12 +220,23 @@ watch(selectedVariants, () => {
             width: fit-content;
             padding-inline: 1rem;
             white-space: nowrap;
+
+            .wishlist-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
         }
 
         .add-to-compare {
             width: fit-content;
             padding-inline: 1rem;
             white-space: nowrap;
+        }
+
+        .add-to-compare.remove-from-compare {
+            color: #dc2626 !important;
         }
     }
 }

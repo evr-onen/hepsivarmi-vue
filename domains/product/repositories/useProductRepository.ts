@@ -27,6 +27,14 @@ const useProductRepository = () => {
         })
     }
 
+    const search = async (searchValue: string): Promise<AxiosResponse>  => {
+        return await request({
+            type: 'get',
+            endpoint: `${endpoint}search?search=${searchValue}`,
+        })
+    }
+
+
     const reset = async (): Promise<AxiosResponse>  => {
         return await request({
             type: 'post',
@@ -73,6 +81,7 @@ const useProductRepository = () => {
     return {
         getAll,
         get,
+        search,
         reset,
         create,
         update,

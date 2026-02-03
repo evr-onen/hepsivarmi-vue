@@ -5,6 +5,7 @@ import useProductFormValidation from "../validations/useProductFormValidation";
 import {defineStore} from "pinia";
 import {
     allProducts,
+    searchedProducts,
     singleProduct,
     getProductErrors,
     createProductForm,
@@ -26,6 +27,7 @@ const useProductStore = defineStore('ProductStore', () => {
     const {
         getAllAction,
         getAction,
+        searchProductsAction,
         resetAction,
         createAction,
         updateAction,
@@ -59,6 +61,17 @@ const useProductStore = defineStore('ProductStore', () => {
                     }
         })
         isGetActionLoading.value = false;
+    }
+
+    const searchProducts = async(searchValue: string, successAction?:()=> void) => {
+        await searchProductsAction(searchValue, (response)=>{
+            if(response.data.success) {
+                searchedProducts.value = structuredClone(response.data.data)
+                successAction?.()
+            }else{
+                console.log(response.data.data.messages);
+            }
+        })
     }
 
     const getProduct = async(productId: string, successAction?:()=> void) => {
@@ -149,6 +162,7 @@ const useProductStore = defineStore('ProductStore', () => {
     return {
         resetProducts,
         getProducts,
+        searchProducts,
         getProduct,
         createProduct,
         updateProduct,

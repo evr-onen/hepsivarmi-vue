@@ -34,6 +34,7 @@ import { singleProduct } from '~/domains/product/composables/variables';
         .row {
             display: flex;
             flex-direction: row;
+            padding-left: 1rem;
             gap: 1rem;
 
             .description-name {

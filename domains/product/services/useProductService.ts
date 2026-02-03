@@ -11,6 +11,7 @@ const useProductService = () => {
     const {
         getAll,
         get,
+        search,
         reset,
         create,
         update,
@@ -23,6 +24,10 @@ const useProductService = () => {
     }
     const getAction = async ( productId: string, cb?: (response: AxiosResponse) => void): Promise<void> => {
         const response = await get(productId);
+        cb?.(response);
+    }
+    const searchProductsAction = async (searchValue: string, cb?: (response: AxiosResponse) => void): Promise<void> => {
+        const response = await search(searchValue);
         cb?.(response);
     }
     const resetAction = async ( cb?: (response: AxiosResponse) => void): Promise<void> => {
@@ -45,6 +50,7 @@ const useProductService = () => {
     return {
         getAllAction,
         getAction,
+        searchProductsAction,
         resetAction,
         createAction,
         updateAction,

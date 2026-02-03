@@ -214,6 +214,7 @@ watch(priceRange, (newVal) => {
           <div class="selectCategory">
             <Select
               v-model="selectedCategory"
+              class="category-select"
               label="Category"
               clearable :options="toRaw(filterItemData.categories)"
               option-label="name"
@@ -279,6 +280,13 @@ watch(priceRange, (newVal) => {
 
       .price-filter {}
 
+      .category-select {
+
+        :deep(.ea-select__placeholder) {
+          border-radius: 0 !important;
+        }
+      }
+
       .filter-section {
         margin-bottom: 1.5rem;
         display: flex;
@@ -299,22 +307,25 @@ watch(priceRange, (newVal) => {
 
 
           .filter-item {
-            font-size: 0.875rem;
-            font-weight: 400;
+            background-color: #F5F5F5;
+            border: 1px solid #E0E0E0;
             color: #333;
-            background-color: #e4d4d4;
-            padding: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
             cursor: pointer;
             transition: all 200ms;
-            user-select: none;
 
             &.selected {
-              background-color: #cbb5b5;
+              background-color: #EEEEEE;
+              border-color: #BDBDBD;
             }
           }
 
           .filter-item:hover {
-            background-color: #cbb5b5;
+            background-color: #EEEEEE;
+            border-color: #BDBDBD;
           }
         }
       }
@@ -324,7 +335,7 @@ watch(priceRange, (newVal) => {
         bottom: 0;
         width: 100%;
         height: 40px;
-        background-color: #cbb5b5;
+        background-color: #83B735;
         color: #fff;
         display: flex;
         align-items: center;
@@ -358,6 +369,23 @@ watch(priceRange, (newVal) => {
       justify-content: flex-start;
       margin-bottom: 1.5rem;
     }
+  }
+}
+
+.property-buttonStyle {
+  background-color: #F5F5F5;
+  border: 1px solid #E0E0E0;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: all 200ms;
+
+  &:hover {
+    background-color: #EEEEEE;
+    border-color: #BDBDBD;
   }
 }
 </style>
