@@ -1,9 +1,9 @@
 <script setup lang="ts">
-interface IPageBannerProps {
-    title: string;
-    description: string;
-    image: string;
-}
+import type { IPageBannerProps } from '~/domains/home/types/homeTypes';
+
+defineOptions({
+    name: 'PageBanner'
+})
 
 const props = defineProps<IPageBannerProps>();
 

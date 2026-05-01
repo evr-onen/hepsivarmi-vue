@@ -8,8 +8,14 @@ import UploadImage2 from "~/domains/app/components/form/uploadImage2/index.vue";
 <template>
   <div class="create-brand-form">
     <div class="brand">
-      <TextInput v-model="updateBrandForm.name" class="text-black" label="Brand Name" required placeholder="Brand Name"
-        :error-message="updateBrandFormErrors['name']" />
+      <TextInput
+        v-model="updateBrandForm.name"
+        class="text-black"
+        label="Brand Name"
+        required
+        placeholder="Brand Name"
+        :error-message="updateBrandFormErrors['name']"
+      />
     </div>
     <div class="logo">
       <UploadImage2

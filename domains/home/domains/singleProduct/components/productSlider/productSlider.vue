@@ -30,16 +30,15 @@ import { Splide, SplideSlide, } from '@splidejs/vue-splide';
 import type { Options } from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
 import { singleProduct } from '~/domains/product/composables/variables';
+import type { IProductSlider } from '~/domains/home/domains/singleProduct/types/singleProductTypes';
 
 defineOptions({
     name: 'ProductSlider',
 })
-interface IProductSlider {
-    images: string[]
-}
-
+// init & hooks
 defineProps<IProductSlider>()
 
+// vars
 const mainSplide = ref<Splide>()
 const thumbsSplide = ref<Splide>()
 

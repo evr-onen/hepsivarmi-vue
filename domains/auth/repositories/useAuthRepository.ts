@@ -1,7 +1,6 @@
 import type {AxiosResponse} from "axios";
 
 const useAuthRepository = () => {
-    // const apiBaseURLFake = useRuntimeConfig().public.apiBaseURLFake as string;
     const { request, setBaseURL } = useAxios();
     const baseURL = 'http://localhost:3000/api/';
     const endpoint = "auth"

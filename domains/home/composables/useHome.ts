@@ -1,10 +1,13 @@
 import {allProducts} from '~/domains/product/composables/variables'
-import {filterProductsForm, filteredProducts} from './variables'
+import {filterProductsForm, filteredProducts, filterItemData} from './variables'
 import type {FilterObject} from './variables'
 import type {IProduct} from '~/domains/product/types/productTypes'
+import useAuthStore from '~/domains/auth/stores/useAuthStore';
 
 const useHome = () => {
-    
+  const { user } = useAuthStore();  
+  
+
     const onFilterProducts = () => {
         // Start with all products
         let result: IProduct[] = [...allProducts.value]
@@ -61,9 +64,116 @@ const useHome = () => {
         console.log(allProducts.value)
     }
 
+    const prepareFilterItemData = () => {
+        let minPrice: number | null = null;
+        let maxPrice = 0;
+        filterItemData.value.categories = []
+        allProducts.value.forEach(product => {
+      
+          if (!filterItemData.value.categories.some(category => category.id === product.subCategory.id)) {
+            filterItemData.value.categories.push({ id: product.subCategory.id, name: product.subCategory.name });
+          }
+      
+          // price data
+          product.variantProducts.forEach(variant => {
+            const price = Number(variant.price);
+      
+            if (minPrice === null || price < minPrice) {
+              minPrice = price;
+            }
+      
+            if (price > maxPrice) {
+              maxPrice = price;
+            }
+      
+            // variant data
+            variant.variantValues.forEach(value => {
+              if (value.typeName && value.name) {
+                if (!filterItemData.value[value.typeName]) {
+                  filterItemData.value[value.typeName] = [];
+                }
+                const existingArray = filterItemData.value[value.typeName] as FilterObject[];
+                if (!existingArray.some(item => item.id === value.id)) {
+                  existingArray.push({ id: value.id, name: value.name });
+                }
+              }
+            });
+          });
+      
+          product.properties.productPropertyValues.map((value, index) => {
+            const propName = product.properties.propertyList.props[index].name
+      
+            if (value.id && value.name) {
+              if (!filterItemData.value[propName]) {
+                filterItemData.value[propName] = [];
+              }
+              const existingArray = filterItemData.value[propName] as FilterObject[];
+              if (!existingArray.some(item => item.id === value.id)) {
+                existingArray.push({ id: value.id, name: value.name });
+              }
+            }
+          });
+        })
+        filterItemData.value.price = [minPrice ?? 0, maxPrice];
+      
+      }
+
+      const isItemSelected = (key: string, item: FilterObject | number): boolean => {
+        const formArray = filterProductsForm.value[key];
+        if (!formArray) return false;
+      
+        if (typeof item === 'object') {
+          return (formArray as FilterObject[]).some(formItem =>
+            typeof formItem === 'object' && formItem.id === item.id
+          );
+        }
+        return (formArray as (string | number)[]).includes(item);
+      }
+
+      const isitWished = (productId: string) => {
+        return allWishlistsByUser.value.some(wishlist => {
+          return wishlist.product_id === productId && wishlist.user_id === user.id
+        })
+      }
+
+      const handleFilterItemClick = (key: string, item: FilterObject | number) => {
+        if (!filterProductsForm.value[key]) {
+          filterProductsForm.value[key] = [];
+        }
+      
+        if (typeof item === 'object') {
+          const existingArray = filterProductsForm.value[key] as FilterObject[];
+          const index = existingArray.findIndex(formItem =>
+            typeof formItem === 'object' && formItem.id === item.id
+          );
+          if (index !== -1) {
+            existingArray.splice(index, 1);
+            if (existingArray.length === 0) {
+              Reflect.deleteProperty(filterProductsForm.value, key);
+            }
+          } else {
+            existingArray.push(item);
+          }
+        } else {
+          const existingArray = filterProductsForm.value[key] as (string | number)[];
+          if (existingArray.includes(item)) {
+            existingArray.splice(existingArray.indexOf(item), 1);
+            if (existingArray.length === 0) {
+              Reflect.deleteProperty(filterProductsForm.value, key);
+            }
+          } else {
+            existingArray.push(item);
+          }
+        }
+      }
+
     return {
+        prepareFilterItemData,
         onFilterProducts,
-        onSelectCategory
+        onSelectCategory,
+        isItemSelected,
+        isitWished,
+        handleFilterItemClick
     }
 }
 

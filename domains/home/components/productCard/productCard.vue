@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import type { IProduct } from '~/domains/product/types/productTypes';
+import type { IProductCardProps } from '~/domains/home/types/homeTypes';
 import useCreateWishlist from '~/domains/wishlist/composables/useCreateWishlist';
 import useDeleteWishlist from '~/domains/wishlist/composables/useDeleteWishlist';
 import useCreateCart from '~/domains/cart/composables/useCreateCart';
 import useDeleteCart from '~/domains/cart/composables/useDeleteCart';
 import AuthStore from '~/domains/auth/stores/useAuthStore';
 
-interface IProductCardProps {
-    productData: IProduct;
-    isInWishlist: boolean;
-}
+defineOptions({
+    name: 'ProductCard'
+})
 
+// init & hooks
 const props = defineProps<IProductCardProps>();
+
 const { isLoggedIn } = AuthStore();
-// hooks
 const { onCreateWishlist } = useCreateWishlist();
 const { onDeleteWishlist } = useDeleteWishlist();
 const { onCreateCart } = useCreateCart();

@@ -1,27 +1,24 @@
 <script setup lang="ts">
 import { singleProduct } from '~/domains/product/composables/variables';
-import Breadcrumb from '~/domains/app/components/ui/breadcrumb/index.vue';
-import VariantButtons from './variantButtons.vue';
-import NumberInput from '~/domains/app/components/form/NumberInput/index.vue';
-import Button from '~/domains/app/components/form/Button/index.vue';
-import StarRating from '~/domains/app/components/ui/starRating/index.vue';
 import { allCommentsByProduct } from '~/domains/comment/composables/variables';
-import useAddCompare from '~/domains/compare/composables/useAddCompare';
-import useRemoveCompare from '~/domains/compare/composables/useRemoveCompare';
-import type { ICompareCookie } from '~/domains/compare/types/compareTypes';
 import { cartCreateForm } from '~/domains/cart/composables/variables';
 import { cartCreateFormEntity } from '~/domains/cart/entities/cartEntity';
+import useAddCompare from '~/domains/compare/composables/useAddCompare';
+import useRemoveCompare from '~/domains/compare/composables/useRemoveCompare';
 import useAuthStore from '~/domains/auth/stores/useAuthStore';
 import useCreateCart from '~/domains/cart/composables/useCreateCart';
+import type { ICompareCookie } from '~/domains/compare/types/compareTypes';
 
+//components
+import Breadcrumb from '~/domains/app/components/ui/breadcrumb/index.vue';
+import VariantButtons from './variantButtons.vue';
+import StarRating from '~/domains/app/components/ui/starRating/index.vue';
+import NumberInput from '~/domains/app/components/form/NumberInput/index.vue';
+import Button from '~/domains/app/components/form/Button/index.vue';
 import useCreateWishlist from '~/domains/wishlist/composables/useCreateWishlist';
 import useDeleteWishlist from '~/domains/wishlist/composables/useDeleteWishlist';
 
-const selectedVariants = ref<Record<string, string>>({});
-const variantProductData = ref();
-const quantity = ref(1);
-
-//hooks 
+//init & hooks 
 const compareProductCookie = useCookie<ICompareCookie>('compare_products');
 const { onCreateCompare } = useAddCompare();
 const { onRemoveCompare } = useRemoveCompare();
@@ -30,6 +27,12 @@ const { onCreateWishlist } = useCreateWishlist();
 const { onDeleteWishlist } = useDeleteWishlist();
 const { user } = useAuthStore();
 
+// vars
+const selectedVariants = ref<Record<string, string>>({});
+const variantProductData = ref();
+const quantity = ref(1);
+
+// callback functions
 const getVariantData = () => {
     return singleProduct.value.variantProducts.map((variant) => {
         const isMatch = variant.variantValues.every((variantValue) => {
@@ -80,6 +83,7 @@ const addToCartHandler = async () => {
 }
 
 const addRemoveWishlistToggleHandler = async () => {
+    console.log('addRemoveWishlistToggleHandler', user);
     if (!user.id) {
         return navigateTo('/auth/login');
     }
@@ -90,6 +94,7 @@ const addRemoveWishlistToggleHandler = async () => {
     }
 }
 
+// lifecycle hooks
 watch(selectedVariants, () => {
     getVariantData();
 }, { deep: true, immediate: true })
@@ -127,20 +132,26 @@ watch(selectedVariants, () => {
             </Button>
         </div>
         <div class="additional-buttons">
-            <Button class="add-to-wishlist" color="warning" severity="gradient">
+            <Button class="add-to-wishlist" color="warning" severity="gradient" @click.stop="addRemoveWishlistToggleHandler">
                 <template #icon>
-                    <div class="wishlist-icon" @click.stop="addRemoveWishlistToggleHandler">
+                    <div class="wishlist-icon" >
                         <Icon v-if="!isitWished(singleProduct.id)" name="solar:heart-linear" class="icon" />
                         <Icon v-else name="solar:heart-bold" class="icon-filled" />
                     </div>
                 </template>
             </Button>
-            <Button v-if="compareProductCookie?.products.includes(singleProduct.id)"  class="add-to-compare remove-from-compare" color="primary" severity="gradient" @click.stop="addRemoveCompareHandler()">
+            <Button
+                v-if="compareProductCookie?.products.includes(singleProduct.id)"
+                class="add-to-compare remove-from-compare"
+                color="info"
+                severity="gradient"
+                @click.stop="addRemoveCompareHandler()"
+            >
                 <template #icon>
-                    <Icon name="ion:git-compare-outline text-red-500" class="icon" />
+                    <Icon name="ion:git-compare-outline text-cyan-400" class="icon" />
                 </template>
             </Button>
-            <Button v-else class="add-to-compare" color="primary" severity="gradient" @click.stop="addRemoveCompareHandler()">
+            <Button v-else class="add-to-compare" color="info" severity="gradient" @click.stop="addRemoveCompareHandler()">
                 <template #icon>
                     <Icon  name="ion:git-compare-outline" class="icon" />
                 </template>
@@ -236,7 +247,7 @@ watch(selectedVariants, () => {
         }
 
         .add-to-compare.remove-from-compare {
-            color: #dc2626 !important;
+            color: #83d517 !important;
         }
     }
 }

@@ -37,14 +37,6 @@ const useCartStore = defineStore('CartStore', () => {
     const isDeleteActionLoading = ref<boolean>(false)
 
     // API Actions
-    // const resetCart = async()=>{
-    //     await resetAction((response ) => {
-    //         if(response.data.success) {
-    //             allCartsByUser.value = response.data.data;
-    //         }
-    //     })
-    // }
-
     const getCartsByUser = async (successAction ?:()=> void ) => {
         cartGetFormByUser.value.user_id = user.id!
         await AxiosActionHandler(async () => {

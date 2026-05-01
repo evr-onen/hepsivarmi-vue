@@ -27,14 +27,13 @@ import ProductSlider from '~/domains/home/domains/singleProduct/components/produ
 import Summary from '~/domains/home/domains/singleProduct/components/summary/summary.vue';
 import Tabs from '~/domains/home/domains/singleProduct/components/tabs/tabs.vue';
 
-// hooks 
+// init & hooks 
 const route = useRoute()
 const { onGetProduct } = useShowProduct();
 const { onGetCommentsByProduct } = useShowComment();
 
 const productId = route.params.id as string
 commentGetFormByProduct.value.product_id = productId;
-// init
 if (productId) {
     await onGetProduct(productId);
     await onGetCommentsByProduct();

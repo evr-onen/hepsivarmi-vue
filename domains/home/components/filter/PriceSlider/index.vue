@@ -1,29 +1,24 @@
 <script setup lang="ts">
 import useHome from '~/domains/home/composables/useHome';
-
-interface IPriceSliderProps {
-    label?: string;
-    min: number;
-    max: number;
-}
-
-const emit = defineEmits<{
-    (e: 'change', type: 'min' | 'max', value: number): void
-}>()
+import type { IPriceSliderProps } from '~/domains/home/types/homeTypes';
 
 defineOptions({
     name: 'PriceSlider'
 })
 
+const emit = defineEmits<{
+    (e: 'change', type: 'min' | 'max', value: number): void
+}>()
+
 const props = defineProps<IPriceSliderProps>()
-const { onFilterProducts} = useHome();
+const { onFilterProducts } = useHome();
 
 //vars
 const priceRange = defineModel<number[]>()
+
+// Computed vars
 const minPercent = computed(() => ((minPrice.value - props.min) / (props.max - props.min)) * 100)
 const maxPercent = computed(() => ((maxPrice.value - props.min) / (props.max - props.min)) * 100)
-
-// Computed for display
 const minPrice = computed(() => {
     if (!priceRange.value || priceRange.value.length !== 2) {
         return props.min
@@ -39,10 +34,6 @@ const maxPrice = computed(() => {
 })
 
 // handler Functions
-const filterSubmitHandler = () => {
-    console.log('Filter applied:', priceRange.value)
-}
-
 const minChangeHandler = (event: Event) => {
     const value = Number((event.target as HTMLInputElement).value)
     if (value < maxPrice.value) {
@@ -59,10 +50,10 @@ const maxChangeHandler = (event: Event) => {
     emit('change', 'max', value)
 }
 
-// return functions
+// callback functions
 const formatPrice = (price: number) => `$${price}`
 
-// lifecycle
+// lifecycle hooks
 watch(() => [props.min, props.max], ([min, max]) => {
     if (!priceRange.value || priceRange.value.length !== 2) {
         priceRange.value = [min, max]
@@ -248,6 +239,4 @@ watch(() => [props.min, props.max], ([min, max]) => {
         }
     }
 }
-
-
 </style>

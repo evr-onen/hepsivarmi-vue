@@ -5,7 +5,7 @@ export interface IUserRegisterForm{
     password_confirmation  : string;
 }
 
-export interface IUserLoginForm{
+export interface IUserLoginForm {
     email                    : string;
     password                 : string;
 }

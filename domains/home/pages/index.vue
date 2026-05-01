@@ -3,40 +3,38 @@ import ProductCard from '~/domains/home/components/productCard/productCard.vue';
 import useShowProduct from '~/domains/product/composables/useShowProduct';
 import { allProducts } from '~/domains/product/composables/variables';
 import PriceSlider from '~/domains/home/components/filter/PriceSlider/index.vue';
-import { filterProductsForm, filteredProducts } from '~/domains/home/composables/variables';
-import type { FilterObject } from '~/domains/home/composables/variables';
+import { filterProductsForm, filteredProducts, filterItemData } from '~/domains/home/composables/variables';
 import useHome from '~/domains/home/composables/useHome';
 import PageBanner from '~/domains/home/components/pageBanner/index.vue';
 import Breadcrumb from '~/domains/app/components/ui/breadcrumb/index.vue';
 import Select from '~/domains/app/components/form/Select/index.vue';
 import type { IProduct } from '~/domains/product/types/productTypes';
-import { allWishlistsByUser } from '~/domains/wishlist/composables/variables'
 import useShowWishlist from '~/domains/wishlist/composables/useShowWishlist';
 import useAuthStore from '~/domains/auth/stores/useAuthStore';
 
-
-// init
+// init & hooks
 const { onGetWishlistsByUser } = useShowWishlist();
 const { user } = useAuthStore();
 if (user.id) {
   onGetWishlistsByUser()
 }
 
+const {
+  onFilterProducts,
+  onSelectCategory,
+  prepareFilterItemData,
+  isItemSelected,
+  isitWished,
+  handleFilterItemClick
+} = useHome();
+const { onGetProducts, } = useShowProduct();
 
-const { onFilterProducts, onSelectCategory } = useHome();
-const { onGetProducts, onGetProduct } = useShowProduct();
-
-interface IFilterItemData {
-  price: number[];
-  categories: { id: string, name: string }[];
-  [key: string]: FilterObject[] | number[] | { id: string, name: string }[];
-}
 
 // vars
-const filterItemData = ref<IFilterItemData>({ price: [0, 1000], categories: [] });
 const priceRange = ref<number[]>([0, 1000]);
 const selectedCategory = ref(null);
 
+// computed vars
 const minPrice = computed(() => {
   const price = filterItemData.value?.price;
   if (price && Array.isArray(price) && price.length >= 2) {
@@ -67,6 +65,7 @@ const breadcrumbItems = computed(() => {
   ]
 })
 
+// lifecycle hooks
 watch(selectedCategory, (newVal) => {
   if (newVal) {
     onSelectCategory(newVal)
@@ -82,126 +81,22 @@ watch([minPrice, maxPrice], ([min, max]) => {
   }
 }, { immediate: true })
 
+watch(priceRange, (newVal) => {
+  if (newVal && newVal.length === 2) {
+    filterProductsForm.value.price = [newVal[0], newVal[1]];
+  }
+}, { immediate: true })
+
 onMounted(async () => {
   await onGetProducts();
   filteredProducts.value = allProducts.value;
   prepareFilterItemData();
 })
 
-const isitWished = (productId: string) => {
-  return allWishlistsByUser.value.some(wishlist => {
-    return wishlist.product_id === productId && wishlist.user_id === user.id
-  })
-}
-
-const prepareFilterItemData = () => {
-  let minPrice: number | null = null;
-  let maxPrice = 0;
-  filterItemData.value.categories = []
-  allProducts.value.forEach(product => {
-
-    if (!filterItemData.value.categories.some(category => category.id === product.subCategory.id)) {
-      filterItemData.value.categories.push({ id: product.subCategory.id, name: product.subCategory.name });
-    }
-
-    // price data
-    product.variantProducts.forEach(variant => {
-      const price = Number(variant.price);
-
-      if (minPrice === null || price < minPrice) {
-        minPrice = price;
-      }
-
-      if (price > maxPrice) {
-        maxPrice = price;
-      }
-
-      // variant data
-      variant.variantValues.forEach(value => {
-        if (value.typeName && value.name) {
-          if (!filterItemData.value[value.typeName]) {
-            filterItemData.value[value.typeName] = [];
-          }
-          const existingArray = filterItemData.value[value.typeName] as FilterObject[];
-          if (!existingArray.some(item => item.id === value.id)) {
-            existingArray.push({ id: value.id, name: value.name });
-          }
-        }
-      });
-    });
-
-    product.properties.productPropertyValues.map((value, index) => {
-      const propName = product.properties.propertyList.props[index].name
-
-      if (value.id && value.name) {
-        if (!filterItemData.value[propName]) {
-          filterItemData.value[propName] = [];
-        }
-        const existingArray = filterItemData.value[propName] as FilterObject[];
-        if (!existingArray.some(item => item.id === value.id)) {
-          existingArray.push({ id: value.id, name: value.name });
-        }
-      }
-    });
-  })
-  filterItemData.value.price = [minPrice ?? 0, maxPrice];
-
-}
-
-const isItemSelected = (key: string, item: FilterObject | number): boolean => {
-  const formArray = filterProductsForm.value[key];
-  if (!formArray) return false;
-
-  if (typeof item === 'object') {
-    return (formArray as FilterObject[]).some(formItem =>
-      typeof formItem === 'object' && formItem.id === item.id
-    );
-  }
-  return (formArray as (string | number)[]).includes(item);
-}
-
-const handleFilterItemClick = (key: string, item: FilterObject | number) => {
-  if (!filterProductsForm.value[key]) {
-    filterProductsForm.value[key] = [];
-  }
-
-  if (typeof item === 'object') {
-    const existingArray = filterProductsForm.value[key] as FilterObject[];
-    const index = existingArray.findIndex(formItem =>
-      typeof formItem === 'object' && formItem.id === item.id
-    );
-    if (index !== -1) {
-      existingArray.splice(index, 1);
-      if (existingArray.length === 0) {
-        Reflect.deleteProperty(filterProductsForm.value, key);
-      }
-    } else {
-      existingArray.push(item);
-    }
-  } else {
-    const existingArray = filterProductsForm.value[key] as (string | number)[];
-    if (existingArray.includes(item)) {
-      existingArray.splice(existingArray.indexOf(item), 1);
-      if (existingArray.length === 0) {
-        Reflect.deleteProperty(filterProductsForm.value, key);
-      }
-    } else {
-      existingArray.push(item);
-    }
-  }
-}
-
+// handlers
 const onSelectProduct = async (product: IProduct) => {
-  // await onGetProduct(product.id);
-  console.log(singleProduct.value);
   navigateTo(`/product/${product.id}`);
 }
-
-watch(priceRange, (newVal) => {
-  if (newVal && newVal.length === 2) {
-    filterProductsForm.value.price = [newVal[0], newVal[1]];
-  }
-}, { immediate: true })
 
 </script>
 
@@ -249,7 +144,6 @@ watch(priceRange, (newVal) => {
           <div class="product-list">
             <ProductCard v-for="product in filteredProducts" :key="product.id" :is-in-wishlist="isitWished(product.id)" :product-data="product" @click="onSelectProduct(product)" />
           </div>
-         
         </div>
       </div>
      

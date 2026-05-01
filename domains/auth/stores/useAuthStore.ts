@@ -1,19 +1,16 @@
-// import {AxiosError} from "axios";
 import type { IUserRegisterForm } from "../types/accountTypes";
 import useAuthService from "../services/useAuthService";
 import  useUserFormValidation from "../validations/useUserFormValidation";
 import {
-    createAuthUserLoginFormErrorsEntity,
     userEntity,
+    createAuthUserLoginFormErrorsEntity,
     createAuthUserRegistrationFormEntity
 } from "~/domains/auth/entities/AuthEntity";
 
 const useAuthStore = defineStore('AuthStore', () => {
     const router = useRouter();
     const { userLoginValidation, userRegisterValidation} = useUserFormValidation();
-    // const {$i18n} = useNuxtApp();
     const { loginAction, getUserAction, logoutAction, registerAction } = useAuthService();
-
 
     // STATES
     const isLogoutPending = ref<boolean>(false);
@@ -64,7 +61,6 @@ const useAuthStore = defineStore('AuthStore', () => {
     // FORM HANDLERS
 
     const onRegister = async () => {
-        console.log('register');
         await AxiosActionHandler(async () => {
             await ClientSideFormValidatorHandler(async () => {
                     await registerAction(toRaw(userRegisterForm.value),(response) => {
@@ -88,7 +84,6 @@ const useAuthStore = defineStore('AuthStore', () => {
     }
 
     const onLogin = async () => {
-        console.log('login');
         await AxiosActionHandler(async () => {
             await ClientSideFormValidatorHandler(async () => {
                 await loginAction(toRaw(userLoginForm.value), async (response) => {

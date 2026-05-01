@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { allCommentsByProduct, commentGetFormByProduct, commentCreateForm } from '~/domains/comment/composables/variables';
 import useShowComment from '~/domains/comment/composables/useShowComment';
+
+// components
 import StarRating from '~/domains/app/components/ui/starRating/index.vue';
 import CommentForm from './commentForm.vue';
 
+// init & hooks
 const props = defineProps<{
     productId: string;
 }>();
-// hooks
+
 const { onGetCommentsByProduct } = useShowComment();
 
-// init
 if (props.productId) {
     commentCreateForm.value.product_id = props.productId;
     commentGetFormByProduct.value.product_id = props.productId;

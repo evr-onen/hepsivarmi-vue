@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { createBrandForm, createBrandFormErrors } from "~/domains/brand/composables/variables";
 import TextInput from "~/domains/app/components/form/TextInput/index.vue";
 import UploadImage2 from "~/domains/app/components/form/uploadImage2/index.vue";
@@ -8,11 +7,23 @@ import UploadImage2 from "~/domains/app/components/form/uploadImage2/index.vue";
 <template>
   <div class="create-brand-form">
     <div class="brand">
-      <TextInput v-model="createBrandForm.name" class="text-black" label="Brand Name" required placeholder="Brand Name"
-        :error-message="createBrandFormErrors['name']" />
+      <TextInput 
+        v-model="createBrandForm.name"
+        class="text-black"
+        label="Brand Name"
+        required
+        placeholder="Brand Name"
+        :error-message="createBrandFormErrors['name']"
+      />
     </div>
     <div class="logo">
-      <UploadImage2 v-model="createBrandForm.logo" type="brand" name="brand-logo" label="Brand Logo" :required="true" />
+      <UploadImage2
+        v-model="createBrandForm.logo"
+        type="brand"
+        name="brand-logo"
+        label="Brand Logo"
+        :required="true"
+      />
     </div>
   </div>
 </template>

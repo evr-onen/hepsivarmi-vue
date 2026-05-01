@@ -18,5 +18,25 @@
         "value": "Blue"
       }
     ]
+  },
+  {
+    "id": "UGA7ZWcQLUzX9LhPy8WAh",
+    "user_id": "1",
+    "product_id": "prod_adidas_sneakers_001",
+    "category_id": "2c",
+    "quantity": 1,
+    "price": "3499",
+    "variant": [
+      {
+        "id": "1c",
+        "typeName": "Size",
+        "value": "M"
+      },
+      {
+        "id": "2b",
+        "typeName": "Color",
+        "value": "White"
+      }
+    ]
   }
 ]

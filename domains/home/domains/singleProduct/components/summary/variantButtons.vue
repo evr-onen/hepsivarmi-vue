@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { singleProduct } from '~/domains/product/composables/variables';
+import type { IVariantButtons } from '~/domains/home/domains/singleProduct/types/singleProductTypes';
 
-interface IVariantButtons {
-    direction?: 'horizontal' | 'vertical';
-}
-
+// init & hooks
 defineProps<IVariantButtons>()
 const selectedVariants = defineModel<Record<string, string>>('selectedVariants', {
     required: true,
     default: () => ({})
 })
 
+// handler functions
 const selectHandler = (variantType: string, variantValue: string) => {
     selectedVariants.value[variantType] = variantValue;
 }
 
+// callback functions
 const isThereVariantValue = (variantType: string, variantValueName: string): boolean => {
     const testVariants = { ...selectedVariants.value };
     testVariants[variantType] = variantValueName;
@@ -32,6 +32,7 @@ const isThereVariantValue = (variantType: string, variantValueName: string): boo
     })
 }
 
+// lifecycle hooks
 onMounted(() => {
     singleProduct.value.variantProducts.map((variant) => {
         if (variant.isDefault) {
@@ -41,7 +42,6 @@ onMounted(() => {
         }
     })
 });
-// xl red
 </script>
 
 <template>

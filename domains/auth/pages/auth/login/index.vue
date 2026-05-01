@@ -41,8 +41,8 @@
 </template> 
 
 <script setup lang="ts">
-import  TextInput from '~/domains/app/components/form/TextInput/index.vue';
-import  Button from '~/domains/app/components/form/Button/index.vue';
+import TextInput from '~/domains/app/components/form/TextInput/index.vue';
+import Button from '~/domains/app/components/form/Button/index.vue';
 import loginPanelImage from '~/domains/auth/assets/images/login/login-panel.png';
 
 const authStore = useAuthStore();

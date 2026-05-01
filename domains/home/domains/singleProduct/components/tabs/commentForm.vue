@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import { commentCreateForm } from '~/domains/comment/composables/variables';
+
+// components
 import TextAreaInput from '~/domains/app/components/form/TextAreaInput/index.vue';
 import StarRating from '~/domains/app/components/ui/starRating/index.vue';
-import { commentCreateForm } from '~/domains/comment/composables/variables';
 import Button from '~/domains/app/components/form/Button/index.vue';
 import useCreateComment from '~/domains/comment/composables/useCreateComment';
 
+// init & hooks
 const { onCreateComment } = useCreateComment();
 
+// handler functions
 const onSubmitComment = async() => {
     console.log(commentCreateForm.value);
     await onCreateComment();
