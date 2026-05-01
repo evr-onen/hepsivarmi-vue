@@ -13,12 +13,17 @@ const useCreateCart = () => {
     const {user} = useAuthStore();
     const store = useCartStore();
     const { showSuccess, showError } = useToast()
+    const route = useRoute()
 
     const onCreateCart = async(productId: string | null = null) => {
         console.log(user);
         if(!user.name) {
             showError('Please login for add to cart!')
-            return navigateTo('/auth/login')
+            // return navigateTo('/auth/login')
+            return navigateTo({
+                path: '/auth/login',
+                query: { redirect: route.fullPath }  // /login?redirect=/urun/42
+              })
         }else{
             console.log('asdasd');
             console.log(productId);

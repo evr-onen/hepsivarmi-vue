@@ -66,9 +66,10 @@
                         <template #panelContent="{ closePanel }: { closePanel: () => void }">
                             <div v-if="isLoggedIn" class="profile-panel-content">
                                 <p>{{ authStore.user.name }}, wellcome back!</p>
+                                <p @click="goToAdminPanelHandler(closePanel)"> Admin Panel</p>
                                 <p @click="closePanel">My Account</p>
                                 <p @click="closePanel">My Orders</p>
-                                <p @click="authStore.onLogout">Logout</p>
+                                <p @click="logoutHandler(closePanel)">Logout</p>
                             </div>
                             <div v-else class="profile-panel-content">
                                 <p @click="() => navigateTo('/auth/login')">Login</p>
@@ -92,7 +93,7 @@
                         </div>
                     </div>
                     <ClientOnly>
-                        <div class="cart" :class="{ 'disabled': allCartsByUser.length === 0 }" @click.stop="goToCart">
+                        <div class="cart" :class="{ 'disabled': allCartsByUser.length === 0 }" @click.stop="goToCartHandler">
                             <div class="icon">
                                 <Icon name="solar:bag-outline" class="icon" />
                                 <p v-if="allCartsByUser.length > 0">{{ allCartsByUser.length }}</p>
@@ -149,9 +150,26 @@ const totalPrice = computed(() => {
     return allCartsByUser.value.reduce((acc, cart) => acc + cart.price * cart.quantity, 0);
 });
 
-const goToCart = () => {
+// Handlers
+const goToCartHandler = () => {
     navigateTo('/cart');
 };
+
+const goToAdminPanelHandler = (closePanel: () => void) => {
+    closePanel();
+    nextTick(() => {
+        navigateTo('/admin/dashboard');
+    });
+    
+}
+
+const logoutHandler = async (closePanel: () => void) => {
+    closePanel();
+    await authStore.onLogout();
+    nextTick(() => {
+        navigateTo('/');
+    });  
+}
 
 const searchProductsHandler = async (e: Event, openPanel: () => void, closePanel: () => void) => {
     const searchValue = (e.target as HTMLInputElement).value;

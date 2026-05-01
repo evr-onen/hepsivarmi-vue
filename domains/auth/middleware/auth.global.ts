@@ -27,7 +27,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
                 await store.onGetUser();
             }
         } else {
-            return navigateTo('/auth/login');
+            // return navigateTo('/auth/login');
+            return navigateTo({
+                path: '/auth/login',
+                query: { redirect: to.fullPath }  // /login?redirect=/urun/42
+              })
         }
         return;
     }

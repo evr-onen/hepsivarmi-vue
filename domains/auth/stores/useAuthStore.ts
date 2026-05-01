@@ -8,14 +8,16 @@ import {
 } from "~/domains/auth/entities/AuthEntity";
 
 const useAuthStore = defineStore('AuthStore', () => {
+    const route = useRoute()
     const router = useRouter();
+    const fullPath = route.fullPath;
     const { userLoginValidation, userRegisterValidation} = useUserFormValidation();
     const { loginAction, getUserAction, logoutAction, registerAction } = useAuthService();
 
     // STATES
     const isLogoutPending = ref<boolean>(false);
     const isGetUserPending = ref<boolean>(false);
-
+    const loginRedirectPath = ref<string>('');
     const token = useCookie('token');
     const user = ref(userEntity({}));
 
@@ -54,7 +56,7 @@ const useAuthStore = defineStore('AuthStore', () => {
     const clearAll = async () => {
         await clearToken();
         clearUserData();
-        return await router.push('/auth/login');
+        return await router.push('/');
     }
 
 
@@ -84,6 +86,7 @@ const useAuthStore = defineStore('AuthStore', () => {
     }
 
     const onLogin = async () => {
+        const redirect = route.query.redirect as string
         await AxiosActionHandler(async () => {
             await ClientSideFormValidatorHandler(async () => {
                 await loginAction(toRaw(userLoginForm.value), async (response) => {
@@ -92,7 +95,8 @@ const useAuthStore = defineStore('AuthStore', () => {
                     if(response.data.success) {
                         console.log(response.data.data.user);
                         user.value = userEntity(response.data.data.user);
-                        await nextTick(()=>navigateTo('/'));
+                        await router.replace(redirect || '/')
+                        // await nextTick(()=>navigateTo('/'));
 
                     }else{
                         console.log(response.data.data.messages);
@@ -111,6 +115,7 @@ const useAuthStore = defineStore('AuthStore', () => {
         userLoginFormErrors,
         userLoginFormInlineAlert
         )
+        onGetUser();
     } 
 
     watch(userLoginFormErrors, (newVal) => {
@@ -149,10 +154,13 @@ const useAuthStore = defineStore('AuthStore', () => {
             isLogoutPending.value = true;
             await logoutAction();
             return nextTick(() => navigateTo('/'));
+           
         } catch (error: unknown) {
             return Promise.reject(error);
         }finally {
             await clearAll();
+            console.log(isLoggedIn.value);
+            console.log(user.value.id);
             isLogoutPending.value = false;
         }
     }

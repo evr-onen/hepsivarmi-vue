@@ -1,41 +1,66 @@
 [
   {
-    "id": "skvzjRSJ5OM4tAfk8fC0T",
+    "id": "bGLjn112U2SVDpPKVtKoJ",
     "user_id": "1",
-    "product_id": "prod_nike_tshirt_classic_001",
-    "category_id": "2a",
+    "product_id": "prod_apple_iphone_15_001",
+    "category_id": "1a",
     "quantity": 1,
-    "price": "339",
+    "price": "49999",
     "variant": [
       {
-        "id": "1e",
-        "typeName": "Size",
-        "value": "XL"
+        "id": "3b",
+        "typeName": "Storage",
+        "value": "128GB"
       },
       {
-        "id": "2d",
+        "id": "2a",
         "typeName": "Color",
-        "value": "Blue"
+        "value": "Black"
       }
     ]
   },
   {
-    "id": "UGA7ZWcQLUzX9LhPy8WAh",
+    "id": "bxBeONYUvE-0q1E9kn4Tb",
     "user_id": "1",
-    "product_id": "prod_adidas_sneakers_001",
-    "category_id": "2c",
+    "product_id": "prod_lg_refrigerator_001",
+    "category_id": "6a",
     "quantity": 1,
-    "price": "3499",
+    "price": "15999",
     "variant": [
       {
-        "id": "1c",
-        "typeName": "Size",
-        "value": "M"
-      },
+        "id": "6a",
+        "typeName": "Capacity",
+        "value": "1L"
+      }
+    ]
+  },
+  {
+    "id": "VFIf8M_PLOFwSYx_OiNW0",
+    "user_id": "1",
+    "product_id": "prod_lg_refrigerator_001",
+    "category_id": "6a",
+    "quantity": 1,
+    "price": "15999",
+    "variant": [
       {
-        "id": "2b",
-        "typeName": "Color",
-        "value": "White"
+        "id": "6a",
+        "typeName": "Capacity",
+        "value": "1L"
+      }
+    ]
+  },
+  {
+    "id": "izTLeYj0Gqxq9X6mugfMP",
+    "user_id": "1",
+    "product_id": "prod_lg_refrigerator_001",
+    "category_id": "6a",
+    "quantity": 1,
+    "price": "15999",
+    "variant": [
+      {
+        "id": "6a",
+        "typeName": "Capacity",
+        "value": "1L"
       }
     ]
   }
